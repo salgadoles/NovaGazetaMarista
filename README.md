@@ -1,88 +1,55 @@
-# README - Site Gazeta Marista
+# 📰 Nova Gazeta Marista (Front-End Estático)
 
-## 1. Descrição
-Portal de notícias do Colégio Marista Irmão Acácio  focado em trazer a cobertura de eventos e tudo que acontece no dia a dia da escola da melhor forma. 
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 
-## 2. Recursos e Funcionalidades
-- Seções temáticas independentes (HTML dedicado para cada categoria)
-- Design responsivo (3 arquivos CSS com estilos complementares)
-- Galeria de imagens organizada por tipo de conteúdo
-- Interações dinâmicas via script.js
+Site estático da gazeta interna do Colégio Marista, desenvolvido com **HTML, CSS e JavaScript puro**. Projeto sem back-end ou banco de dados.
 
+![Preview da Gazeta](/assets/img/decorativos/gazeta.png) <!-- Adicione uma imagem de preview -->
 
-## 3. Tecnologias
+---
 
- - Componente	Tecnologia	
+## 🚀 Como Usar 🚀
 
-  - Frontend   HTML5, CSS3, JS 
-
- - Estilização 	CSS puro 	
-
- - Imagens	 PNG/JPEG 
-
- 
-
-## . Roadmap e Melhorias Futuras
-
-
-- Implementar sistema de comentários
-
-- Adicionar modo escuro
-
-- Otimizar carregamento de imagens lazy-load@@
-
-- fazer integração com  um bano de dados
-
-
-
-### 4. Estrutura de Pastas (Detalhada)
-
-```bash
-
-root/
-├── css/
-│   ├── estilo.css       # Reset + estilos base 
-│   ├── main.css         # Layout principal
-│   └── principal.css    # Componentes UI
-├── html/
-│   ├── noticias/        # Todas as categorias
-│   │   ├── [nome].html  # 7 arquivos existentes
-│   └── area.html        # Seção especial
-├── imagens/
-│   ├── imagemDasNoticias/ # Capas de artigos
-│   ├── demenro*.png     # Imagens decorativas
-│   └── logo*.png        # Assets de marca
-├── script.js            # Lógica principal
-└── index.html           # Homepage
-
-```
+1. **Clone o repositório**:
+   ```bash
+   git clone https://github.com/MaristaIrAcacio/NovaGazetaMarista.git
 
 <br><br><br>
+# 🛠️ Tecnologias Utilizadas 🛠️
+HTML5: Estrutura semântica
 
-## 5. Instalação
+ - CSS3: Estilização (sem frameworks)
+
+ - JavaScript: Interatividade básica
+
+ - Font Awesome: Ícones
+
+ - Google Fonts: Tipografia
+
+ <br><br><br>
 
 ```bash
-
-1- # Pré-requisitos:
-- Navegador moderno (Chrome 115+/Firefox 110+)
-- Editor de código (VS Code recomendado)
-
-2- # Passos:
-1. git clone [https://github.com/felipesg123/nova_gazeta_marista-.git]
-2. Abrir index.html como entry point
-3. Para desenvolvimento:
-   - Editar CSS em /css/
-   - Adicionar páginas em /html/noticias/
-   - Assets visuais em /imagens/
-
+NovaGazetaMarista/
+├── assets/
+│   ├── css/
+│   │   └── style.css
+│   ├── js/
+│   │   └── script.js
+│   ├── images/
+│   └──  noticias/  
+├──noticia/index
+├── index.html
+├── README.md
 ```
+Cores Principais:
 
-  
+- Azul Marista: #0056a3
 
+- Branco: #ffffff
 
+- amarelo  #fdc300 
 
-
-
-
-
+Fonte Principal: "Open Sans" (Google Fonts)
 
