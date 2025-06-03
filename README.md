@@ -1,5 +1,13 @@
 # README - Site Gazeta Marista
-
+<div style = "display: inline_block">
+ <img aline="center" atl="html5"src="https://img.shields.io/badge/HTML5-E34F26.svg?style=for-the-badge&logo=HTML5&logoColor=white" />
+</div>
+<div style = "display: inline_block">
+ <img aline="center" atl="css3"src="https://img.shields.io/badge/CSS3-1572B6.svg?style=for-the-badge&logo=CSS3&logoColor=white" />
+</div>
+<div style = "display: inline_block">
+ <img aline="center" atl="js"src="https://img.shields.io/badge/JavaScript-F7DF1E.svg?style=for-the-badge&logo=JavaScript&logoColor=black" />
+</div>
 ## 1. Descrição
 Portal de notícias do Colégio Marista Irmão Acácio  focado em trazer a cobertura de eventos e tudo que acontece no dia a dia da escola da melhor forma. 
 
