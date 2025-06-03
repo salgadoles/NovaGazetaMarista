@@ -43,6 +43,7 @@ HTML5: Estrutura semântica
 
  <br><br><br>
 
+# 📂 Estrutura de Arquivos
 ```bash
 NovaGazetaMarista/
 ├── assets/
