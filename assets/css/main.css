@@ -106,9 +106,12 @@ body {
 
 .titulo-noticia {
     font-family: "Source Sans 3", sans-serif;
-    font-size: 2rem;
+    font-size: 35px;
     color: var(--cor-primaria);
     margin-bottom: 1rem;
+}
+p{
+    font-size: 23px;
 }
 
 /* ===== RESPONSIVIDADE ===== */
