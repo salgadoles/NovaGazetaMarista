@@ -275,6 +275,7 @@
      margin: var(--space-xl) auto;
      padding: 0 var(--space-md);
  }
+
  
  .section-title {
      text-align: center;
@@ -333,16 +334,19 @@
      flex-grow: 1;
      display: flex;
      flex-direction: column;
+     
  }
  
  .news-card h3 {
      color: var(--primary-dark);
      margin-bottom: var(--space-xs);
+   
  }
  
  .news-card p {
      color: var(--medium-gray);
      margin-bottom: var(--space-md);
+     margin-bottom: 0.5rem;
      flex-grow: 1;
  }
  
