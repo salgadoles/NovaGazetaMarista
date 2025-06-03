@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Meta Tags Essenciais -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="icon"type ="image/svg+xml" href="../assets/img/decorativos/icom.ico">
+    <meta name="description" content="Nova Gazeta Marista - Notícias e informações para a comunidade escolar">
+    <!-- Scripts JavaScript -->
+    <script defer src="../../assets/js/galeia.js"></script>
+    
+    <!-- Título da Página -->
+    <title>Nova Gazeta Marista | Cartum e Charges</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="../../assets/img/decorativos/icom.ico" type="image/x-icon">
+    
+    <!-- Folhas de Estilo -->
+     <link rel="stylesheet" href="../assets/css/galeria.css">
+    
+    <!-- Font Awesome para Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Pré-conexão para melhor performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- adição de uma nova fonte -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery.min.css">
+</head>
+
+<body>
+    <!-- Cabeçalho com Logo -->
+    <header class="header">
+        <div class="logo-container">
+             <img src="../assets/img/logos/gazeta-marista_radio-conexao.png" 
+                 alt="Logo da Gazeta Marista e Rádio Conexão" 
+                 class="logo-icone">
+        </div>
+    </header>
+
+    <!-- Navegação Principal -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Menu Desktop -->
+            <ul class="menu">
+                <li><a href="../index.html">Últimas Notícias</a></li>
+                <li><a href="../noticias/saude.html">Saúde</a></li>
+                <li><a href="../noticias/entretenimento.html">Entretenimento</a></li>
+                <!-- <li><a href="../noticias/esportes.html">Esportes</a></li> -->
+                <li><a href="../noticias/vida-estudantil.html">Vida Estudantil</a></li>
+                <li><a href="../noticias/entrevistas.html">Entrevistas</a></li>
+                <li><a href="../noticias/recomendados.html">Recomendados</a></li>
+            </ul>
+
+            <!-- Barra de Pesquisa -->
+            <div class="search-container">
+                <input type="text" 
+                       placeholder="Pesquisar notícias..." 
+                       id="searchInput"
+                       aria-label="Campo de pesquisa de notícias">
+                <button id="searchBtn" aria-label="Buscar">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+
+            <!-- Botão do Menu Mobile -->
+            <button class="mobile-menu-btn" 
+                    id="mobileMenuBtn"
+                    aria-label="Abrir menu mobile"
+                    aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Menu Mobile -->
+        <div class="mobile-menu" id="mobileMenu">
+            <u>
+                <li><a href="../index.html">Últimas Notícias</a></li>
+                <li><a href="../noticias/saude.html">Saúde</a></li>
+                <li><a href="../noticias/entretenimento.html">Entretenimento</a></li>
+                <!-- <li><a href="noticias/esportes.html">Esportes</a></li> -->
+                <li><a href="../noticias/vida-estudantil.html">Vida Estudantil</a></li>
+                <li><a href="../noticias/entrevistas.html">Entrevistas</a></li>
+                <li><a href="../noticias/recomendados.html">Recomendados</a></li>
+            </ul>
+            
+            <!-- Pesquisa Mobile -->
+            <div class="mobile-search">
+                <input type="text" 
+                       placeholder="Pesquisar..."
+                       aria-label="Campo de pesquisa mobile">
+                <button aria-label="Buscar"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <main class="content">
+        <!-- Container de Resultados da Busca (inicialmente oculto) -->
+        <div id="searchResultsContainer" class="hidden">
+            <h2 id="searchResultsTitle" class="search-results-title">Resultados da busca</h2>
+            <div id="searchResults" class="news-section search-results-grid"></div>
+        </div>
+
+        <!-- Seção de Todas as Notícias -->
+        <div id="allNews">
+            <h1 class="section-title">Cartum e Charges </h1>
+            
+            <!-- Grid de Notícias -->
+            <div class="news-section">
+<div class="gallery-container">
+    
+        <!-- Card 1 -->
+        <article class="gallery-card" data-keywords="Cartum Do mês Maio">
+            <a href="../assets/img/CartumOuCharges/CartumDeMaio.png" class="gallery-link" data-lg-size="1600-1200">
+                <img src="../assets/img/CartumOuCharges/CartumDeMaio.png" 
+                     alt="Paisagem montanhosa com nascer do sol"
+                     class="gallery-image">
+                <div class="gallery-overlay">
+                    <span class="zoom-icon">Cartum Do mês Maio🔍</span>
+                    <p class="image-caption"></p>
+                </div>
+            </a>
+        </article>
+
+        <!-- Card 2
+        <article class="gallery-card" data-keywords="cidade arquitetura">
+            <a href="img/fotos/grande/2.jpg" class="gallery-link" data-lg-size="1600-1200">
+                <img src="img/fotos/thumb/2.jpg" 
+                     alt="Vista aérea da cidade ao entardecer"
+                     class="gallery-image">
+                <div class="gallery-overlay">
+                    <span class="zoom-icon">🔍</span>
+                    <p class="image-caption">Vista Aérea</p>
+                </div>
+            </a>
+        </article> -->
+
+        <!-- Adicione mais cards conforme necessário -->
+    </div>
+                  
+
+
+                 <!-- Outros cards de notícia... -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Seção Sobre Nós -->
+            <section class="footer-section">
+                <h3>Sobre Nós</h3>
+                <p>Somos a equipe de alunos dedicados da rádio Conexão, responsáveis por trazer as melhores informações sobre o Marista e o mundo. Garantimos conteúdo de qualidade para alunos e responsáveis.</p>
+            </section>
+
+            <!-- Links Rápidos -->
+            <section class="footer-section">
+                <h3>Links Rápidos</h3>
+                <ul class="footer-links">
+                    <li><a href="./html/sobre.html">Sobre o Projeto</a></li>
+                    <li><a href="./html/equipe.html">Nossa Equipe</a></li>
+                    <li><a href="./html/contato.html">Contato</a></li>
+                    <li><a href="./html/privacidade.html">Política de Privacidade</a></li>
+                </ul>
+            </section>
+
+            <!-- Newsletter -->
+            <section class="footer-section">
+                <h3>Receba Nossa Newsletter</h3>
+                <form class="newsletter-form">
+                    <input type="email" 
+                           placeholder="Seu melhor e-mail" 
+                           required
+                           aria-label="Insira seu e-mail para newsletter">
+                    <button type="submit" class="newsletter-btn">Assinar</button>
+                </form>
+            </section>
+
+            <!-- Redes Sociais -->
+            <section class="footer-section">
+                <h3>Conecte-se</h3>
+                <div class="social-icons">
+                    <a href="https://facebook.com" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://instagram.com" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://youtube.com" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://spotify.com" aria-label="Spotify"><i class="fab fa-spotify"></i></a>
+                </div>
+            </section>
+        </div>
+
+        <!-- Rodapé Inferior -->
+        <div class="footer-bottom">
+            <p>&copy; <span id="currentYear"></span> Gazeta Marista. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    
+</body>
+</html>
