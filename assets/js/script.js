@@ -332,3 +332,35 @@ document.addEventListener('DOMContentLoaded', function() {
     init();
 });
 
+// Navbar carrossel
+const menuContainer = document.querySelector('.menu-container');
+const menu = document.querySelector('.menu');
+const arrowLeft = document.querySelector('.nav-arrow-left');
+const arrowRight = document.querySelector('.nav-arrow-right');
+
+if (menuContainer && menu && arrowLeft && arrowRight) {
+    // Verificar se precisa de scroll
+    const updateArrows = () => {
+        const hasOverflow = menu.scrollWidth > menuContainer.clientWidth;
+        arrowLeft.classList.toggle('hidden', !hasOverflow || menuContainer.scrollLeft <= 0);
+        arrowRight.classList.toggle('hidden', !hasOverflow || 
+            menuContainer.scrollLeft >= menu.scrollWidth - menuContainer.clientWidth);
+    };
+
+    // Navegação
+    arrowLeft.addEventListener('click', () => {
+        menuContainer.scrollBy({ left: -200, behavior: 'smooth' });
+    });
+
+    arrowRight.addEventListener('click', () => {
+        menuContainer.scrollBy({ left: 200, behavior: 'smooth' });
+    });
+
+    // Atualizar setas ao redimensionar
+    window.addEventListener('resize', updateArrows);
+    menuContainer.addEventListener('scroll', updateArrows);
+    
+    // Verificar inicialmente
+    updateArrows();
+}
+

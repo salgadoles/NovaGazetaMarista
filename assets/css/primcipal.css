@@ -142,6 +142,7 @@ a:hover {
 }
 
 .nav-container {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -149,6 +150,61 @@ a:hover {
     margin: 0 auto;
     padding: var(--space-sm) var(--space-md);
 }
+
+.menu-container {
+    width: calc(100% - 80px);
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.menu-container::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari, Opera */
+}
+
+.menu {
+    display: flex;
+    gap: var(--space-md);
+    width: max-content;
+    padding: 0 var(--space-sm);
+    transition: transform 0.3s ease;
+}
+
+.nav-arrow {
+    background: var(--primary-dark);
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.nav-arrow:hover {
+    background: var(--primary-light);
+    transform: scale(1.1);
+}
+
+.nav-arrow-left {
+    margin-right: 10px;
+}
+
+.nav-arrow-right {
+    margin-left: 10px;
+}
+
+/* Esconder setas quando não for necessário */
+.nav-arrow.hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
 
 /* ==============================================
    LOGOTIPOS
@@ -700,5 +756,12 @@ a:hover {
     
     h1 {
         font-size: 2rem;
+    }
+    .nav-arrow {
+        display: none;
+    }
+    
+    .menu-container {
+        width: 100%;
     }
 }
