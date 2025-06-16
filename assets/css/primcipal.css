@@ -108,18 +108,36 @@
      padding: var(--space-sm) 0;
      box-shadow: var(--shadow-sm);
  }
- 
+
  .logo-container {
-     display: flex;
-     justify-content: center;
-     padding: var(--space-sm);
- }
- 
- .logo-icone {
-     height: 80px;
-     width: auto;
-     max-width: 100%;
- }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: var(--primary-dark);
+    flex-wrap: wrap; /* Permite quebrar linha se necessário */
+}
+
+.logo-icone {
+    height: 80px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+
+.logo-icone:not(:last-child)::after {
+    content: "";
+    display: inline-block;
+    height: 60%;
+    width: 1px;
+    background-color: rgba(255,255,255,0.3);
+    margin-left: 1rem;
+}
+
+.logo-icone:hover {
+    transform: scale(1.05);
+}
  
  .navbar {
      background-color: var(--dark-gray);
@@ -127,6 +145,7 @@
      top: 0;
      z-index: 1000;
      box-shadow: var(--shadow-md);
+     font-size: 0.1px;
  }
  
  .nav-container {
@@ -148,28 +167,15 @@
  }
  
  .menu li a {
-     color: var(--white);
-     font-weight: 500;
-     text-transform: uppercase;
-     font-size: 0.8rem;
-     padding: var(--space-xs) 0;
-     position: relative;
- }
+    color: var(--white);
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.7rem; /* Reduzido de 0.8rem para 0.7rem */
+    padding: var(--space-xs) 0;
+    position: relative;
+}
+
  
- .menu li a::after {
-     content: '';
-     position: absolute;
-     bottom: 0;
-     left: 0;
-     width: 0;
-     height: 2px;
-     background-color: var(--secondary-color);
-     transition: width var(--transition-normal);
- }
- 
- .menu li a:hover::after {
-     width: 100%;
- }
  
  /* ==============================================
     BARRA DE PESQUISA
@@ -529,6 +535,23 @@
          font-size: 2rem;
      }
  }
+
+  .logo-container {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .logo-icone {
+        height: 60px;
+    }
+    
+    .logo-icone:not(:last-child)::after {
+        display: none; /* Remove a linha no mobile */
+    }
+    
+    .logo-icone {
+        height: 60px;
+    }
  
  /* ==============================================
     ANIMAÇÕES

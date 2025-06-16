@@ -27,13 +27,22 @@
 </head>
 
 <body>
-    <!-- Cabeçalho com Logo -->
+      <!-- Cabeçalho com Logo -->
     <header class="header">
-        <div class="logo-container">
-            <img src="../assets/img/logos/gazeta-marista_radio-conexao.png" 
-                 alt="Logo da Gazeta Marista e Rádio Conexão" 
-                 class="logo-icone">
-        </div>
+        <style>
+    .logo-container { display: flex !important; flex-direction: row !important; }
+    @media (max-width: 768px) {
+        .logo-container { flex-direction: column !important; }
+    }
+</style>
+          <div class="logo-container">
+         <img src="../assets/img/logos/gazeta-marista_radio-conexao.png" 
+         alt="Gazeta Marista" 
+         class="logo-icone">
+        <img src="../assets/img/logos/projetoco.png" 
+         alt="Rádio Conexão" 
+         class="logo-icone">
+</div>
     </header>
 
     <!-- Navegação Principal -->
