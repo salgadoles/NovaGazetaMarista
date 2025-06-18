@@ -3,78 +3,62 @@
  * ARQUIVO PRINCIPAL DE JAVASCRIPT - GAZETA MARISTA
  * ==============================================
  * 
- * Este arquivo contém toda a lógica JavaScript do site,
- * incluindo navegação mobile, sistema de busca e interações.
- * 
- * Organizado em módulos lógicos para fácil manutenção.
+ * Versão otimizada com correção para o menu mobile
  */
 
-/**
- * Módulo Principal - Executado quando o DOM estiver pronto
- */
 document.addEventListener('DOMContentLoaded', function() {
-    // ==============================================
-    // SELEÇÃO DE ELEMENTOS DO DOM
-    // ==============================================
+    // Seleção de elementos
     const DOM = {
-        // Elementos de Navegação
         mobileMenuBtn: document.getElementById('mobileMenuBtn'),
         mobileMenu: document.getElementById('mobileMenu'),
-        
-        // Elementos de Busca
         searchBtn: document.getElementById('searchBtn'),
         searchInput: document.getElementById('searchInput'),
         allNews: document.getElementById('allNews'),
         searchResultsContainer: document.getElementById('searchResultsContainer'),
         searchResults: document.getElementById('searchResults'),
         searchResultsTitle: document.getElementById('searchResultsTitle'),
-        
-        // Elementos de Conteúdo
         newsCards: document.querySelectorAll('.news-card'),
-        
-        // Elementos do Rodapé
         currentYearElement: document.getElementById('currentYear')
     };
 
-    // ==============================================
-    // ESTADO DA APLICAÇÃO
-    // ==============================================
+    // Estado da aplicação
     const state = {
         isMobileMenuOpen: false,
         currentSearchTerm: '',
         searchResults: []
     };
 
-    // ==============================================
-    // FUNÇÕES DE INICIALIZAÇÃO
-    // ==============================================
-    
-    /**
-     * Inicializa o site com configurações básicas
-     */
+    // Inicialização
     function init() {
-        // Atualiza o ano no rodapé
-        updateFooterYear();
+          // Mostra a tela de carregamento
+    const loadingScreen = document.getElementById('loadingScreen');
+    if (loadingScreen) {
+        loadingScreen.classList.remove('hidden');
         
-        // Adiciona event listeners
-        setupEventListeners();
-        
-        // Inicializa componentes
-        initComponents();
+        // Esconde a tela quando a página terminar de carregar
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                loadingScreen.classList.add('hidden');
+                
+                // Remove a tela do DOM após a animação terminar
+                setTimeout(() => {
+                    loadingScreen.remove();
+                }, 500);
+            }, 1000); // Tempo mínimo que a tela ficará visível
+        });
+    }
+    
+    updateFooterYear();
+    setupEventListeners();
+    initComponents();
     }
 
-    /**
-     * Atualiza o ano no rodapé automaticamente
-     */
     function updateFooterYear() {
         if (DOM.currentYearElement) {
             DOM.currentYearElement.textContent = new Date().getFullYear();
         }
     }
 
-    /**
-     * Configura todos os event listeners
-     */
     function setupEventListeners() {
         // Menu Mobile
         DOM.mobileMenuBtn.addEventListener('click', toggleMobileMenu);
@@ -89,101 +73,50 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('.mobile-menu a').forEach(link => {
             link.addEventListener('click', closeMobileMenu);
         });
-        
-        // Fecha os resultados da busca ao clicar fora
-        document.addEventListener('click', function(e) {
-            if (!e.target.closest('.search-container') && 
-                !e.target.closest('#searchResultsContainer') &&
-                state.currentSearchTerm) {
-                clearSearch();
-            }
-        });
     }
 
-    /**
-     * Inicializa componentes específicos
-     */
     function initComponents() {
-        // Adiciona animação de fade-in para os cards
         animateNewsCards();
     }
 
-    // ==============================================
-    // NAVEGAÇÃO MOBILE
-    // ==============================================
-    
-    /**
-     * Alterna a visibilidade do menu mobile
-     */
+    // Menu Mobile
     function toggleMobileMenu() {
         state.isMobileMenuOpen = !state.isMobileMenuOpen;
         
         if (state.isMobileMenuOpen) {
-            openMobileMenu();
+            DOM.mobileMenu.classList.add('active');
         } else {
-            closeMobileMenu();
+            DOM.mobileMenu.classList.remove('active');
         }
         
-        // Atualiza atributo ARIA para acessibilidade
         DOM.mobileMenuBtn.setAttribute('aria-expanded', state.isMobileMenuOpen);
     }
 
-    /**
-     * Abre o menu mobile
-     */
-    function openMobileMenu() {
-        DOM.mobileMenu.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-
-    /**
-     * Fecha o menu mobile
-     */
     function closeMobileMenu() {
         DOM.mobileMenu.classList.remove('active');
-        document.body.style.overflow = '';
         state.isMobileMenuOpen = false;
         DOM.mobileMenuBtn.setAttribute('aria-expanded', 'false');
     }
 
-    // ==============================================
-    // SISTEMA DE BUSCA
-    // ==============================================
-    
-    /**
-     * Executa a busca com o termo fornecido
-     */
+    // Sistema de Busca
     function performSearch() {
         const searchTerm = DOM.searchInput.value.trim();
         
-        // Verifica se há um termo de busca válido
         if (!searchTerm || searchTerm.length < 2) {
             showNotification('Por favor, digite pelo menos 2 caracteres para buscar');
             return;
         }
         
-        // Atualiza o estado
         state.currentSearchTerm = searchTerm.toLowerCase();
-        
-        // Mostra estado de carregamento
         showLoading(true);
         
-        // Simula um delay para a busca (remover em produção)
         setTimeout(() => {
-            // Filtra as notícias
             filterNewsCards();
-            
-            // Exibe os resultados
             displaySearchResults();
-            
-            // Esconde o estado de carregamento
             showLoading(false);
         }, 300);
     }
 
-    /**
-     * Filtra os cards de notícias com base no termo de busca
-     */
     function filterNewsCards() {
         state.searchResults = [];
         
@@ -197,11 +130,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    /**
-     * Obtém os dados de busca de um card de notícia
-     * @param {HTMLElement} card - O elemento do card de notícia
-     * @returns {Object} Dados para busca (keywords, title, content)
-     */
     function getCardSearchData(card) {
         return {
             keywords: card.dataset.keywords?.toLowerCase() || '',
@@ -210,26 +138,15 @@ document.addEventListener('DOMContentLoaded', function() {
         };
     }
 
-    /**
-     * Verifica se um card corresponde ao termo de busca
-     * @param {Object} cardData - Dados do card
-     * @param {String} searchTerm - Termo de busca
-     * @returns {Boolean} True se houver correspondência
-     */
     function checkCardMatch(cardData, searchTerm) {
         return cardData.keywords.includes(searchTerm) || 
                cardData.title.includes(searchTerm) || 
                cardData.content.includes(searchTerm);
     }
 
-    /**
-     * Exibe os resultados da busca
-     */
     function displaySearchResults() {
-        // Limpa resultados anteriores
         DOM.searchResults.innerHTML = '';
         
-        // Verifica se há resultados
         if (state.searchResults.length === 0) {
             DOM.searchResultsTitle.textContent = `Nenhum resultado encontrado para "${state.currentSearchTerm}"`;
             DOM.searchResultsContainer.classList.remove('hidden');
@@ -237,30 +154,19 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         
-        // Atualiza o título com a contagem
         DOM.searchResultsTitle.textContent = 
             `${state.searchResults.length} resultado(s) para "${state.currentSearchTerm}"`;
         
-        // Adiciona os cards correspondentes
         state.searchResults.forEach(card => {
             const highlightedCard = highlightSearchTerms(card.cloneNode(true), state.currentSearchTerm);
             DOM.searchResults.appendChild(highlightedCard);
         });
         
-        // Exibe os resultados
         DOM.searchResultsContainer.classList.remove('hidden');
         DOM.allNews.classList.add('hidden');
-        
-        // Rolagem suave para os resultados
         DOM.searchResultsContainer.scrollIntoView({ behavior: 'smooth' });
     }
 
-    /**
-     * Destaca os termos buscados no conteúdo
-     * @param {HTMLElement} card - Card de notícia
-     * @param {String} term - Termo de busca
-     * @returns {HTMLElement} Card com termos destacados
-     */
     function highlightSearchTerms(card, term) {
         const elements = card.querySelectorAll('h3, p');
         const regex = new RegExp(term, 'gi');
@@ -273,9 +179,6 @@ document.addEventListener('DOMContentLoaded', function() {
         return card;
     }
 
-    /**
-     * Limpa a busca e mostra todas as notícias
-     */
     function clearSearch() {
         state.currentSearchTerm = '';
         DOM.searchInput.value = '';
@@ -283,13 +186,7 @@ document.addEventListener('DOMContentLoaded', function() {
         DOM.allNews.classList.remove('hidden');
     }
 
-    // ==============================================
-    // ANIMAÇÕES E EFEITOS
-    // ==============================================
-    
-    /**
-     * Adiciona animação de entrada para os cards de notícia
-     */
+    // Animações
     function animateNewsCards() {
         DOM.newsCards.forEach((card, index) => {
             card.style.opacity = '0';
@@ -298,14 +195,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // ==============================================
-    // UTILITÁRIOS
-    // ==============================================
-    
-    /**
-     * Mostra ou esconde o estado de carregamento
-     * @param {Boolean} show - Se deve mostrar o loading
-     */
+    // Utilitários
     function showLoading(show) {
         if (show) {
             DOM.searchBtn.classList.add('loading');
@@ -317,29 +207,22 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    /**
-     * Mostra uma notificação para o usuário
-     * @param {String} message - Mensagem a ser exibida
-     */
     function showNotification(message) {
         // Implementação básica - pode ser substituída por um sistema mais robusto
-        alert(message); // Em produção, usar um toast ou modal
+        alert(message);
     }
 
-    // ==============================================
-    // INICIALIZAÇÃO DO SITE
-    // ==============================================
+    // Inicialização
     init();
 });
 
-// Navbar carrossel
+// Navbar carrossel (se necessário)
 const menuContainer = document.querySelector('.menu-container');
 const menu = document.querySelector('.menu');
 const arrowLeft = document.querySelector('.nav-arrow-left');
 const arrowRight = document.querySelector('.nav-arrow-right');
 
 if (menuContainer && menu && arrowLeft && arrowRight) {
-    // Verificar se precisa de scroll
     const updateArrows = () => {
         const hasOverflow = menu.scrollWidth > menuContainer.clientWidth;
         arrowLeft.classList.toggle('hidden', !hasOverflow || menuContainer.scrollLeft <= 0);
@@ -347,7 +230,6 @@ if (menuContainer && menu && arrowLeft && arrowRight) {
             menuContainer.scrollLeft >= menu.scrollWidth - menuContainer.clientWidth);
     };
 
-    // Navegação
     arrowLeft.addEventListener('click', () => {
         menuContainer.scrollBy({ left: -200, behavior: 'smooth' });
     });
@@ -356,11 +238,8 @@ if (menuContainer && menu && arrowLeft && arrowRight) {
         menuContainer.scrollBy({ left: 200, behavior: 'smooth' });
     });
 
-    // Atualizar setas ao redimensionar
     window.addEventListener('resize', updateArrows);
     menuContainer.addEventListener('scroll', updateArrows);
-    
-    // Verificar inicialmente
     updateArrows();
 }
 
