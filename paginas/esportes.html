@@ -4,7 +4,7 @@
     <!-- Meta Tags Essenciais -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon"type ="image/svg+xml" href="../assets/img/decorativos/icom.ico">
+   <link rel="icon"type ="image/svg+xml" href="../assets/img/decorativos/icom.ico">
     <meta name="description" content="Nova Gazeta Marista - Notícias e informações para a comunidade escolar">
     <!-- Scripts JavaScript -->
        <script defer src="../assets/js/script.js"></script>
@@ -27,7 +27,7 @@
 </head>
 
 <body>
-          <!-- Cabeçalho com Logo -->
+        <!-- Cabeçalho com Logo -->
     <header class="header">
         <style>
     .logo-container { display: flex !important; flex-direction: row !important; }
@@ -51,12 +51,12 @@
             <!-- Menu Desktop -->
             <ul class="menu">
                 <li><a href="../index.html">Últimas Notícias</a></li>
-                <li><a href="../noticias/saude.html">Saúde</a></li> 
-                <li><a href="../noticias/entretenimento.html">Entretenimento</a></li>
-                <li><a href="../noticias/esportes.html">Esportes</a></li>
-                <li><a href="../noticias/vida-estudantil.html">Vida Estudantil</a></li>
-                <li><a href="../noticias/galeria.html">galeria</a></li> 
-                <li><a href="../noticias/recomendados.html">Recomendados</a></li>
+                <li><a href="../paginas/saude.html">Saúde</a></li>
+                <li><a href="../paginas/entretenimento.html">Entretenimento</a></li>
+                <li><a href="../paginas/vida-estudantil.html">Vida Estudantil</a></li>
+                <li><a href="../paginas/entrevistas.html">Entrevistas</a></li>
+                <li><a href="../paginas/galeria.html">galeria</a></li> 
+                <li><a href="../paginas/recomendados.html">Recomendados</a></li>
             </ul>
 
             <!-- Barra de Pesquisa -->
@@ -82,13 +82,13 @@
         <!-- Menu Mobile -->
         <div class="mobile-menu" id="mobileMenu">
             <ul>
-                <li><a href="../index.html">Últimas Notícias</a></li>
-                <li><a href="../noticias/saude.html">Saúde</a></li>
-                <li><a href="../noticias/entretenimento.html">Entretenimento</a></li>
-                <li><a href="../noticias/esportes.html">Esportes</a></li>
-                <li><a href="../noticias/vida-estudantil.html">Vida Estudantil</a></li>
-                <li><a href="../noticias/galeria.html">galeria</a></li> 
-                <li><a href="../noticias/recomendados.html">Recomendados</a></li>
+                 <li><a href="../index.html">Últimas Notícias</a></li>
+                <li><a href="../paginas/saude.html">Saúde</a></li>
+                <li><a href="../paginas/entretenimento.html">Entretenimento</a></li>
+                <li><a href="../paginas/vida-estudantil.html">Vida Estudantil</a></li>
+                <li><a href="../paginas/entrevistas.html">Entrevistas</a></li>
+                <li><a href="../paginas/galeria.html">galeria</a></li> 
+                <li><a href="../paginas/recomendados.html">Recomendados</a></li>
             </ul>
             
             <!-- Pesquisa Mobile -->
@@ -117,6 +117,7 @@
     </div>
 </div>
 
+
     <!-- Conteúdo Principal -->
     <main class="content">
         <!-- Container de Resultados da Busca (inicialmente oculto) -->
@@ -127,7 +128,7 @@
 
         <!-- Seção de Todas as Notícias -->
         <div id="allNews">
-            <h1 class="section-title">entrevistas </h1>
+            <h1 class="section-title">Últimas noticias dos escolares</h1>
             
             <!-- Grid de Notícias -->
             <div class="news-section">
@@ -135,56 +136,18 @@
 
                 <!-- esta é uma estrutura base para novas noticias   -->
                 <!-- Adicione mais notícias conforme necessário seguindo o mesmo padrão -->
-                <!-- <article class="news-card" data-keywords="exemplo categoria palavras-chave">
-                    <img src="./imagens/imagemDasNoticias/padrao.jpg" 
-                         alt="Descrição da imagem para acessibilidade"
-                        class="news-image">
-                    <div class="news-card-content">
-                    <h3>TÍTULO DA NOTÍCIA EM CAIXA ALTA</h3>
-                    <p>Resumo breve da notícia com as informações principais que aparecerá no card. Limite de aproximadamente 2 linhas...</p>
-                    <a href="./html/noticias/categoria/noticiaX.html" class="read-more-btn">Continuar lendo</a>
-                    </div>
-                </article>   -->
-
-                    <article class="news-card" data-keywords="MeetUp conecta ex-alunos e discute formação em vendas na Escola Marista Ir. Acácio">
-                    <img src="../assets/img/artigos/news-15.JPG" 
-                         alt="MeetUp conecta ex-alunos e discute formação em vendas na Escola Marista Ir. Acácio"
+                 
+                <article class="news-card" data-keywords="Escola Social Marista Irmão Acácio estreia com garra nos Jogos Escolares">
+                    <img src="../assets/img/artigos/news-14.JPG" 
+                         alt="Escola Social Marista Irmão Acácio estreia com garra nos Jogos Escolares"
                          class="news-image">
                     <div class="news-card-content">
-                        <h3>MeetUp conecta ex-alunos e discute formação em vendas na Escola Marista Ir. Acácio</h3>
-                        <p> No dia 28 de março, a Marista Escola Social Irmão Acácio realizou um MeetUp  </p>
-                        <a href="../assets/noticias/entretenimento8.html" class="read-more-btn">Continuar lendo</a>
-                    </div>
-                </article> 
-              
-                <!-- Card de Notícia 13 -->
-                <article class="news-card" data-keywords="exemplo categoria palavras-chave">
-                    <img src="../assets/img/artigos/dia-do-coordenador-pedagogico-um-olhar-sobre-o-trabalho-da-coordenadora-marta.jpg" 
-                    alt="Descrição da imagem para acessibilidade"
-                    class="news-image">
-                    <div class="news-card-content">
-                        <h3> DIA DO COORDENADOR PEDAGÓGICO: UM OLHAR SOBRE O TRABALHO DA COORDENADORA MARTA
-                        </h3>
-                        <p>No dia 22 de agosto, é celebrado o Dia do Coordenador Pedagógico,
-                        </p>
-                        <a href="../assets/noticias/entrevista0.html" class="read-more-btn">Continuar lendo</a>
+                        <h3>Escola Social Marista Irmão Acácio estreia com garra nos Jogos Escolares</h3>
+                        <p>Os Jogos Escolares de Londrina e região aconteceram entre os dias 24 de março e  </p>
+                        <a href="../assets/noticias/esportes0.html" class="read-more-btn">Continuar lendo</a>
                     </div>
                 </article> 
                 
-                 <article class="news-card" data-keywords="exemplo categoria palavras-chave">
-                    <img src="../assets/img/artigos/diretor-em-acao.jpg" 
-                    alt="Descrição da imagem para acessibilidade"
-                    class="news-image">
-                    <div class="news-card-content">
-                        <h3> 
-                            DIRETOR EM AÇÃO
-                        </h3>
-                        <p>
-                          Entrevista com Diretor Luiz Fernando da Silva em homenagem ao 12 de novembro
-                        </p>
-                        <a href="../assets/noticias/entrevista1.html" class="read-more-btn">Continuar lendo</a>
-                    </div>
-                </article>
                   
                 <!-- Outros cards de notícia... -->
             </div>
@@ -241,5 +204,6 @@
         </div>
     </footer>
 
+   
 </body>
 </html>

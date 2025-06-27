@@ -10,13 +10,13 @@
        <script defer src="../assets/js/script.js"></script>
     
     <!-- Título da Página -->
-    <title>Nova Gazeta Marista | Notícias da Escola</title>
+    <title>Nova Gazeta Marista | Cartum e Charges</title>
     
     <!-- Favicon -->
-    <link rel="icon" href="./imagens/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../../assets/img/decorativos/icom.ico" type="image/x-icon">
     
     <!-- Folhas de Estilo -->
-    <link rel="stylesheet" href="../assets/css/primcipal.css">
+     <link rel="stylesheet" href="../assets/css/galeria.css">
     
     <!-- Font Awesome para Ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -24,10 +24,14 @@
     <!-- Pré-conexão para melhor performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- adição de uma nova fonte -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery.min.css">
 </head>
 
 <body>
-       <!-- Cabeçalho com Logo -->
+          <!-- Cabeçalho com Logo -->
     <header class="header">
         <style>
     .logo-container { display: flex !important; flex-direction: row !important; }
@@ -51,12 +55,12 @@
             <!-- Menu Desktop -->
             <ul class="menu">
                 <li><a href="../index.html">Últimas Notícias</a></li>
-                 <li><a href="../noticias/esportes.html">espotes</a></li>
-                <li><a href="../noticias/entretenimento.html">Entretenimento</a></li>
-                <li><a href="../noticias/vida-estudantil.html">Vida Estudantil</a></li>
-                <li><a href="../noticias/entrevistas.html">Entrevistas</a></li>
-                <li><a href="../noticias/galeria.html">galeria</a></li> 
-                <li><a href="../noticias/recomendados.html">Recomendados</a></li>
+                <li><a href="../paginas/saude.html">Saúde</a></li>
+                <li><a href="../paginas/entretenimento.html">Entretenimento</a></li>
+                <li><a href="../paginas/esportes.html">Esportes</a></li>
+                <li><a href="../paginas/vida-estudantil.html">Vida Estudantil</a></li>
+                <li><a href="../paginas/entrevistas.html">Entrevistas</a></li>
+                <li><a href="../paginas/recomendados.html">Recomendados</a></li>
             </ul>
 
             <!-- Barra de Pesquisa -->
@@ -81,14 +85,14 @@
 
         <!-- Menu Mobile -->
         <div class="mobile-menu" id="mobileMenu">
-            <ul>
+            <u>
                 <li><a href="../index.html">Últimas Notícias</a></li>
-                <li><a href="../noticias/entretenimento.html">Entretenimento</a></li>
-                 <li><a href="../noticias/esportes.html">Esportes</a></li> 
-                <li><a href="../noticias/vida-estudantil.html">Vida Estudantil</a></li>
-                <li><a href="../noticias/entrevistas.html">Entrevistas</a></li>
-                <li><a href="../noticias/galeria.html">galeria</a></li> 
-                <li><a href="../noticias/recomendados.html">Recomendados</a></li>
+                <li><a href="../paginas/saude.html">Saúde</a></li>
+                <li><a href="../paginas/entretenimento.html">Entretenimento</a></li>
+                <li><a href="../paginas/esportes.html">Esportes</a></li>
+                <li><a href="../paginas/vida-estudantil.html">Vida Estudantil</a></li>
+                <li><a href="../paginas/entrevistas.html">Entrevistas</a></li>
+                <li><a href="../paginas/recomendados.html">Recomendados</a></li>
             </ul>
             
             <!-- Pesquisa Mobile -->
@@ -100,22 +104,7 @@
             </div>
         </div>
     </nav>
-
     
-        <!-- Tela de Carregamento Personalizada -->
-<div id="loadingScreen" class="loading-screen">
-    <div class="loading-logos">
-        <img src="../assets/img/logos/gazeta-marista_radio-conexao.png" alt="Gazeta Marista">
-        <img src="../assets/img/logos/projetoco.png" alt="Rádio Conexão">
-    </div>
-    <div class="square-loader">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
-</div>
 
     <!-- Conteúdo Principal -->
     <main class="content">
@@ -127,23 +116,44 @@
 
         <!-- Seção de Todas as Notícias -->
         <div id="allNews">
-            <h1 class="section-title">saúde</h1>
+            <h1 class="section-title">Cartum e Charges </h1>
             
             <!-- Grid de Notícias -->
             <div class="news-section">
-                <article class="news-card" data-keywords="exemplo categoria palavras-chave">
-                    <img src="../assets/img/artigos/uso-de-cigarros-eletronicos-e-suas-consequencias.jpg" 
-                         alt="Descrição da imagem para acessibilidade"
-                        class="news-image">
-                    <div class="news-card-content">
-                    <h3>USO DE CIGARROS ELETRÔNICOS E SUAS CONSEQUÊNCIAS </h3>
-                    <p>As principais doenças causadas pelo cigarro eletrônico são as respiratórias, cardiovasculares como infarto, morte súbita e hipertensão arterial</p>
-                    <a href="../assets/noticias/saude0.html" class="read-more-btn">Continuar lendo</a>
-                    </div>
-                </article> 
-                
+<div class="gallery-container">
+    
+        <!-- Card 1 -->
+        <article class="gallery-card" data-keywords="Cartum Do mês Maio">
+            <a href="../assets/img/CartumOuCharges/CartumDeMaio.png" class="gallery-link" data-lg-size="1600-1200">
+                <img src="../assets/img/CartumOuCharges/CartumDeMaio.png" 
+                     alt="Paisagem montanhosa com nascer do sol"
+                     class="gallery-image">
+                <div class="gallery-overlay">
+                    <span class="zoom-icon">Cartum Do mês Maio🔍</span>
+                    <p class="image-caption"></p>
+                </div>
+            </a>
+        </article>
+
+        <!-- Card 2
+        <article class="gallery-card" data-keywords="cidade arquitetura">
+            <a href="img/fotos/grande/2.jpg" class="gallery-link" data-lg-size="1600-1200">
+                <img src="img/fotos/thumb/2.jpg" 
+                     alt="Vista aérea da cidade ao entardecer"
+                     class="gallery-image">
+                <div class="gallery-overlay">
+                    <span class="zoom-icon">🔍</span>
+                    <p class="image-caption">Vista Aérea</p>
+                </div>
+            </a>
+        </article> -->
+
+        <!-- Adicione mais cards conforme necessário -->
+    </div>
                   
-                <!-- Outros cards de notícia... -->
+
+
+                 <!-- Outros cards de notícia... -->
             </div>
         </div>
     </main>
@@ -198,6 +208,6 @@
         </div>
     </footer>
 
-   
+    
 </body>
 </html>
