@@ -2,12 +2,10 @@
  * ==============================================
  * ARQUIVO PRINCIPAL DE JAVASCRIPT - GAZETA MARISTA
  * ==============================================
- * 
- * Versão otimizada com correção para o menu mobile
+ * Atualização: Banner com Edição nº 04 – Ano atual (sem mês)
  */
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Seleção de elementos
+document.addEventListener('DOMContentLoaded', function () {
     const DOM = {
         mobileMenuBtn: document.getElementById('mobileMenuBtn'),
         mobileMenu: document.getElementById('mobileMenu'),
@@ -18,39 +16,35 @@ document.addEventListener('DOMContentLoaded', function() {
         searchResults: document.getElementById('searchResults'),
         searchResultsTitle: document.getElementById('searchResultsTitle'),
         newsCards: document.querySelectorAll('.news-card'),
-        currentYearElement: document.getElementById('currentYear')
+        currentYearElement: document.getElementById('currentYear'),
+        editionBanner: document.getElementById('editionBanner')
     };
 
-    // Estado da aplicação
     const state = {
         isMobileMenuOpen: false,
         currentSearchTerm: '',
         searchResults: []
     };
 
-    // Inicialização
     function init() {
-          // Mostra a tela de carregamento
-    const loadingScreen = document.getElementById('loadingScreen');
-    if (loadingScreen) {
-        loadingScreen.classList.remove('hidden');
-        
-        // Esconde a tela quando a página terminar de carregar
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                loadingScreen.classList.add('hidden');
-                
-                // Remove a tela do DOM após a animação terminar
-                setTimeout(() => {
-                    loadingScreen.remove();
-                }, 500);
-            }, 1000); // Tempo mínimo que a tela ficará visível
-        });
+        mostrarLoading();
+        updateFooterYear();
+        renderEditionBanner(); // Mostra "Edição nº 04 – 2025"
+        setupEventListeners();
+        initComponents();
     }
-    
-    updateFooterYear();
-    setupEventListeners();
-    initComponents();
+
+    function mostrarLoading() {
+        const loadingScreen = document.getElementById('loadingScreen');
+        if (loadingScreen) {
+            loadingScreen.classList.remove('hidden');
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    loadingScreen.classList.add('hidden');
+                    setTimeout(() => loadingScreen.remove(), 500);
+                }, 1000);
+            });
+        }
     }
 
     function updateFooterYear() {
@@ -59,17 +53,21 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    function renderEditionBanner() {
+        const banner = DOM.editionBanner;
+        if (!banner) return;
+
+        const year = new Date().getFullYear();
+        banner.textContent = `Edição nº 04 – ${year}`;
+    }
+
     function setupEventListeners() {
-        // Menu Mobile
         DOM.mobileMenuBtn.addEventListener('click', toggleMobileMenu);
-        
-        // Sistema de Busca
         DOM.searchBtn.addEventListener('click', performSearch);
-        DOM.searchInput.addEventListener('keypress', function(e) {
+        DOM.searchInput.addEventListener('keypress', function (e) {
             if (e.key === 'Enter') performSearch();
         });
-        
-        // Fecha o menu mobile ao clicar em um link
+
         document.querySelectorAll('.mobile-menu a').forEach(link => {
             link.addEventListener('click', closeMobileMenu);
         });
@@ -79,16 +77,9 @@ document.addEventListener('DOMContentLoaded', function() {
         animateNewsCards();
     }
 
-    // Menu Mobile
     function toggleMobileMenu() {
         state.isMobileMenuOpen = !state.isMobileMenuOpen;
-        
-        if (state.isMobileMenuOpen) {
-            DOM.mobileMenu.classList.add('active');
-        } else {
-            DOM.mobileMenu.classList.remove('active');
-        }
-        
+        DOM.mobileMenu.classList.toggle('active', state.isMobileMenuOpen);
         DOM.mobileMenuBtn.setAttribute('aria-expanded', state.isMobileMenuOpen);
     }
 
@@ -98,18 +89,16 @@ document.addEventListener('DOMContentLoaded', function() {
         DOM.mobileMenuBtn.setAttribute('aria-expanded', 'false');
     }
 
-    // Sistema de Busca
     function performSearch() {
         const searchTerm = DOM.searchInput.value.trim();
-        
         if (!searchTerm || searchTerm.length < 2) {
             showNotification('Por favor, digite pelo menos 2 caracteres para buscar');
             return;
         }
-        
+
         state.currentSearchTerm = searchTerm.toLowerCase();
         showLoading(true);
-        
+
         setTimeout(() => {
             filterNewsCards();
             displaySearchResults();
@@ -119,14 +108,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function filterNewsCards() {
         state.searchResults = [];
-        
+
         DOM.newsCards.forEach(card => {
             const cardData = getCardSearchData(card);
             const isMatch = checkCardMatch(cardData, state.currentSearchTerm);
-            
-            if (isMatch) {
-                state.searchResults.push(card);
-            }
+            if (isMatch) state.searchResults.push(card);
         });
     }
 
@@ -139,29 +125,28 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function checkCardMatch(cardData, searchTerm) {
-        return cardData.keywords.includes(searchTerm) || 
-               cardData.title.includes(searchTerm) || 
-               cardData.content.includes(searchTerm);
+        return cardData.keywords.includes(searchTerm) ||
+            cardData.title.includes(searchTerm) ||
+            cardData.content.includes(searchTerm);
     }
 
     function displaySearchResults() {
         DOM.searchResults.innerHTML = '';
-        
+
         if (state.searchResults.length === 0) {
             DOM.searchResultsTitle.textContent = `Nenhum resultado encontrado para "${state.currentSearchTerm}"`;
             DOM.searchResultsContainer.classList.remove('hidden');
             DOM.allNews.classList.add('hidden');
             return;
         }
-        
-        DOM.searchResultsTitle.textContent = 
-            `${state.searchResults.length} resultado(s) para "${state.currentSearchTerm}"`;
-        
+
+        DOM.searchResultsTitle.textContent = `${state.searchResults.length} resultado(s) para "${state.currentSearchTerm}"`;
+
         state.searchResults.forEach(card => {
             const highlightedCard = highlightSearchTerms(card.cloneNode(true), state.currentSearchTerm);
             DOM.searchResults.appendChild(highlightedCard);
         });
-        
+
         DOM.searchResultsContainer.classList.remove('hidden');
         DOM.allNews.classList.add('hidden');
         DOM.searchResultsContainer.scrollIntoView({ behavior: 'smooth' });
@@ -170,12 +155,10 @@ document.addEventListener('DOMContentLoaded', function() {
     function highlightSearchTerms(card, term) {
         const elements = card.querySelectorAll('h3, p');
         const regex = new RegExp(term, 'gi');
-        
         elements.forEach(el => {
-            el.innerHTML = el.textContent.replace(regex, 
+            el.innerHTML = el.textContent.replace(regex,
                 match => `<span class="search-highlight">${match}</span>`);
         });
-        
         return card;
     }
 
@@ -186,7 +169,6 @@ document.addEventListener('DOMContentLoaded', function() {
         DOM.allNews.classList.remove('hidden');
     }
 
-    // Animações
     function animateNewsCards() {
         DOM.newsCards.forEach((card, index) => {
             card.style.opacity = '0';
@@ -195,7 +177,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Utilitários
     function showLoading(show) {
         if (show) {
             DOM.searchBtn.classList.add('loading');
@@ -208,15 +189,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function showNotification(message) {
-        // Implementação básica - pode ser substituída por um sistema mais robusto
         alert(message);
     }
 
-    // Inicialização
     init();
 });
 
-// Navbar carrossel (se necessário)
+// Navegação carrossel
 const menuContainer = document.querySelector('.menu-container');
 const menu = document.querySelector('.menu');
 const arrowLeft = document.querySelector('.nav-arrow-left');
@@ -226,8 +205,7 @@ if (menuContainer && menu && arrowLeft && arrowRight) {
     const updateArrows = () => {
         const hasOverflow = menu.scrollWidth > menuContainer.clientWidth;
         arrowLeft.classList.toggle('hidden', !hasOverflow || menuContainer.scrollLeft <= 0);
-        arrowRight.classList.toggle('hidden', !hasOverflow || 
-            menuContainer.scrollLeft >= menu.scrollWidth - menuContainer.clientWidth);
+        arrowRight.classList.toggle('hidden', !hasOverflow || menuContainer.scrollLeft >= menu.scrollWidth - menuContainer.clientWidth);
     };
 
     arrowLeft.addEventListener('click', () => {
@@ -242,4 +220,3 @@ if (menuContainer && menu && arrowLeft && arrowRight) {
     menuContainer.addEventListener('scroll', updateArrows);
     updateArrows();
 }
-

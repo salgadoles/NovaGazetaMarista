@@ -869,3 +869,17 @@ a:hover {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
+/* ==============================================
+   BARRA DE EDIÇÃO
+   ============================================== */
+.edition-banner {
+    background-color: var(--primary-color);
+    color: var(--dark-gray);
+    text-align: center;
+    padding: 0.4rem;
+    font-weight: bold;
+    font-size: 0.9rem;
+    font-family: var(--font-sans);
+    box-shadow: var(--shadow-sm);
+}
