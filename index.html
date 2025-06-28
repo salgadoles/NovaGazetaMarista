@@ -19,7 +19,7 @@
      <link rel="stylesheet" href="assets/css/primcipal.css">
     
     <!-- Font Awesome para Ícones -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <!-- Pré-conexão para melhor performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,18 +34,18 @@
 
 
 <body>
-
     <!-- Barra de Edição Dinâmica -->
     <div class="edition-banner" id="editionBanner"></div>
+
 
     <!-- Cabeçalho com Logo -->
     <header class="header">
         <style>
-    .logo-container { display: flex !important; flex-direction: row !important; }
-    @media (max-width: 768px) {
-        .logo-container { flex-direction: column !important; }
-    }
-</style>
+            .logo-container { display: flex !important; flex-direction: row !important; }
+            @media (max-width: 768px) {
+                .logo-container { flex-direction: column !important; }
+            }
+            </style>
           <div class="logo-container">
          <img src="assets/img/logos/gazeta-marista_radio-conexao.png" 
          alt="Gazeta Marista" 
@@ -55,11 +55,12 @@
          class="logo-icone">
 </div>
     </header>
-
-    <!-- Navegação Principal -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <!-- Menu Desktop -->
+    
+<nav class="navbar">
+    <div class="nav-container">
+        <!-- Menu Desktop -->
+        <div class="menu-container">
+            <button class="nav-arrow nav-arrow-left" aria-label="Scroll menu left">&#10094;</button>
             <ul class="menu">
                 <li><a href="paginas/saude.html">Saúde</a></li>
                 <li><a href="paginas/entretenimento.html">Entretenimento</a></li>
@@ -68,28 +69,29 @@
                 <li><a href="paginas/entrevistas.html">Entrevistas</a></li>
                 <li><a href="paginas/galeria.html">galeria</a></li> 
                 <li><a href="paginas/recomendados.html">Recomendados</a></li>
-                
             </ul>
+            <button class="nav-arrow nav-arrow-right" aria-label="Scroll menu right">&#10095;</button>
+        </div>
 
-            <!-- Barra de Pesquisa -->
-            <div class="search-container">
-                <input type="text" 
-                       placeholder="Pesquisar notícias..." 
-                       id="searchInput"
-                       aria-label="Campo de pesquisa de notícias">
-                <button id="searchBtn" aria-label="Buscar">
-                    <i class="fas fa-search"></i>
-                </button>
-            </div>
-
-            <!-- Botão do Menu Mobile -->
-            <button class="mobile-menu-btn" 
-                    id="mobileMenuBtn"
-                    aria-label="Abrir menu mobile"
-                    aria-expanded="false">
-                <i class="fas fa-bars"></i>
+        <!-- Barra de Pesquisa -->
+        <div class="search-container">
+            <input type="text" 
+                   placeholder="Pesquisar notícias..." 
+                   id="searchInput"
+                   aria-label="Campo de pesquisa de notícias">
+            <button id="searchBtn" aria-label="Buscar">
+                <i class="fas fa-search"></i>
             </button>
         </div>
+
+         <!-- Botão do Menu Mobile -->
+        <button class="mobile-menu-btn" 
+                id="mobileMenuBtn"
+                aria-label="Abrir menu mobile"
+                aria-expanded="false">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
 
         <!-- Menu Mobile -->
         <div class="mobile-menu" id="mobileMenu">
@@ -130,6 +132,26 @@
 
     <!-- Conteúdo Principal -->
     <main class="content">
+    
+        <!-- Seção de Manchete Principal -->
+<section class="featured-news">
+    <div class="headline-container">
+        <!-- Manchete Principal -->
+        <article class="headline-card">
+            <img src="assets/img/artigos/news-21.jpeg" alt="Alunos do Projeto Conexão">
+            <div class="headline-content">
+                <h2>Alunos do Projeto Conexão Realizam Visita à Tarobá</h2>
+                <p>Durante as tardes dos dias 17 e 25 de abril, os estudantes do Projeto Conexão...</p>
+                <a href="assets/postis/vida7.html" class="read-more-btn">Ler mais</a>
+            </div>
+        </article>
+    </div>
+</section>
+      
+    
+   
+
+
         <!-- Container de Resultados da Busca (inicialmente oculto) -->
         <div id="searchResultsContainer" class="hidden">
             <h2 id="searchResultsTitle" class="search-results-title">Resultados da busca</h2>

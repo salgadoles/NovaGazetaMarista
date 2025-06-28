@@ -196,27 +196,72 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // Navegação carrossel
-const menuContainer = document.querySelector('.menu-container');
-const menu = document.querySelector('.menu');
-const arrowLeft = document.querySelector('.nav-arrow-left');
-const arrowRight = document.querySelector('.nav-arrow-right');
+document.addEventListener('DOMContentLoaded', function() {
+    const menuContainer = document.querySelector('.menu-container');
+    const menu = document.querySelector('.menu');
+    const arrowLeft = document.querySelector('.nav-arrow-left');
+    const arrowRight = document.querySelector('.nav-arrow-right');
 
-if (menuContainer && menu && arrowLeft && arrowRight) {
-    const updateArrows = () => {
-        const hasOverflow = menu.scrollWidth > menuContainer.clientWidth;
-        arrowLeft.classList.toggle('hidden', !hasOverflow || menuContainer.scrollLeft <= 0);
-        arrowRight.classList.toggle('hidden', !hasOverflow || menuContainer.scrollLeft >= menu.scrollWidth - menuContainer.clientWidth);
-    };
+    if (menuContainer && menu && arrowLeft && arrowRight) {
+        const updateArrows = () => {
+            const scrollLeft = menuContainer.scrollLeft;
+            const scrollWidth = menu.scrollWidth;
+            const clientWidth = menuContainer.clientWidth;
+            
+            arrowLeft.classList.toggle('hidden', scrollLeft <= 0);
+            arrowRight.classList.toggle('hidden', scrollLeft >= scrollWidth - clientWidth);
+        };
 
-    arrowLeft.addEventListener('click', () => {
-        menuContainer.scrollBy({ left: -200, behavior: 'smooth' });
+        arrowLeft.addEventListener('click', () => {
+            menuContainer.scrollBy({
+                left: -200,
+                behavior: 'smooth'
+            });
+        });
+
+        arrowRight.addEventListener('click', () => {
+            menuContainer.scrollBy({
+                left: 200,
+                behavior: 'smooth'
+            });
+        });
+
+        menuContainer.addEventListener('scroll', updateArrows);
+        window.addEventListener('resize', updateArrows);
+        updateArrows();
+    }
+});
+
+/**
+ * Controle simples para o carrossel de destaques
+ */
+document.addEventListener('DOMContentLoaded', () => {
+  const prevBtn = document.querySelector('#destaques-carrossel .btn-nav.prev');
+  const nextBtn = document.querySelector('#destaques-carrossel .btn-nav.next');
+  const cards = Array.from(document.querySelectorAll('#destaques-carrossel .destaque-card'));
+
+  let currentIndex = 0;
+
+  /**
+   * Atualiza a visibilidade dos cards conforme o índice atual
+   */
+  function atualizarVisibilidade() {
+    cards.forEach((card, index) => {
+      card.hidden = index !== currentIndex;
     });
+  }
 
-    arrowRight.addEventListener('click', () => {
-        menuContainer.scrollBy({ left: 200, behavior: 'smooth' });
-    });
+  // Eventos dos botões de navegação
+  prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+    atualizarVisibilidade();
+  });
 
-    window.addEventListener('resize', updateArrows);
-    menuContainer.addEventListener('scroll', updateArrows);
-    updateArrows();
-}
+  nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % cards.length;
+    atualizarVisibilidade();
+  });
+
+  // Inicializa mostrando o primeiro card
+  atualizarVisibilidade();
+});

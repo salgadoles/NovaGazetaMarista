@@ -165,10 +165,10 @@ a:hover {
 
 .menu {
     display: flex;
+    list-style: none;
     gap: var(--space-md);
+    padding: var(--space-sm) 0;
     width: max-content;
-    padding: 0 var(--space-sm);
-    transition: transform 0.3s ease;
 }
 
 .nav-arrow {
@@ -204,7 +204,105 @@ a:hover {
     visibility: hidden;
     opacity: 0;
 }
+/* Carrossel de Destaques */
+.featured-news {
+    position: relative;
+    margin: var(--space-lg) auto;
+    max-width: 1200px;
+    padding: 0 var(--space-md);
+    overflow: hidden;
+}
 
+.carousel-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform var(--transition-normal);
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-item {
+    min-width: 100%;
+    flex-shrink: 0;
+    position: relative;
+    box-shadow: var(--shadow-lg);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+}
+
+.carousel-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: var(--white);
+    padding: var(--space-xl) var(--space-md) var(--space-md);
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: var(--white);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: all var(--transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--dark-gray);
+}
+
+.prev-btn {
+    left: var(--space-md);
+}
+
+.next-btn {
+    right: var(--space-md);
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    padding: var(--space-md) 0;
+    gap: var(--space-sm);
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--light-gray);
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+}
+
+.dot.active {
+    background-color: var(--primary-color);
+}
 
 /* ==============================================
    LOGOTIPOS
@@ -256,10 +354,58 @@ a:hover {
  * - Estilos para itens
  * - Efeitos hover
  */
+
+
+.menu-container {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    position: relative;
+    overflow: hidden;
+}
+
 .menu {
     display: flex;
     list-style: none;
     gap: var(--space-md);
+    padding: var(--space-sm) 0;
+    margin: 0 var(--space-sm);
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    flex: 1;
+}
+
+.menu::-webkit-scrollbar {
+    display: none;
+}
+
+.nav-arrow {
+    background: var(--primary-dark);
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.nav-arrow:hover {
+    background: var(--primary-light);
+    transform: scale(1.1);
+}
+
+.nav-arrow.hidden {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
 }
 
 .menu li a {
@@ -450,6 +596,9 @@ a:hover {
     background-color: var(--secondary-color);
     
 }
+
+
+
 
 /* ==============================================
    CARDS DE NOTÍCIAS
@@ -882,4 +1031,93 @@ a:hover {
     font-size: 0.9rem;
     font-family: var(--font-sans);
     box-shadow: var(--shadow-sm);
+}
+/* Estilos para a manchete principal */
+.featured-news {
+    margin: var(--space-xl) auto;
+    max-width: 1200px;
+    padding: 0 var(--space-md);
+}
+
+.headline-container {
+    width: 100%;
+    margin-bottom: var(--space-lg);
+}
+
+.headline-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+    background-color: var(--white);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    border-left: 6px solid var(--primary-color);
+}
+
+.headline-card img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+}
+
+.headline-content {
+    padding: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.headline-content h2 {
+    font-size: 2rem;
+    color: var(--primary-dark);
+    margin-bottom: var(--space-md);
+}
+
+.headline-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--medium-gray);
+    margin-bottom: var(--space-lg);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .headline-card {
+        grid-template-columns: 1fr;
+    }
+    
+    .headline-card img {
+        height: 250px;
+    }
+    
+    .headline-content {
+        padding: var(--space-md);
+    }
+    
+    .headline-content h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Adicione ao CSS existente */
+.headline-card {
+    position: relative;
+}
+
+.headline-card::before {
+    content: "Destaque";
+    position: absolute;
+    top: 20px;
+    left: 0;
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 5px 15px;
+    font-weight: bold;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 1;
 }
