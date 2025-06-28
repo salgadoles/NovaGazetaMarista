@@ -1121,3 +1121,88 @@ a:hover {
     letter-spacing: 1px;
     z-index: 1;
 }
+
+/* ==============================================
+   WIDGET DE CLIMA
+   ============================================== */
+.weather-widget {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: var(--border-radius-lg);
+    padding: var(--space-xs) var(--space-sm);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    z-index: 10;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.weather-content {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.weather-icon {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+}
+
+.weather-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.weather-temp {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary-dark);
+    line-height: 1;
+}
+
+.weather-city {
+    font-size: 0.8rem;
+    color: var(--medium-gray);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 120px;
+}
+
+.weather-desc {
+    font-size: 0.7rem;
+    color: var(--medium-gray);
+    text-transform: capitalize;
+}
+
+.weather-refresh {
+    background: none;
+    border: none;
+    color: var(--primary-dark);
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    transition: transform var(--transition-fast);
+}
+
+.weather-refresh:hover {
+    transform: rotate(180deg);
+    color: var(--primary-color);
+}
+
+.weather-refresh.loading {
+    animation: spin 1s linear infinite;
+}
+
+@media (max-width: 768px) {
+    .weather-widget {
+        position: static;
+        margin: var(--space-sm) auto;
+        width: fit-content;
+        background-color: var(--white);
+    }
+}
