@@ -23,7 +23,7 @@
 :root {
     /* --- Cores --- */
     /* Cores principais */
-    --primary-color: #163A59;
+    --primary-color: #fdc300;
     --primary-dark: #0D263D;
     --primary-light: #1E4A73;
     --secondary-color: #FF6B35;
@@ -448,6 +448,7 @@ a:hover {
     width: 100px;
     height: 3px;
     background-color: var(--secondary-color);
+    
 }
 
 /* ==============================================
@@ -464,6 +465,7 @@ a:hover {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: var(--space-lg);
     margin-top: var(--space-lg);
+    
 }
 
 /**
@@ -481,6 +483,7 @@ a:hover {
     display: flex;
     flex-direction: column;
     border-left: 4px solid var(--primary-color);
+    
 }
 
 .news-card:hover {
@@ -500,12 +503,14 @@ a:hover {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
+    
 }
 
 .news-card h3 {
     color: var(--primary-dark);
     margin-bottom: var(--space-xs);
     font-size: 1.3rem;
+    
 }
 
 .news-card p {
@@ -520,7 +525,7 @@ a:hover {
     display: inline-block;
     padding: var(--space-xs) var(--space-sm);
     background-color: var(--primary-color);
-    color: var(--white);
+    color: #000;
     border-radius: var(--border-radius);
     text-align: center;
     transition: all var(--transition-normal);
