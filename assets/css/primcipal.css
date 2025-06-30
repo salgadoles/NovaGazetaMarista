@@ -427,8 +427,9 @@ a:hover {
 }
 
 .logo-icone {
-    height: 70px;
-    width: auto;
+    height: 70px;                 
+    width: 170px;                 
+    object-fit: contain;          
     transition: transform var(--transition-normal);
 }
 
