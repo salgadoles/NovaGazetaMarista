@@ -150,6 +150,73 @@ a:hover {
 }
 
 /* ==============================================
+   CORREÇÕES DE TIPOGRAFIA
+   ============================================== */
+
+/* 1. Título de Seção (Últimas Notícias) */
+.section-title {
+    text-align: center;
+    margin-bottom: var(--space-lg);
+    position: relative;
+    padding-bottom: var(--space-sm);
+    /* Correção: Aplicando a fonte DM Serif Display */
+    font-family: var(--font-serif); 
+}
+
+/* 2. Links do Menu de Navegação (Navbar) */
+.menu {
+    /* Correção: Usando a variável de fonte e definindo o peso como 'bold' */
+    font-family: var(--font-sans);
+    font-weight: 700; /* 700 é o valor para 'bold' */
+    font-style: normal;
+    display: flex;
+    list-style: none;
+    gap: var(--space-md);
+    padding: var(--space-sm) 0;
+    width: max-content;
+}
+
+/* 3. Título dos Cards de Notícias */
+.news-card h3 {
+    color: var(--primary-dark);
+    margin-bottom: var(--space-xs);
+    font-size: 1.3rem;
+    /* Correção: Usando a variável de fonte e definindo o peso como 'bold' */
+    font-family: var(--font-sans);
+    font-weight: 700; /* 700 é o valor para 'bold' */
+}
+
+/* 4. Texto (parágrafo) dos Cards de Notícias */
+.news-card p {
+    color: var(--medium-gray);
+    margin-bottom: var(--space-md);
+    flex-grow: 1;
+    font-size: 1rem;
+    line-height: 1.5;
+    /* Correção: Garantindo a fonte e o peso corretos (regular) */
+    font-family: var(--font-sans);
+    font-weight: 400; /* 400 é o valor para 'regular' */
+}
+
+/* 5. Botões (Ex: "Continuar lendo") */
+.read-more-btn {
+    display: inline-block;
+    padding: var(--space-xs) var(--space-sm);
+    background-color: var(--primary-color);
+    color: #000;
+    border-radius: var(--border-radius);
+    text-align: center;
+    transition: all var(--transition-normal);
+    align-self: flex-start;
+    font-size: 0.9rem;
+    /* Correção: Usando a variável de fonte e definindo o peso como 'bold' */
+    font-family: var(--font-sans);
+    font-weight: 700; /* 700 é o valor para 'bold' */
+    font-style: normal;
+}
+
+
+/* ==============================================
    LAYOUT PRINCIPAL
    ============================================== */
 
