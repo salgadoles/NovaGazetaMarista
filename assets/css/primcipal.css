@@ -91,12 +91,40 @@ body {
  * - Hierarquia de tamanhos
  * - Espaçamento consistente
  */
-h1, h2, h3, h4 {
-    font-family: var(--font-sans);
+h1{
+    font-family: "source-sans-pro", sans-serif;
+    font-weight: 400;
+    font-style: normal;
     line-height: 1.2;
     margin-bottom: var(--space-sm);
     color: var(--primary-dark);
 }
+h2{
+    font-family: "source-sans-pro", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.2;
+    margin-bottom: var(--space-sm);
+    color: var(--primary-dark);
+}
+ h3 {
+    font-family: "source-sans-pro", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.2;
+    margin-bottom: var(--space-sm);
+    color: var(--primary-dark);
+}
+ h4 {
+    font-family: "source-sans-pro", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.2;
+    margin-bottom: var(--space-sm);
+    color: var(--primary-dark);
+}
+
+
 
 h1 { font-size: 2.5rem; }
 h2 { font-size: 2rem; }
@@ -106,6 +134,9 @@ h4 { font-size: 1.25rem; }
 /* Parágrafos e links */
 p {
     margin-bottom: var(--space-sm);
+    font-family: "source-sans-pro", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 a {
@@ -164,6 +195,9 @@ a:hover {
 }
 
 .menu {
+    font-family: "source-sans-pro", sans-serif;
+    font-weight: 700;
+    font-style: normal;
     display: flex;
     list-style: none;
     gap: var(--space-md);
@@ -322,13 +356,16 @@ a:hover {
     padding: 1rem;
     background-color: var(--primary-dark);
     flex-wrap: wrap;
+    
 }
 
 .logo-icone {
-    height: 80px;
+    height: 70px;
     width: auto;
     transition: transform var(--transition-normal);
 }
+
+
 
 /* Separador visual entre logos */
 .logo-icone:not(:last-child)::after {
@@ -668,6 +705,8 @@ a:hover {
     flex-grow: 1;
     font-size: 1rem;
     line-height: 1.5;
+    
+
 }
 
 .read-more-btn {
@@ -680,6 +719,10 @@ a:hover {
     transition: all var(--transition-normal);
     align-self: flex-start;
     font-size: 0.9rem;
+    font-family: "source-sans-pro", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    
 }
 
 .read-more-btn:hover {
