@@ -1,11 +1,10 @@
 :root {
-    --cor-primaria: #11385a;
-    --cor-secundaria: #fdc300;
+    --cor-primaria: #0D263D; /* Azul Escuro do site principal */
+    --cor-secundaria: #fdc300; /* Amarelo do site principal */
     --cor-texto: #222222;
     --cor-texto-secundario: #444444;
     --cor-fundo: #EEEEEE;
     --cor-card: #FFFFFF;
-    --cor-borda: #ffffff;
     --sombra: 0 2px 4px rgba(0, 0, 0, 0.1);
     --borda-radius: 8px;
     --transicao: all 0.3s ease;
@@ -19,13 +18,15 @@
 }
 
 body {
-    font-family: "DM Serif Display", serif;
+    /* A fonte padrão do corpo agora é a Source Sans Regular */
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 400; /* 400 = Regular */
     background-color: var(--cor-fundo);
     color: var(--cor-texto);
     line-height: 1.6;
 }
 
-/* ===== CABEÇALHO (MODIFICAÇÕES PRINCIPAIS) ===== */
+/* ===== CABEÇALHO ===== */
 .cabecalho {
     background-color: var(--cor-primaria);
     padding: 1rem 2rem;
@@ -36,23 +37,15 @@ body {
     top: 0;
     z-index: 100;
     box-shadow: var(--sombra);
-    border-bottom: 1px solid var(--cor-borda);
-    position: relative; /* Referência para o botão absoluto */
-}
-
-.logo {
-    margin: 0 auto; /* Centraliza a logo */
 }
 
 .logo img {
     height: 40px;
-    width: auto;
-    display: block; /* Garante alinhamento correto */
 }
 
 .botao-voltar {
     position: absolute;
-    left: 2rem; /* Fixa à esquerda */
+    left: 2rem;
     font-family: "Source Sans 3", sans-serif;
     background-color: var(--cor-secundaria);
     color: var(--cor-primaria);
@@ -71,75 +64,85 @@ body {
 
 /* ===== CONTEÚDO DA NOTÍCIA ===== */
 .container {
-    max-width: 1200px;
-    margin: 2rem auto;
+    max-width: 800px; /* Um pouco mais estreito para melhor leitura */
+    margin: 3rem auto;
     padding: 0 1rem;
 }
 
-.noticia.centralizado {
-    border: 3px solid var(--cor-borda);
+.noticia {
     padding: 2rem;
     background-color: var(--cor-card);
-    text-align: left;
+    border-radius: var(--borda-radius);
+    box-shadow: var(--sombra);
 }
 
 .imagem-noticia {
     width: 100%;
-    max-height: 400px; /* Altura máxima reduzida */
-    overflow: hidden;
-    margin: 0 auto 1.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin-bottom: 1.5rem;
 }
 
 .imagem-noticia img {
-    width: auto;
-    max-width: 100%;
-    max-height: 380px; /* Um pouco menor que o container */
+    width: 100%;
     height: auto;
-    object-fit: contain;
-    border: 3px solid var(--cor-borda);
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: var(--borda-radius);
 }
 
+/*
+ * ========================================
+ * ALTERAÇÕES DE TIPOGRAFIA CONFORME PEDIDO
+ * ========================================
+ */
+
+/* Título em Source Sans Bold */
 .titulo-noticia {
-    font-family: "Source Sans 3", sans-serif;
-    font-size: 35px;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 700; /* 700 = Bold */
+    font-size: 2.5rem; /* 40px */
     color: var(--cor-primaria);
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
 }
-p{
-    font-size: 23px;
+
+/* Autor em DM Serif */
+.meta-noticia {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1rem; /* 16px */
+    color: var(--cor-texto-secundario);
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+/* Parágrafos da notícia em Source Sans Regular */
+.conteudo-noticia p {
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 400; /* 400 = Regular */
+    font-size: 1.125rem; /* 18px */
+    margin-bottom: 1.5rem;
 }
 
 /* ===== RESPONSIVIDADE ===== */
 @media (max-width: 768px) {
     .cabecalho {
         padding: 1rem;
+        justify-content: flex-end; /* Alinha itens à direita */
     }
 
-    .botao-voltar {
-        left: 1rem;
-        padding: 0.4rem 0.8rem;
-    }
-
-    .logo img {
-        height: 32px;
-    }
-
-    .titulo-noticia {
-        font-size: 1.6rem;
-    }
-
-    .imagem-noticia {
-        max-height: 300px;
-        margin-bottom: 1rem;
+    .logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%); /* Técnica para centralizar com item na ponta */
     }
     
-    .imagem-noticia img {
-        max-width: 95%;
-        max-height: 280px;
+    .botao-voltar {
+       position: static; /* Botão volta ao fluxo normal */
+       left: auto;
+    }
+    
+    .titulo-noticia {
+        font-size: 1.8rem;
+    }
+
+    .conteudo-noticia p {
+        font-size: 1rem;
     }
 }
