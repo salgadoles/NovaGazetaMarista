@@ -110,8 +110,34 @@ body {
     color: var(--cor-primaria);
     margin-bottom: 1rem;
 }
+.conteudo-noticia {
+    text-align: justify;
+}
+.conteudo-poema {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.titulo-poema {
+    font-family: "Source Sans 3", sans-serif;
+    font-size: 25px;
+    color: var(--cor-primaria);
+    margin-top: 1rem;
+}
+
+.text-poema {
+    padding: 0px 20px;
+}
+
 p{
     font-size: 23px;
+}
+
+b {
+    color: var(--cor-primaria);
+    font-size: 20px;
+    font-family: "Source Sans 3", sans-serif;
 }
 
 /* ===== RESPONSIVIDADE ===== */

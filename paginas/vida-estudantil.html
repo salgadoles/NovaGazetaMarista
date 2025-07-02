@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <!-- Meta Tags Essenciais -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon"type ="image/svg+xml" href="../assets/img/decorativos/icom.ico">
+    <link rel="icon" type="image/svg+xml" href="../assets/img/decorativos/icom.ico">
     <meta name="description" content="Nova Gazeta Marista - Notícias e informações para a comunidade escolar">
     <!-- Scripts JavaScript -->
-       <script defer src="../assets/js/script.js"></script>
-    
+    <script defer src="../assets/js/script.js"></script>
+
     <!-- Título da Página -->
     <title>Nova Gazeta Marista | Notícias da Escola</title>
-    
+
     <!-- Favicon -->
     <link rel="icon" href="../../assets/img/decorativos/icom.ico" type="image/x-icon">
-    
+
     <!-- Folhas de Estilo -->
     <link rel="stylesheet" href="../assets/css/primcipal.css">
-    
+
     <!-- Font Awesome para Ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
+
     <!-- Pré-conexão para melhor performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,19 +31,21 @@
     <!-- Cabeçalho com Logo -->
     <header class="header">
         <style>
-    .logo-container { display: flex !important; flex-direction: row !important; }
-    @media (max-width: 768px) {
-        .logo-container { flex-direction: column !important; }
-    }
-</style>
-          <div class="logo-container">
-         <img src="../assets/img/logos/gazeta-marista_radio-conexao.png" 
-         alt="Gazeta Marista" 
-         class="logo-icone">
-        <img src="../assets/img/logos/projetoco.png" 
-         alt="Rádio Conexão" 
-         class="logo-icone">
-</div>
+            .logo-container {
+                display: flex !important;
+                flex-direction: row !important;
+            }
+
+            @media (max-width: 768px) {
+                .logo-container {
+                    flex-direction: column !important;
+                }
+            }
+        </style>
+        <div class="logo-container">
+            <img src="../assets/img/logos/gazeta-marista_radio-conexao.png" alt="Gazeta Marista" class="logo-icone">
+            <img src="../assets/img/logos/projetoco.png" alt="Rádio Conexão" class="logo-icone">
+        </div>
     </header>
 
     <!-- Navegação Principal -->
@@ -53,28 +56,23 @@
                 <li><a href="../index.html">Últimas Notícias</a></li>
                 <li><a href="../paginas/saude.html">Saúde</a></li>
                 <li><a href="../paginas/entretenimento.html">Entretenimento</a></li>
-                <li><a href="../paginas/esportes.html">Esportes</a></li> 
+                <li><a href="../paginas/esportes.html">Esportes</a></li>
                 <li><a href="../paginas/entrevistas.html">Entrevistas</a></li>
-                <li><a href="../paginas/galeria.html">galeria</a></li> 
+                <li><a href="../paginas/galeria.html">galeria</a></li>
                 <li><a href="../paginas/recomendados.html">Recomendados</a></li>
             </ul>
 
             <!-- Barra de Pesquisa -->
             <div class="search-container">
-                <input type="text" 
-                       placeholder="Pesquisar notícias..." 
-                       id="searchInput"
-                       aria-label="Campo de pesquisa de notícias">
+                <input type="text" placeholder="Pesquisar notícias..." id="searchInput"
+                    aria-label="Campo de pesquisa de notícias">
                 <button id="searchBtn" aria-label="Buscar">
                     <i class="fas fa-search"></i>
                 </button>
             </div>
 
             <!-- Botão do Menu Mobile -->
-            <button class="mobile-menu-btn" 
-                    id="mobileMenuBtn"
-                    aria-label="Abrir menu mobile"
-                    aria-expanded="false">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir menu mobile" aria-expanded="false">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
@@ -85,37 +83,35 @@
                 <li><a href="../index.html">Últimas Notícias</a></li>
                 <li><a href="../paginas/saude.html">Saúde</a></li>
                 <li><a href="../paginas/entretenimento.html">Entretenimento</a></li>
-                <li><a href="../paginas/esportes.html">Esportes</a></li> 
+                <li><a href="../paginas/esportes.html">Esportes</a></li>
                 <li><a href="../paginas/entrevistas.html">Entrevistas</a></li>
-                <li><a href="../paginas/galeria.html">galeria</a></li> 
+                <li><a href="../paginas/galeria.html">galeria</a></li>
                 <li><a href="../paginas/recomendados.html">Recomendados</a></li>
             </ul>
-            
+
             <!-- Pesquisa Mobile -->
             <div class="mobile-search">
-                <input type="text" 
-                       placeholder="Pesquisar..."
-                       aria-label="Campo de pesquisa mobile">
+                <input type="text" placeholder="Pesquisar..." aria-label="Campo de pesquisa mobile">
                 <button aria-label="Buscar"><i class="fas fa-search"></i></button>
             </div>
         </div>
     </nav>
 
 
-        <!-- Tela de Carregamento Personalizada -->
-<div id="loadingScreen" class="loading-screen">
-    <div class="loading-logos">
-        <img src="../assets/img/logos/gazeta-marista_radio-conexao.png" alt="Gazeta Marista">
-        <img src="../assets/img/logos/projetoco.png" alt="Rádio Conexão">
+    <!-- Tela de Carregamento Personalizada -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-logos">
+            <img src="../assets/img/logos/gazeta-marista_radio-conexao.png" alt="Gazeta Marista">
+            <img src="../assets/img/logos/projetoco.png" alt="Rádio Conexão">
+        </div>
+        <div class="square-loader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
     </div>
-    <div class="square-loader">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
-</div>
 
     <!-- Conteúdo Principal -->
     <main class="content">
@@ -127,8 +123,8 @@
 
         <!-- Seção de Todas as Notícias -->
         <div id="allNews">
-            <h1 class="section-title">vida Estudantil</h1>
-            
+            <h1 class="section-title">Vida Estudantil</h1>
+
             <!-- Grid de Notícias -->
             <div class="news-section">
 
@@ -146,73 +142,112 @@
                     </div>
                 </article>   -->
                 
-                 <article class="news-card" data-keywords="Evento celebra ações pastorais e fortalece vínculos na comunidade escolar">
-                    <img src="../assets/img/artigos/wews-14.jpeg" 
-                         alt="Evento celebra ações pastorais e fortalece vínculos na comunidade escolar"
-                         class="news-image">
+                <article class="news-card" data-keywords="Estudantes do segundo e terceiro ano participam de projeto de extensão sobre acesso à
+                            justiça">
+                    <img src="../assets/img/artigos/" alt="Imagem Projeto Extensão" class="news-image">
+                    <div class="news-card-content">
+                        <h3>Estudantes do segundo e terceiro ano participam de projeto de extensão sobre acesso à
+                            justiça</h3>
+                        <p>Na manhã de segunda-feira (9) e terça-feira (10), alunos do segundo e terceiro ano do Ensino
+                            Médio da Escola Social Marista Ir. Acácio participaram de um projeto de extensão com
+                            estudantes do curso de Direito da PUC. ...
+                        </p>
+                        <a href="../assets/postis/vida12.html" class="read-more-btn">Continuar lendo</a>
+                    </div>
+                </article>
+                
+                <article class="news-card" data-keywords="Gabriela Bodon Entrevista">
+                    <img src="../assets/img/artigos/" alt="Gabriela Bodon" class="news-image">
+                    <div class="news-card-content">
+                        <h3>Gabriela Bodon: a árbitra que ofereceu apoio e organização nos Jogos Escolares</h3>
+                        <p> “Nos Jogos Escolares, Gabriela Bodon desempenhou um papel abrangente como árbitra, apoiando
+                            os jogadores, organizando o evento e oferecendo apoio moral...
+                        </p>
+                        <a href="../assets/postis/vida11.html" class="read-more-btn">Continuar lendo</a>
+                    </div>
+                </article>
+
+                <article class="news-card" data-keywords="COP 30 movimenta a escola">
+                    <img src="../assets/img/artigos/" alt="COP 30 movimenta a escola" class="news-image">
+                    <div class="news-card-content">
+                        <h3>COP 30 movimenta a escola</h3>
+                        <p>Ao longo do primeiro semestre de 2025, os alunos do Marista Escola Social Ir. Acácio
+                            desenvolveram projetos voltados à 30ª Conferência das Partes (COP)...
+                        </p>
+                        <a href="../assets/postis/vida10.html" class="read-more-btn">Continuar lendo</a>
+                    </div>
+                </article>
+
+                <article class="news-card"
+                    data-keywords="Evento celebra ações pastorais e fortalece vínculos na comunidade escolar">
+                    <img src="../assets/img/artigos/wews-14.jpeg"
+                        alt="Evento celebra ações pastorais e fortalece vínculos na comunidade escolar"
+                        class="news-image">
                     <div class="news-card-content">
                         <h3>Evento celebra ações pastorais e fortalece vínculos na comunidade escolar</h3>
-                        <p>No dia 25 de março, o Marista Escola Social Irmão Acácio realizou um evento em homenagem às ações pastorais do colégio, que fortalecem vínculos e oferecem </p>
+                        <p>No dia 25 de março, o Marista Escola Social Irmão Acácio realizou um evento em homenagem às
+                            ações pastorais do colégio, que fortalecem vínculos e oferecem </p>
                         <a href="../assets/postis/vida5.html" class="read-more-btn">Continuar lendo</a>
                     </div>
-                </article> 
+                </article>
 
                 <!-- Card de Notícia 1 -->
                 <article class="news-card" data-keywords="Goit hackaton tecnologia competição estudantes">
-                    <img src="../assets/img/artigos/news-11.JPG" 
-                         alt="Estudantes participando do hackaton GoIT"
-                         class="news-image">
+                    <img src="../assets/img/artigos/news-11.JPG" alt="Estudantes participando do hackaton GoIT"
+                        class="news-image">
                     <div class="news-card-content">
-                         <h3>GOIT: O QUE ACONTECEU NO HACKEATON DE 2024?</h3>
-                         <p>No dia 30 de novembro de 2024 (sábado) a Escola Social Marista Irmão Acácio sediou o evento de Hackeaton "GoIT", juntamente com a multinacional TCS para os alunos do segundo ano do Ensino Médio da instituição...</p>
+                        <h3>GOIT: O QUE ACONTECEU NO HACKEATON DE 2024?</h3>
+                        <p>No dia 30 de novembro de 2024 (sábado) a Escola Social Marista Irmão Acácio sediou o evento
+                            de Hackeaton "GoIT", juntamente com a multinacional TCS para os alunos do segundo ano do
+                            Ensino Médio da instituição...</p>
                         <a href="../assets/postis/vida0.html" class="read-more-btn">Continuar lendo</a>
                     </div>
                 </article>
 
-               <!-- Card de Notícia 2 -->
+                <!-- Card de Notícia 2 -->
                 <article class="news-card" data-keywords="exemplo categoria palavras-chave">
-                    <img src="../assets/img/artigos/escola-social-marista-ir-acacio-faz-comemoracao-a-semana-da-crianca.jpg" 
-                    alt="Descrição da imagem para acessibilidade"
-                    class="news-image">
+                    <img src="../assets/img/artigos/escola-social-marista-ir-acacio-faz-comemoracao-a-semana-da-crianca.jpg"
+                        alt="Descrição da imagem para acessibilidade" class="news-image">
                     <div class="news-card-content">
                         <h3>ESCOLA SOCIAL MARISTA IR. ACÁCIO, FAZ COMEMORAÇÃO À SEMANA DA CRIANÇA </h3>
-                        <p>Na escola Marista Social Ir.Acacio, aconteceu um evento de diversão em comemoração a semana da criança nos dias 10 e 11 de 
+                        <p>Na escola Marista Social Ir.Acacio, aconteceu um evento de diversão em comemoração a semana
+                            da criança nos dias 10 e 11 de
                         </p>
                         <a href="../assets/postis/vida2.html" class="read-more-btn">Continuar lendo</a>
                     </div>
-                </article> 
+                </article>
 
 
                 <!-- Card de Notícia 3 -->
                 <article class="news-card" data-keywords="exemplo categoria palavras-chave">
                     <img src="../assets/img/artigos/a-jornada-dos-futuros-delegados-internacionais-da-nossa-escola.jpg"
-                    class="news-image">
+                        class="news-image">
                     <div class="news-card-content">
                         <h3>A JORNADA DOS FUTUROS DELEGADOS INTERNACIONAIS DA NOSSA ESCOLA</h3>
-                        <p>O Marista Social, participou da ECO.TIC Nova 2023. O evento teve como objetivo ampliar perspectivas
+                        <p>O Marista Social, participou da ECO.TIC Nova 2023. O evento teve como objetivo ampliar
+                            perspectivas
                         </p>
                         <a href="../assets/postis/entretenimento4.html" class="read-more-btn">Continuar lendo</a>
                     </div>
                 </article>
 
-                  <!-- Card de Notícia 4 -->
+                <!-- Card de Notícia 4 -->
                 <article class="news-card" data-keywords="exemplo categoria palavras-chave">
                     <img src="../assets/img/artigos/dia-a-dia-na-radio-conexao-marista-locutores-compartilham-experiencias.jpg"
-                    class="news-image">
+                        class="news-image">
                     <div class="news-card-content">
                         <h3>DIA A DIA NA RÁDIO CONEXÃO MARISTA: LOCUTORES COMPARTILHAM EXPERIÊNCIAS</h3>
                         <p>Os locutores da Rádio Conexão Marista compartilharam como é a rotina no projeto,
                         </p>
                         <a href="../assets/postis/vida3.html" class="read-more-btn">Continuar lendo</a>
                     </div>
-                </article> 
-                
-                 <article class="news-card" data-keywords="exemplo categoria palavras-chave">
-                    <img src="../assets/img/artigos/intervencao-literaria-do-mes-de-marco-celebra-clarice-lispector.jpg" 
-                    alt="Descrição da imagem para acessibilidade"
-                    class="news-image">
+                </article>
+
+                <article class="news-card" data-keywords="exemplo categoria palavras-chave">
+                    <img src="../assets/img/artigos/intervencao-literaria-do-mes-de-marco-celebra-clarice-lispector.jpg"
+                        alt="Descrição da imagem para acessibilidade" class="news-image">
                     <div class="news-card-content">
-                        <h3> 
+                        <h3>
                             INTERVENÇÃO LITERÁRIA DO MÊS DE MARÇO CELEBRA CLARICE LISPECTOR
                         </h3>
                         <p>
@@ -236,7 +271,8 @@
             <!-- Seção Sobre Nós -->
             <section class="footer-section">
                 <h3>Sobre Nós</h3>
-                <p>Somos a equipe de alunos dedicados da rádio Conexão, responsáveis por trazer as melhores informações sobre o Marista e o mundo. Garantimos conteúdo de qualidade para alunos e responsáveis.</p>
+                <p>Somos a equipe de alunos dedicados da rádio Conexão, responsáveis por trazer as melhores informações
+                    sobre o Marista e o mundo. Garantimos conteúdo de qualidade para alunos e responsáveis.</p>
             </section>
 
             <!-- Links Rápidos -->
@@ -254,10 +290,8 @@
             <section class="footer-section">
                 <h3>Receba Nossa Newsletter</h3>
                 <form class="newsletter-form">
-                    <input type="email" 
-                           placeholder="Seu melhor e-mail" 
-                           required
-                           aria-label="Insira seu e-mail para newsletter">
+                    <input type="email" placeholder="Seu melhor e-mail" required
+                        aria-label="Insira seu e-mail para newsletter">
                     <button type="submit" class="newsletter-btn">Assinar</button>
                 </form>
             </section>
@@ -281,4 +315,5 @@
     </footer>
 
 </body>
+
 </html>

@@ -1,48 +1,51 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <!-- Meta Tags Essenciais -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon"type ="image/svg+xml" href="../assets/img/decorativos/icom.ico">
+    <link rel="icon" type="image/svg+xml" href="../assets/img/decorativos/icom.ico">
     <meta name="description" content="Nova Gazeta Marista - Notícias e informações para a comunidade escolar">
     <!-- Scripts JavaScript -->
-       <script defer src="../assets/js/script.js"></script>
-    
+    <script defer src="../assets/js/script.js"></script>
+
     <!-- Título da Página -->
     <title>Nova Gazeta Marista | Notícias da Escola</title>
-    
+
     <!-- Favicon -->
     <link rel="icon" href="./imagens/favicon.ico" type="image/x-icon">
-    
+
     <!-- Folhas de Estilo -->
     <link rel="stylesheet" href="../assets/css/primcipal.css">
-    
+
     <!-- Font Awesome para Ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
+
     <!-- Pré-conexão para melhor performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 
 <body>
-          <!-- Cabeçalho com Logo -->
+    <!-- Cabeçalho com Logo -->
     <header class="header">
         <style>
-    .logo-container { display: flex !important; flex-direction: row !important; }
-    @media (max-width: 768px) {
-        .logo-container { flex-direction: column !important; }
-    }
-</style>
-          <div class="logo-container">
-         <img src="../assets/img/logos/gazeta-marista_radio-conexao.png" 
-         alt="Gazeta Marista" 
-         class="logo-icone">
-        <img src="../assets/img/logos/projetoco.png" 
-         alt="Rádio Conexão" 
-         class="logo-icone">
-</div>
+            .logo-container {
+                display: flex !important;
+                flex-direction: row !important;
+            }
+
+            @media (max-width: 768px) {
+                .logo-container {
+                    flex-direction: column !important;
+                }
+            }
+        </style>
+        <div class="logo-container">
+            <img src="../assets/img/logos/gazeta-marista_radio-conexao.png" alt="Gazeta Marista" class="logo-icone">
+            <img src="../assets/img/logos/projetoco.png" alt="Rádio Conexão" class="logo-icone">
+        </div>
     </header>
 
     <!-- Navegação Principal -->
@@ -51,30 +54,25 @@
             <!-- Menu Desktop -->
             <ul class="menu">
                 <li><a href="../index.html">Últimas Notícias</a></li>
-                <li><a href="../paginas/saude.html">Saúde</a></li> 
+                <li><a href="../paginas/saude.html">Saúde</a></li>
                 <li><a href="../paginas/entretenimento.html">Entretenimento</a></li>
                 <li><a href="../paginas/esportes.html">Esportes</a></li>
-                <li><a href="../noticias/vida-estudantil.html">Vida Estudantil</a></li>
-                <li><a href="../paginas/galeria.html">galeria</a></li> 
+                <li><a href="../paginas/vida-estudantil.html">Vida Estudantil</a></li>
+                <li><a href="../paginas/galeria.html">galeria</a></li>
                 <li><a href="../paginas/recomendados.html">Recomendados</a></li>
             </ul>
 
             <!-- Barra de Pesquisa -->
             <div class="search-container">
-                <input type="text" 
-                       placeholder="Pesquisar notícias..." 
-                       id="searchInput"
-                       aria-label="Campo de pesquisa de notícias">
+                <input type="text" placeholder="Pesquisar notícias..." id="searchInput"
+                    aria-label="Campo de pesquisa de notícias">
                 <button id="searchBtn" aria-label="Buscar">
                     <i class="fas fa-search"></i>
                 </button>
             </div>
 
             <!-- Botão do Menu Mobile -->
-            <button class="mobile-menu-btn" 
-                    id="mobileMenuBtn"
-                    aria-label="Abrir menu mobile"
-                    aria-expanded="false">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir menu mobile" aria-expanded="false">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
@@ -83,39 +81,37 @@
         <div class="mobile-menu" id="mobileMenu">
             <ul>
                 <li><a href="../index.html">Últimas Notícias</a></li>
-                <li><a href="../paginas/saude.html">Saúde</a></li> 
+                <li><a href="../paginas/saude.html">Saúde</a></li>
                 <li><a href="../paginas/entretenimento.html">Entretenimento</a></li>
                 <li><a href="../paginas/esportes.html">Esportes</a></li>
                 <li><a href="../noticias/vida-estudantil.html">Vida Estudantil</a></li>
-                <li><a href="../paginas/galeria.html">galeria</a></li> 
+                <li><a href="../paginas/galeria.html">galeria</a></li>
                 <li><a href="../paginas/recomendados.html">Recomendados</a></li>
             </ul>
-            
+
             <!-- Pesquisa Mobile -->
             <div class="mobile-search">
-                <input type="text" 
-                       placeholder="Pesquisar..."
-                       aria-label="Campo de pesquisa mobile">
+                <input type="text" placeholder="Pesquisar..." aria-label="Campo de pesquisa mobile">
                 <button aria-label="Buscar"><i class="fas fa-search"></i></button>
             </div>
         </div>
     </nav>
 
 
-            <!-- Tela de Carregamento Personalizada -->
-<div id="loadingScreen" class="loading-screen">
-    <div class="loading-logos">
-        <img src="../assets/img/logos/gazeta-marista_radio-conexao.png" alt="Gazeta Marista">
-        <img src="../assets/img/logos/projetoco.png" alt="Rádio Conexão">
+    <!-- Tela de Carregamento Personalizada -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-logos">
+            <img src="../assets/img/logos/gazeta-marista_radio-conexao.png" alt="Gazeta Marista">
+            <img src="../assets/img/logos/projetoco.png" alt="Rádio Conexão">
+        </div>
+        <div class="square-loader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
     </div>
-    <div class="square-loader">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
-</div>
 
     <!-- Conteúdo Principal -->
     <main class="content">
@@ -127,8 +123,8 @@
 
         <!-- Seção de Todas as Notícias -->
         <div id="allNews">
-            <h1 class="section-title">entrevistas </h1>
-            
+            <h1 class="section-title">Entrevistas</h1>
+
             <!-- Grid de Notícias -->
             <div class="news-section">
 
@@ -145,23 +141,88 @@
                     <a href="./html/noticias/categoria/noticiaX.html" class="read-more-btn">Continuar lendo</a>
                     </div>
                 </article>   -->
+                <!-- Card de noticia 6 -->
+                <article class="news-card"
+                    data-keywords="Mariana: a mente por trás da celebração esportiva nos Jogos Escolares Marista">
+                    <img src="../assets/img/artigos/"
+                        alt="Imagem de Mariana: a mente por trás da celebração esportiva nos Jogos Escolares Marista"
+                        class="news-image">
+                    <div class="news-card-content">
+                        <h3>Mariana: a mente por trás da celebração esportiva nos Jogos Escolares Marista</h3>
+                        <p>
+                            “Os Jogos Escolares: uma celebração inclusiva de esporte e união escolar, promovida pela
+                            colaboração entre a Pastoral e a escola, onde alunos de diferentes níveis e gêneros se
+                            destacam no vôlei e no futebol.”...
+                        </p>
+                        <a href="../assets/postis/entrevista6.html" class="read-more-btn">Continuar lendo</a>
+                    </div>
+                </article>
 
-                    <article class="news-card" data-keywords="MeetUp conecta ex-alunos e discute formação em vendas na Escola Marista Ir. Acácio">
-                    <img src="../assets/img/artigos/news-15.JPG" 
-                         alt="MeetUp conecta ex-alunos e discute formação em vendas na Escola Marista Ir. Acácio"
-                         class="news-image">
+                <!-- Card de noticia 5 -->
+                <article class="news-card"
+                    data-keywords="Wagner: o juiz estratégico por trás da pontuação nos Jogos Escolares">
+                    <img src="../assets/img/artigos/"
+                        alt="Imagem de Wagner: o juiz estratégico por trás da pontuação nos Jogos Escolares"
+                        class="news-image">
+                    <div class="news-card-content">
+                        <h3>Wagner: o juiz estratégico por trás da pontuação nos Jogos Escolares</h3>
+                        <p>
+                            “Nos Jogos Escolares, Wagner desempenhou um papel crucial como um dos juízes, marcando os
+                            pontos com precisão e garantindo a justiça nas competições. Sua atuação foi fundamental para
+                            o sucesso do evento, proporcionando uma experiência esportiva memorável para todos os
+                            participantes.”...
+                        </p>
+                        <a href="../assets/postis/entrevista5.html" class="read-more-btn">Continuar lendo</a>
+                    </div>
+                </article>
+
+                <!-- Card de noticia 4 -->
+                <article class="news-card" data-keywords="Entrevista Interclasse Marista – Juiz Gustavo">
+                    <img src="../assets/img/artigos/" alt="Imagem da Entrevista Interclasse Marista – Juiz Gustavo"
+                        class="news-image">
+                    <div class="news-card-content">
+                        <h3>Entrevista Interclasse Marista – Juiz Gustavo</h3>
+                        <p> <b>Gazeta Marista:</b> Você é árbitro há quanto tempo?
+                            <br>
+                            <b>Gustavo:</b> Bom dia. Hoje é o meu primeiro jogo como árbitro, mas sou professor de
+                            futsal,
+                            então estou bastante envolvido com o futebol.
+                            ...
+                        </p>
+                        <a href="../assets/postis/entrevista4.html" class="read-more-btn">Continuar lendo</a>
+                    </div>
+                </article>
+                <!-- Card de noticia 3 -->
+                <article class="news-card"
+                    data-keywords="Entrevista com a professora Gabriella Ciotto sobre suas rodas de leitura">
+                    <img src="../assets/img/artigos/"
+                        alt="Imagem da entrevista com a professora Gabriella Ciotto sobre suas rodas de leitura"
+                        class="news-image">
+                    <div class="news-card-content">
+                        <h3>Entrevista com a professora Gabriella Ciotto sobre suas rodas de leitura</h3>
+                        <p> “Gabriella Ciotto, atualmente professora de Português, já foi educadora social. Formada em
+                            Letras – Português, é pós-graduada em Direitos Humanos e Questões Sociais. Em nossa escola,
+                            sua trajetória começou com um estágio obrigatório da faculdade, em 2016. Após...</p>
+                        <a href="../assets/postis/entrevista3.html" class="read-more-btn">Continuar lendo</a>
+                    </div>
+                </article>
+                <!-- Card de Notícia (Entretenimento 8) -->
+                <article class="news-card"
+                    data-keywords="MeetUp conecta ex-alunos e discute formação em vendas na Escola Marista Ir. Acácio">
+                    <img src="../assets/img/artigos/news-15.JPG"
+                        alt="MeetUp conecta ex-alunos e discute formação em vendas na Escola Marista Ir. Acácio"
+                        class="news-image">
                     <div class="news-card-content">
                         <h3>MeetUp conecta ex-alunos e discute formação em vendas na Escola Marista Ir. Acácio</h3>
-                        <p> No dia 28 de março, a Marista Escola Social Irmão Acácio realizou um MeetUp  </p>
+                        <p> No dia 28 de março, a Marista Escola Social Irmão Acácio realizou um MeetUp </p>
                         <a href="../assets/postis/entretenimento8.html" class="read-more-btn">Continuar lendo</a>
                     </div>
-                </article> 
-              
-                <!-- Card de Notícia 13 -->
+                </article>
+
+                <!-- Card de Notícia 2 -->
                 <article class="news-card" data-keywords="exemplo categoria palavras-chave">
-                    <img src="../assets/img/artigos/dia-do-coordenador-pedagogico-um-olhar-sobre-o-trabalho-da-coordenadora-marta.jpg" 
-                    alt="Descrição da imagem para acessibilidade"
-                    class="news-image">
+                    <img src="../assets/img/artigos/dia-do-coordenador-pedagogico-um-olhar-sobre-o-trabalho-da-coordenadora-marta.jpg"
+                        alt="Descrição da imagem para acessibilidade" class="news-image">
                     <div class="news-card-content">
                         <h3> DIA DO COORDENADOR PEDAGÓGICO: UM OLHAR SOBRE O TRABALHO DA COORDENADORA MARTA
                         </h3>
@@ -169,23 +230,22 @@
                         </p>
                         <a href="../assets/postis/entrevista0.html" class="read-more-btn">Continuar lendo</a>
                     </div>
-                </article> 
-                
-                 <article class="news-card" data-keywords="exemplo categoria palavras-chave">
-                    <img src="../assets/img/artigos/diretor-em-acao.jpg" 
-                    alt="Descrição da imagem para acessibilidade"
-                    class="news-image">
+                </article>
+                <!-- Card de Notícia 1 -->
+                <article class="news-card" data-keywords="exemplo categoria palavras-chave">
+                    <img src="../assets/img/artigos/diretor-em-acao.jpg" alt="Descrição da imagem para acessibilidade"
+                        class="news-image">
                     <div class="news-card-content">
-                        <h3> 
+                        <h3>
                             DIRETOR EM AÇÃO
                         </h3>
                         <p>
-                          Entrevista com Diretor Luiz Fernando da Silva em homenagem ao 12 de novembro
+                            Entrevista com Diretor Luiz Fernando da Silva em homenagem ao 12 de novembro
                         </p>
                         <a href="../assets/postis/entrevista1.html" class="read-more-btn">Continuar lendo</a>
                     </div>
                 </article>
-                  
+
                 <!-- Outros cards de notícia... -->
             </div>
         </div>
@@ -197,7 +257,8 @@
             <!-- Seção Sobre Nós -->
             <section class="footer-section">
                 <h3>Sobre Nós</h3>
-                <p>Somos a equipe de alunos dedicados da rádio Conexão, responsáveis por trazer as melhores informações sobre o Marista e o mundo. Garantimos conteúdo de qualidade para alunos e responsáveis.</p>
+                <p>Somos a equipe de alunos dedicados da rádio Conexão, responsáveis por trazer as melhores informações
+                    sobre o Marista e o mundo. Garantimos conteúdo de qualidade para alunos e responsáveis.</p>
             </section>
 
             <!-- Links Rápidos -->
@@ -215,10 +276,8 @@
             <section class="footer-section">
                 <h3>Receba Nossa Newsletter</h3>
                 <form class="newsletter-form">
-                    <input type="email" 
-                           placeholder="Seu melhor e-mail" 
-                           required
-                           aria-label="Insira seu e-mail para newsletter">
+                    <input type="email" placeholder="Seu melhor e-mail" required
+                        aria-label="Insira seu e-mail para newsletter">
                     <button type="submit" class="newsletter-btn">Assinar</button>
                 </form>
             </section>
@@ -242,4 +301,5 @@
     </footer>
 
 </body>
+
 </html>
