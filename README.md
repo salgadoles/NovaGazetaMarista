@@ -9,7 +9,7 @@ Portal de notícias do Colégio Marista Irmão Acácio  focado em trazer a cober
 
 Site estático da gazeta interna do Colégio Marista, desenvolvido com **HTML, CSS e JavaScript puro**. Projeto sem back-end ou banco de dados.
 
-![Preview da Gazeta](/assets/img/decorativos/gazeta.PNG) <!-- Adicione uma imagem de preview -->
+![Preview da Gazeta](/assets/img/decorativos/gazeta.png) <!-- Adicione uma imagem de preview -->
 
 ---
 
