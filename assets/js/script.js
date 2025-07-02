@@ -2,41 +2,17 @@
  * ==============================================
  * ARQUIVO PRINCIPAL DE JAVASCRIPT - GAZETA MARISTA
  * ==============================================
- *
+ * 
  * @description Script principal para interatividade do site Gazeta Marista.
- * Gerencia o menu mobile, busca, carrosséis, widget de clima
+ * Gerencia o menu mobile, busca, carrosséis, widget de clima, barra lateral
  * e a otimização da tela de carregamento.
- * @version 2.0
+ * @version 3.0
  */
 
 document.addEventListener('DOMContentLoaded', function () {
-
-    // --- LÓGICA DA TELA DE CARREGAMENTO ---
-
-    /**
-     * Gerencia a tela de carregamento inicial.
-     * Esconde a tela assim que o DOM está pronto (HTML carregado), proporcionando uma
-     * percepção de carregamento muito mais rápida ao não esperar por imagens e outros recursos.
-     */
-    const loadingScreen = document.getElementById('loadingScreen');
-    if (loadingScreen) {
-        // Um pequeno delay para garantir que a animação seja visível antes de sumir.
-        setTimeout(() => {
-            loadingScreen.classList.add('hidden');
-            // Remove o elemento da DOM após a transição para limpar o HTML.
-            loadingScreen.addEventListener('transitionend', () => {
-                loadingScreen.remove();
-            });
-        }, 500);
-    }
-
-
-    // --- SELETORES GLOBAIS E ESTADO DA APLICAÇÃO ---
-
-    /**
-     * Objeto que centraliza os seletores de elementos da DOM para fácil acesso e manutenção.
-     */
+    // --- CONSTANTES E SELEÇÃO DE ELEMENTOS ---
     const DOM = {
+        // Elementos existentes
         mobileMenuBtn: document.getElementById('mobileMenuBtn'),
         mobileMenu: document.getElementById('mobileMenu'),
         searchBtn: document.getElementById('searchBtn'),
@@ -48,30 +24,48 @@ document.addEventListener('DOMContentLoaded', function () {
         newsCards: document.querySelectorAll('.news-card'),
         currentYearElement: document.getElementById('currentYear'),
         editionBanner: document.getElementById('editionBanner'),
+        loadingScreen: document.getElementById('loadingScreen'),
+        
+        // Novos elementos para a barra lateral
+        sidebar: document.querySelector('.info-sidebar'),
+        sidebarToggle: document.querySelector('.sidebar-toggle'),
+        sidebarClose: document.querySelector('.sidebar-close')
     };
 
-    /**
-     * Objeto que armazena o estado dinâmico da aplicação.
-     */
+    // --- ESTADO DA APLICAÇÃO ---
     const state = {
         isMobileMenuOpen: false,
+        isSidebarOpen: false
     };
 
+    // --- FUNÇÕES DE INICIALIZAÇÃO ---
+    function initialize() {
+        if (DOM.loadingScreen) handleLoadingScreen();
+        updateFooterYear();
+        renderEditionBanner();
+        setupEventListeners();
+        animateNewsCards();
+        initMenuCarousel();
+        initWeatherWidget();
+    }
 
-    // --- FUNÇÕES DE INTERFACE E INICIALIZAÇÃO (UI) ---
+    // --- MANIPULAÇÃO DA TELA DE CARREGAMENTO ---
+    function handleLoadingScreen() {
+        setTimeout(() => {
+            DOM.loadingScreen.classList.add('hidden');
+            DOM.loadingScreen.addEventListener('transitionend', () => {
+                DOM.loadingScreen.remove();
+            });
+        }, 500);
+    }
 
-    /**
-     * Atualiza o ano no rodapé para o ano corrente.
-     */
+    // --- FUNÇÕES UTILITÁRIAS ---
     function updateFooterYear() {
         if (DOM.currentYearElement) {
             DOM.currentYearElement.textContent = new Date().getFullYear();
         }
     }
 
-    /**
-     * Renderiza o banner da edição atual com o ano corrente.
-     */
     function renderEditionBanner() {
         if (DOM.editionBanner) {
             const year = new Date().getFullYear();
@@ -79,9 +73,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    /**
-     * Anima a entrada dos cards de notícias com um efeito de fade-in.
-     */
     function animateNewsCards() {
         DOM.newsCards.forEach((card, index) => {
             card.style.opacity = '0';
@@ -90,49 +81,70 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    /**
-     * Configura todos os ouvintes de eventos da página.
-     */
+    // --- CONFIGURAÇÃO DE EVENT LISTENERS ---
     function setupEventListeners() {
-        if (DOM.mobileMenuBtn) DOM.mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+        // Menu mobile
+        if (DOM.mobileMenuBtn) {
+            DOM.mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+        }
+
+        // Busca
         if (DOM.searchBtn) DOM.searchBtn.addEventListener('click', performSearch);
         if (DOM.searchInput) {
             DOM.searchInput.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') {
-                    performSearch();
-                }
+                if (e.key === 'Enter') performSearch();
             });
         }
 
+        // Barra lateral
+        if (DOM.sidebarToggle) {
+            DOM.sidebarToggle.addEventListener('click', toggleSidebar);
+        }
+        if (DOM.sidebarClose) {
+            DOM.sidebarClose.addEventListener('click', toggleSidebar);
+        }
+
+        // Fechar menu mobile ao clicar em links
         document.querySelectorAll('.mobile-menu a').forEach(link => {
             link.addEventListener('click', closeMobileMenu);
         });
     }
 
-
-    // --- LÓGICA DO MENU (MOBILE E CARROSSEL) ---
-
-    /**
-     * Alterna a visibilidade do menu mobile.
-     */
+    // --- CONTROLE DO MENU MOBILE ---
     function toggleMobileMenu() {
         state.isMobileMenuOpen = !state.isMobileMenuOpen;
         DOM.mobileMenu.classList.toggle('active', state.isMobileMenuOpen);
         DOM.mobileMenuBtn.setAttribute('aria-expanded', state.isMobileMenuOpen);
+        
+        // Fecha a barra lateral se estiver aberta
+        if (state.isSidebarOpen) {
+            toggleSidebar();
+        }
     }
 
-    /**
-     * Fecha o menu mobile se estiver aberto.
-     */
     function closeMobileMenu() {
         if (state.isMobileMenuOpen) {
             toggleMobileMenu();
         }
     }
 
-    /**
-     * Inicializa a funcionalidade de carrossel para o menu de navegação desktop.
-     */
+    // --- CONTROLE DA BARRA LATERAL ---
+    function toggleSidebar() {
+        state.isSidebarOpen = !state.isSidebarOpen;
+        DOM.sidebar.classList.toggle('open', state.isSidebarOpen);
+        
+        // Atualiza atributos de acessibilidade
+        DOM.sidebarToggle.setAttribute('aria-expanded', state.isSidebarOpen);
+        DOM.sidebarToggle.setAttribute('aria-label', 
+            state.isSidebarOpen ? 'Fechar barra lateral' : 'Abrir barra lateral');
+        
+        // Fecha o menu mobile se estiver aberto
+        if (state.isMobileMenuOpen) {
+            toggleMobileMenu();
+        }
+    }
+
+    // --- CARROSSEL DO MENU ---
     function initMenuCarousel() {
         const menuContainer = document.querySelector('.menu-container');
         const menu = document.querySelector('.menu');
@@ -157,12 +169,7 @@ document.addEventListener('DOMContentLoaded', function () {
         updateArrows();
     }
 
-
     // --- LÓGICA DE PESQUISA ---
-
-    /**
-     * Orquestra o processo de busca de notícias.
-     */
     function performSearch() {
         const searchTerm = DOM.searchInput.value.trim().toLowerCase();
         if (searchTerm.length < 2) {
@@ -174,11 +181,6 @@ document.addEventListener('DOMContentLoaded', function () {
         displaySearchResults(results, searchTerm);
     }
 
-    /**
-     * Filtra os cards de notícia com base no termo de busca.
-     * @param {string} searchTerm - O termo a ser buscado.
-     * @returns {Array<HTMLElement>} Uma lista de elementos de card que correspondem à busca.
-     */
     function filterNewsCards(searchTerm) {
         const matchedCards = [];
         DOM.newsCards.forEach(card => {
@@ -193,13 +195,8 @@ document.addEventListener('DOMContentLoaded', function () {
         return matchedCards;
     }
     
-    /**
-     * Exibe os resultados da busca na interface.
-     * @param {Array<HTMLElement>} results - A lista de cards correspondentes.
-     * @param {string} searchTerm - O termo que foi buscado.
-     */
     function displaySearchResults(results, searchTerm) {
-        DOM.searchResults.innerHTML = ''; // Limpa resultados anteriores
+        DOM.searchResults.innerHTML = '';
 
         if (results.length === 0) {
             DOM.searchResultsTitle.textContent = `Nenhum resultado encontrado para "${searchTerm}"`;
@@ -217,15 +214,9 @@ document.addEventListener('DOMContentLoaded', function () {
         DOM.searchResultsContainer.scrollIntoView({ behavior: 'smooth' });
     }
     
-    /**
-     * Destaca o termo de busca nos títulos e parágrafos dos cards.
-     * @param {HTMLElement} card - O elemento do card a ser modificado.
-     * @param {string} term - O termo a ser destacado.
-     * @returns {HTMLElement} O card com os termos destacados.
-     */
     function highlightSearchTerms(card, term) {
         const elementsToHighlight = card.querySelectorAll('h3, p');
-        const regex = new RegExp(term, 'gi'); // 'g' para global, 'i' para insensível a maiúsculas/minúsculas
+        const regex = new RegExp(term, 'gi');
         
         elementsToHighlight.forEach(el => {
             el.innerHTML = el.textContent.replace(regex, match => `<span class="search-highlight">${match}</span>`);
@@ -233,16 +224,8 @@ document.addEventListener('DOMContentLoaded', function () {
         return card;
     }
 
-
     // --- WIDGET DE CLIMA ---
-
-    /**
-     * Inicializa o widget de clima, buscando a geolocalização do usuário e, em seguida,
-     * os dados da API OpenWeatherMap. Usa Londrina como fallback.
-     */
     function initWeatherWidget() {
-        // ATENÇÃO: A chave da API está visível no código. Para projetos maiores,
-        // o ideal seria usar um backend para proteger a chave.
         const API_KEY = '5968cf52fd3711482404d885547a6757';
         const weatherWidget = document.querySelector('.weather-widget');
         if (!weatherWidget) return;
@@ -295,7 +278,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     position => fetchWeather(position.coords.latitude, position.coords.longitude),
                     error => {
                         console.error('Erro ao obter localização. Usando fallback para Londrina.', error);
-                        fetchWeather(-23.2927, -51.1732); // Coordenadas de Londrina
+                        fetchWeather(-23.2927, -51.1732);
                     }
                 );
             } else {
@@ -305,26 +288,9 @@ document.addEventListener('DOMContentLoaded', function () {
         };
         
         weatherElements.refreshBtn.addEventListener('click', getLocation);
-        getLocation(); // Inicia a busca ao carregar a página
+        getLocation();
     }
 
-
-    // --- FUNÇÃO PRINCIPAL DE INICIALIZAÇÃO ---
-    
-    /**
-     * Função de orquestração principal.
-     * É chamada uma vez que o DOM está pronto para configurar todas as funcionalidades.
-     */
-    function main() {
-        updateFooterYear();
-        renderEditionBanner();
-        setupEventListeners();
-        animateNewsCards();
-        initMenuCarousel();
-        // initHighlightsCarousel(); // Deixado comentado pois não há HTML para ele
-        initWeatherWidget();
-    }
-
-    // --- PONTO DE ENTRADA DA APLICAÇÃO ---
-    main();
+    // --- INICIALIZAÇÃO ---
+    initialize();
 });
