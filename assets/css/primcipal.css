@@ -91,12 +91,40 @@ body {
  * - Hierarquia de tamanhos
  * - Espaçamento consistente
  */
-h1, h2, h3, h4 {
-    font-family: var(--font-sans);
+h1{
+    font-family: "source-sans-pro", sans-serif;
+    font-weight: 400;
+    font-style: normal;
     line-height: 1.2;
     margin-bottom: var(--space-sm);
     color: var(--primary-dark);
 }
+h2{
+    font-family: "source-sans-pro", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.2;
+    margin-bottom: var(--space-sm);
+    color: var(--primary-dark);
+}
+ h3 {
+    font-family: "source-sans-pro", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.2;
+    margin-bottom: var(--space-sm);
+    color: var(--primary-dark);
+}
+ h4 {
+    font-family: "source-sans-pro", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.2;
+    margin-bottom: var(--space-sm);
+    color: var(--primary-dark);
+}
+
+
 
 h1 { font-size: 2.5rem; }
 h2 { font-size: 2rem; }
@@ -106,6 +134,9 @@ h4 { font-size: 1.25rem; }
 /* Parágrafos e links */
 p {
     margin-bottom: var(--space-sm);
+    font-family: "source-sans-pro", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 a {
@@ -117,6 +148,73 @@ a {
 a:hover {
     color: var(--primary-light);
 }
+
+/* ==============================================
+   CORREÇÕES DE TIPOGRAFIA
+   ============================================== */
+
+/* 1. Título de Seção (Últimas Notícias) */
+.section-title {
+    text-align: center;
+    margin-bottom: var(--space-lg);
+    position: relative;
+    padding-bottom: var(--space-sm);
+    /* Correção: Aplicando a fonte DM Serif Display */
+    font-family: var(--font-serif); 
+}
+
+/* 2. Links do Menu de Navegação (Navbar) */
+.menu {
+    /* Correção: Usando a variável de fonte e definindo o peso como 'bold' */
+    font-family: var(--font-sans);
+    font-weight: 700; /* 700 é o valor para 'bold' */
+    font-style: normal;
+    display: flex;
+    list-style: none;
+    gap: var(--space-md);
+    padding: var(--space-sm) 0;
+    width: max-content;
+}
+
+/* 3. Título dos Cards de Notícias */
+.news-card h3 {
+    color: var(--primary-dark);
+    margin-bottom: var(--space-xs);
+    font-size: 1.3rem;
+    /* Correção: Usando a variável de fonte e definindo o peso como 'bold' */
+    font-family: var(--font-sans);
+    font-weight: 700; /* 700 é o valor para 'bold' */
+}
+
+/* 4. Texto (parágrafo) dos Cards de Notícias */
+.news-card p {
+    color: var(--medium-gray);
+    margin-bottom: var(--space-md);
+    flex-grow: 1;
+    font-size: 1rem;
+    line-height: 1.5;
+    /* Correção: Garantindo a fonte e o peso corretos (regular) */
+    font-family: var(--font-sans);
+    font-weight: 400; /* 400 é o valor para 'regular' */
+}
+
+/* 5. Botões (Ex: "Continuar lendo") */
+.read-more-btn {
+    display: inline-block;
+    padding: var(--space-xs) var(--space-sm);
+    background-color: var(--primary-color);
+    color: #000;
+    border-radius: var(--border-radius);
+    text-align: center;
+    transition: all var(--transition-normal);
+    align-self: flex-start;
+    font-size: 0.9rem;
+    /* Correção: Usando a variável de fonte e definindo o peso como 'bold' */
+    font-family: var(--font-sans);
+    font-weight: 700; /* 700 é o valor para 'bold' */
+    font-style: normal;
+}
+
 
 /* ==============================================
    LAYOUT PRINCIPAL
@@ -164,6 +262,9 @@ a:hover {
 }
 
 .menu {
+    font-family: "source-sans-pro", sans-serif;
+    font-weight: 700;
+    font-style: normal;
     display: flex;
     list-style: none;
     gap: var(--space-md);
@@ -322,13 +423,17 @@ a:hover {
     padding: 1rem;
     background-color: var(--primary-dark);
     flex-wrap: wrap;
+    
 }
 
 .logo-icone {
-    height: 80px;
-    width: auto;
+    height: 70px;                 
+    width: 170px;                 
+    object-fit: contain;          
     transition: transform var(--transition-normal);
 }
+
+
 
 /* Separador visual entre logos */
 .logo-icone:not(:last-child)::after {
@@ -668,6 +773,8 @@ a:hover {
     flex-grow: 1;
     font-size: 1rem;
     line-height: 1.5;
+    
+
 }
 
 .read-more-btn {
@@ -680,6 +787,10 @@ a:hover {
     transition: all var(--transition-normal);
     align-self: flex-start;
     font-size: 0.9rem;
+    font-family: "source-sans-pro", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    
 }
 
 .read-more-btn:hover {
@@ -1205,4 +1316,126 @@ a:hover {
         width: fit-content;
         background-color: var(--white);
     }
+}
+
+/* ==============================================
+   BARRA LATERAL INFORMATIVA
+   ============================================== */
+
+.info-sidebar {
+    position: fixed;
+    right: 0;
+    top: 120px; /* Ajuste conforme a altura da sua navbar */
+    z-index: 990;
+    display: flex;
+    transition: all var(--transition-normal);
+}
+
+.sidebar-toggle {
+    background-color: var(--primary-dark);
+    border: none;
+    border-radius: 50% 0 0 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin-right: 10px; /* Espaço da barra de pesquisa */
+    transition: all var(--transition-fast);
+}
+
+.sidebar-toggle:hover {
+    background-color: var(--primary-light);
+    transform: scale(1.1);
+}
+
+.sidebar-icon {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.sidebar-content {
+    position: absolute;
+    right: -320px;
+    top: 0;
+    width: 300px;
+    background-color: var(--white);
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: var(--border-radius-lg) 0 0 var(--border-radius-lg);
+    padding: var(--space-md);
+    transition: right var(--transition-normal);
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.info-sidebar.open .sidebar-content {
+    right: 60px; /* Posição ao lado do botão */
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-md);
+    padding-bottom: var(--space-sm);
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.sidebar-header h3 {
+    color: var(--primary-dark);
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.sidebar-close {
+    background: none;
+    border: none;
+    color: var(--medium-gray);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: color var(--transition-fast);
+}
+
+.sidebar-close:hover {
+    color: var(--secondary-color);
+}
+
+.sidebar-section {
+    margin-bottom: var(--space-md);
+}
+
+.sidebar-section h4 {
+    color: var(--primary-dark);
+    font-size: 1rem;
+    margin-bottom: var(--space-xs);
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.sidebar-section ul {
+    list-style: none;
+    padding-left: var(--space-sm);
+    margin-top: var(--space-xs);
+}
+
+.sidebar-section li {
+    margin-bottom: var(--space-xs);
+    font-size: 0.9rem;
+    color: var(--medium-gray);
+}
+
+.sidebar-section p {
+    font-size: 0.9rem;
+    color: var(--medium-gray);
+    line-height: 1.5;
+}
+
+.sidebar-footer {
+    margin-top: var(--space-md);
+    text-align: center;
 }
