@@ -102,7 +102,6 @@ body {
     margin-bottom: 0.5rem;
     line-height: 1.2;
 }
-<<<<<<< HEAD
 .conteudo-noticia {
     text-align: justify;
 }
@@ -125,7 +124,7 @@ body {
 
 p{
     font-size: 23px;
-=======
+}
 
 /* Autor em DM Serif */
 .meta-noticia {
@@ -142,7 +141,6 @@ p{
     font-weight: 400; /* 400 = Regular */
     font-size: 1.125rem; /* 18px */
     margin-bottom: 1.5rem;
->>>>>>> 96cd110245a74f46b5e96410cc9ef18883f5ba30
 }
 
 b {
