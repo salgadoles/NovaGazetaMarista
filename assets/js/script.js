@@ -6,7 +6,7 @@
  * @description Script principal para interatividade do site Gazeta Marista.
  * Gerencia o menu mobile, busca, carrosséis, widget de clima, barra lateral
  * e a otimização da tela de carregamento.
- * @version 3.0
+ * @version 3.1
  */
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
         animateNewsCards();
         initMenuCarousel();
         initWeatherWidget();
+        setupClickOutsideListener(); // Adicionado para fechar menu ao clicar fora
     }
 
     // --- MANIPULAÇÃO DA TELA DE CARREGAMENTO ---
@@ -66,10 +67,11 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    // atualisa a data da edição
     function renderEditionBanner() {
         if (DOM.editionBanner) {
             const year = new Date().getFullYear();
-            DOM.editionBanner.textContent = `Edição nº 04 – ${year}`;
+            DOM.editionBanner.textContent = `Edição nº 05 – ${year}`;
         }
     }
 
@@ -108,6 +110,35 @@ document.addEventListener('DOMContentLoaded', function () {
         document.querySelectorAll('.mobile-menu a').forEach(link => {
             link.addEventListener('click', closeMobileMenu);
         });
+    }
+
+    // --- FUNÇÃO PARA FECHAR MENU AO CLICAR FORA ---
+    function setupClickOutsideListener() {
+        // Para cliques com mouse
+        document.addEventListener('click', handleClickOutside);
+        
+        // Para toques em dispositivos móveis
+        document.addEventListener('touchstart', handleClickOutside);
+        
+        function handleClickOutside(event) {
+            const mobileMenu = DOM.mobileMenu;
+            const mobileMenuBtn = DOM.mobileMenuBtn;
+            
+            // Verifica se o clique/toque foi fora do menu e do botão do menu
+            if (state.isMobileMenuOpen && 
+                mobileMenu && !mobileMenu.contains(event.target) && 
+                mobileMenuBtn && !mobileMenuBtn.contains(event.target)) {
+                closeMobileMenu();
+            }
+            
+            // Verifica se o clique/toque foi fora da barra lateral e do seu botão
+            if (state.isSidebarOpen && 
+                DOM.sidebar && 
+                !DOM.sidebar.contains(event.target) && 
+                DOM.sidebarToggle && !DOM.sidebarToggle.contains(event.target)) {
+                toggleSidebar();
+            }
+        }
     }
 
     // --- CONTROLE DO MENU MOBILE ---
