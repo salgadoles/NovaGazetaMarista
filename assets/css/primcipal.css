@@ -1325,8 +1325,8 @@ a:hover {
 .info-sidebar {
     position: fixed;
     right: 0;
-    top: 120px; /* Ajuste conforme a altura da sua navbar */
-    z-index: 1001; /* CORREÇÃO: Aumentado para ficar acima da navbar */
+    top: 120px; 
+    z-index: 1001; 
     display: flex;
     transition: all var(--transition-normal);
 }
@@ -1438,4 +1438,34 @@ a:hover {
 .sidebar-footer {
     margin-top: var(--space-md);
     text-align: center;
+}
+/* ==============================================
+   BARRA DE ROLAGEM PERSONALIZADA
+   ============================================== */
+
+/* Para navegadores WebKit (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--primary-dark); /* Azul escuro */
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color); /* Amarelo */
+    border-radius: 5px;
+    border: 2px solid var(--primary-dark);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #f0b800; /* Amarelo mais escuro no hover */
+}
+
+/* Para Firefox */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) var(--primary-dark);
 }

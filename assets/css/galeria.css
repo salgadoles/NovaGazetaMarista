@@ -18,7 +18,7 @@
   */
  :root {
      /* Cores Principais */
-     --primary-color: #163A59;
+     --primary-color: #f0b800;
      --primary-dark: #0D263D;
      --primary-light: #1E4A73;
      --secondary-color: #FF6B35;
@@ -37,7 +37,7 @@
      /* Espaçamentos */
      --space-xs: 0.5rem;
      --space-sm: 1rem;
-     --space-md: 1.5rem;
+     --space-md: 1.50000rem;
      --space-lg: 2rem;
      --space-xl: 3rem;
      
@@ -116,9 +116,9 @@
  }
  
  .logo-icone {
-     height: 80px;
-     width: auto;
-     max-width: 100%;
+     height: 70px;                 
+    width: 170px;                 
+    object-fit: contain;          
  }
  
  .navbar {
@@ -151,7 +151,7 @@
      color: var(--white);
      font-weight: 500;
      text-transform: uppercase;
-     font-size: 0.8rem;
+     font-size: 0.7rem;
      padding: var(--space-xs) 0;
      position: relative;
  }
@@ -654,4 +654,35 @@
     .gallery-container {
         grid-template-columns: 1fr;
     }
+}
+
+/* ==============================================
+   BARRA DE ROLAGEM PERSONALIZADA
+   ============================================== */
+
+/* Para navegadores WebKit (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--primary-dark); /* Azul escuro */
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color); /* Amarelo */
+    border-radius: 5px;
+    border: 2px solid var(--primary-dark);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #f0b800; 
+}
+
+/* Para Firefox */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) var(--primary-dark);
 }
