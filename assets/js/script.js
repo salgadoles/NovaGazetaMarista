@@ -67,10 +67,11 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    // atualisa a data da edição
     function renderEditionBanner() {
         if (DOM.editionBanner) {
             const year = new Date().getFullYear();
-            DOM.editionBanner.textContent = `Edição nº 04 – ${year}`;
+            DOM.editionBanner.textContent = `Edição nº 05 – ${year}`;
         }
     }
 
