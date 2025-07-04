@@ -20,7 +20,8 @@
     
     <!-- Font Awesome para Ícones -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
+   <script src="https://unpkg.com/scrollreveal"></script>
+
     <!-- Pré-conexão para melhor performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,6 +34,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton+SC&family=DM+Serif+Display:ital@0;1&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
 </style>
 </head>
+<script type="text/javascript"> 
+
+    (function() {
+           var script = document.createElement("script");
+           script.src = "https://unpkg.com/scrollreveal";
+           script.async = true;
+           script.onload = function() {
+               iniciarScrollReveal();
+           };
+           document.head.appendChild(script);
+       })();
+   
+       function iniciarScrollReveal() {
+       if (typeof ScrollReveal !== "undefined") {
+           ScrollReveal().reveal(" .content, .featured-news, .headline-container, .headline-card, .headline-content, .read-more-btn, .hidden, .search-results-title, .news-section, .news-card, .news-image, .news-card-content, .section-title, .footer, .footer-container, .footer-section, .footer-links, .newsletter-form, .newsletter-btn, .social-icons, .footer-bottom, .loading-overlay, .loading-spinner, .info-sidebar, .sidebar-toggle, .sidebar-icon, .sidebar-content, .sidebar-header, .sidebar-close, .sidebar-section, #searchResultsContainer, #searchResultsTitle, #searchResults, #allNews, #currentYear, #loadingOverlay", {
+               duration: 1200,
+               origin: "bottom",
+               distance: "20px",
+               delay: 0.5,
+               reset: true
+           });
+       }
+   }
+   </script>
 
 
 
@@ -53,7 +78,7 @@
          <img src="assets/img/logos/gazeta-marista_radio-conexao.png" 
          alt="Gazeta Marista" 
          class="logo-icone">
-        <img id="projetoco" src="assets/img/logos/projetoco.png" 
+        <img id="projetoco" src="assets/img/logos/image-removebg-preview (9) 1.png  " 
          alt="Rádio Conexão"
          class="logo-icone">
          
@@ -154,8 +179,28 @@
 </div>
 
     <!-- Conteúdo Principal -->
+    <section class="banner-principal">
+        <div class="carousel">
+          <img src="assets/img/Design sem nome (1).jpg" class="active" alt="Banner 1">
+          <img src="assets/img/logos/Lalala.pdf.jpg" alt="Banner 2">
+        </div>
+      </section>
+      <script>
+        const images = document.querySelectorAll(".carousel img");
+        let current = 0;
+      
+        function showNextImage() {
+          images[current].classList.remove("active");
+          current = (current + 1) % images.length;
+          images[current].classList.add("active");
+        }
+      
+        setInterval(showNextImage, 4000); // troca a cada 4 segundos
+      </script>
+      
+
     <main class="content">
-    
+        
         <!-- Seção de Manchete Principal -->
 <section class="featured-news">
     <div class="headline-container">

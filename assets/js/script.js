@@ -325,3 +325,5 @@ document.addEventListener('DOMContentLoaded', function () {
     // --- INICIALIZAÇÃO ---
     initialize();
 });
+
+
