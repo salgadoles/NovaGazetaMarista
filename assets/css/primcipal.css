@@ -1240,6 +1240,8 @@ a:hover {
 }
 
 .headline-card {
+    background-color: #fff;
+    border-radius: 20px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--space-md);
@@ -1252,9 +1254,7 @@ a:hover {
 .headline-card h2{
     color: #f0b800 !important   ;
 }
-.headline-card p {
-    color: #EEEEEE !important;
-}
+
 
 
 .headline-card img {
@@ -1286,6 +1286,14 @@ a:hover {
 
 /* Responsividade */
 @media (max-width: 768px) {
+    tittle-dobra-1-direita{
+        font-size: 50px !important;
+    }
+.btn-custom{
+    align-items: center;
+    justify-content: center;
+}
+
     .headline-card {
         grid-template-columns: 1fr;
     }
@@ -1561,77 +1569,170 @@ html {
     scrollbar-color: var(--primary-color) var(--primary-dark);
 }
 
-/* Estilos gerais da galeria */
-.gallery-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Estilo do card */
-.gallery-card {
-    position: relative;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    aspect-ratio: 4/3;
-}
-
-.gallery-card:hover {
-    transform: scale(1.03);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-/* Link da imagem */
-.gallery-link {
-    display: block;
-    position: relative;
-    height: 100%;
-    text-decoration: none;
-    color: inherit;
-}
-
-/* Imagem em si */
-.gallery-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-/* Overlay com efeito hover */
-.gallery-overlay {
-    
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
+.conteiner-sobre {
+    background: url("https://d335luupugsy2.cloudfront.net/cms/files/47031/1751658188/$ist5hzif79m"),
+    #1E4A73;  
+    background-repeat: no-repeat;
+    background-position: right center;  
+    background-size: contain;
+    height: max-content;
+    object-fit: contain;
+    z-index: 1;
+  }
+  
+  .dobra-1-topo {
+    padding: 0 2% 0 2%;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    justify-content: center;
+    z-index: -9;
+    overflow: visible;
+  }
+  
+  .logo-conexao {
+    margin: 4%;
+    width: 300px;
+    height: 100%;
+  }
+  
+  .txt-dobra-1 {
+    display: flex;
+    width: 100%;
+    color: #fff;
+    align-items: center;
+  }
+  
+  .tittle-dobra-1-esquerda,
+  .tittle-dobra-1-direita {
+    flex: 1;
+    padding: 2% 0% 0% 0%;
+  }
+  
+  .tittle-dobra-1-direita h2 {
+    font-size: 40px;
+    color: #f0b800;
+  } 
+  
+  .wrapper-text {
+    display: flex;
+    margin-bottom: 1%;
+    text-align: justify;
+  }
+  
+  .txt-dobra-1-esquerda,
+  .txt-dobra-1-direita {
+    font-size: 16px;
+    color: #fff;
+    flex: 1;
+    padding: 0 10% 0% 10%;
+  }
+  
+  .txt-dobra-1-esquerda h2 {
+    font-size: 20px;
+  }
+  
+  .txt-dobra-1-direita h2 {
+    font-size: 20px;
+  }
+
+  .img-dobra-1-direita img{
+    margin-left: 10%;
+    width: 40vw;
+    border-radius: 20px;
+margin-top: -15%;
+  }
+
+/* Adicione estas regras no final do seu CSS, na seção de responsividade */
+
+@media (max-width: 992px) {
+    .dobra-1-topo {
+        flex-direction: column;
+        padding: 5% 2%;
+    }
+    
+    .logo-conexao {
+        width: 250px;
+        height: auto;
+        margin: 2% auto;
+    }
+    
+    .txt-dobra-1 {
+        flex-direction: column;
+    }
+    
+    .tittle-dobra-1-esquerda,
+    .tittle-dobra-1-direita {
+        flex: none;
+        width: 100%;
+        padding: 2% 5%;
+        text-align: center;
+    }
+    
+    .tittle-dobra-1-direita h2 {
+        font-size: 2rem;
+    }
+    
+    .wrapper-text {
+        flex-direction: column;
+    }
+    
+    .txt-dobra-1-esquerda,
+    .txt-dobra-1-direita {
+        padding: 0 5%;
+        margin-bottom: 5%;
+    }
+    
+    .img-dobra-1-direita img {
+        width: 90%;
+        margin: 0 auto;
+        display: block;
+        border-radius: 10px;
+    }
 }
 
-.gallery-card:hover .gallery-overlay {
-    opacity: 1;
-}
+@media (max-width: 576px) {
+    .tittle-dobra-1-direita h2 {
+        font-size: 1.5rem;
+    }
+    
+    .txt-dobra-1-esquerda,
+    .txt-dobra-1-direita {
+        font-size: 0.9rem;
+    }
+    
+    .conteiner-sobre {
+        background-size: cover;
+        background-position: center;
+    }
 
-.zoom-icon {
-    font-size: 2rem;
-    margin-bottom: 10px;
-}
+    .banner-principal{
 
-.image-caption {
-    text-align: center;
-    padding: 0 10px;
-    font-weight: bold;
+    }
+}
+  
+@media (max-width: 768px) {
+  /* Esconder clima e segunda logo */
+  .weather-widget {
+    display: none !important;
+  }
+
+  .logo-container img.logo-icone:nth-child(2) {
+    display: none !important;
+  }
+
+  /* Centralizar e aumentar a primeira logo */
+  .logo-container {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 20px 0 !important;
+  }
+
+  .logo-container img.logo-icone:nth-child(1) {
+    width: 160px !important;
+    height: auto !important;
+    flex-shrink: 0 !important;
+    display: block !important;
+    margin: 0 auto !important;
+  }
 }

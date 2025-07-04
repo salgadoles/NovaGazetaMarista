@@ -48,7 +48,7 @@
    
        function iniciarScrollReveal() {
        if (typeof ScrollReveal !== "undefined") {
-           ScrollReveal().reveal(" .content, .featured-news, .headline-container, .headline-card, .headline-content, .read-more-btn, .hidden, .search-results-title, .news-section, .news-card, .news-image, .news-card-content, .section-title, .footer, .footer-container, .footer-section, .footer-links, .newsletter-form, .newsletter-btn, .social-icons, .footer-bottom, .loading-overlay, .loading-spinner, .info-sidebar, .sidebar-toggle, .sidebar-icon, .sidebar-content, .sidebar-header, .sidebar-close, .sidebar-section, #searchResultsContainer, #searchResultsTitle, #searchResults, #allNews, #currentYear, #loadingOverlay", {
+           ScrollReveal().reveal(" .content, .featured-news, .headline-container, .headline-card, .headline-content, .read-more-btn, .hidden, .search-results-title, .news-section, .news-card, .news-image, .news-card-content, .section-title, .footer, .footer-container, .footer-section, .footer-links, .newsletter-form, .newsletter-btn, .social-icons, .footer-bottom, .loading-overlay, .loading-spinner, .info-sidebar, .sidebar-toggle, .sidebar-icon, .sidebar-content, .sidebar-header, .sidebar-close, .sidebar-section, #searchResultsContainer, #searchResultsTitle, #searchResults, #allNews, #currentYear, #loadingOverlay, .conteiner-sobre, .dobra-1-topo, .logo-conexao, .txt-dobra-1, .tittle-dobra-1-esquerda, .tittle-dobra-1-direita, .wrapper-text, .img-dobra-1-direita, .txt-dobra-1-direita, .btn-custom, .btn-text-wrap, .btn-arrow", {
                duration: 1200,
                origin: "bottom",
                distance: "20px",
@@ -62,8 +62,6 @@
 
 
 <body>
-
-
     <!-- Barra de Edição Dinâmica -->
     <div class="edition-banner" id="editionBanner"></div>
 
@@ -77,11 +75,10 @@
             }
             </style>
           <div class="logo-container">
-            <div class="logo-galeria">
          <img src="assets/img/logos/gazeta-marista_radio-conexao.png" 
          alt="Gazeta Marista" 
          class="logo-icone">
-        <img id="projetoco" src="assets/img/logos/projetoco.png " 
+        <img id="projetoco" src="assets/img/logos/projetoco.png  " 
          alt="Rádio Conexão"
          class="logo-icone">
          
@@ -201,9 +198,166 @@
         setInterval(showNextImage, 4000); // troca a cada 4 segundos
       </script>
       
+      <section class="conteiner-sobre">
+        <div class="dobra-1-topo">
+  
+          <img class="logo-conexao" src="assets/img/logos/gazeta-marista_radio-conexao.png" alt="">
+        </div>
+        <section class="txt-dobra-1">
+  
+          <div class="tittle-dobra-1-esquerda">
+        
+          </div>
+          <div class="tittle-dobra-1-direita">
+            <h2>Projeto Conexão</h2>
+          </div>
+  
+        </section>
+  
+        <section class="wrapper-text">
+          <div class="img-dobra-1-direita">
+            <img src="https://d335luupugsy2.cloudfront.net/cms/files/47031/1751664283/$vxpejoxyjle" alt="">
+          </div>
+  
+          <div class="txt-dobra-1-direita">
+            <p style="margin-top: 3%;  font-family: 'Source Sans Pro', sans-serif; ">O Projeto Conexão é uma iniciativa que une informação, criatividade e colaboração. Aqui, nossos alunos se tornam jornalistas,
+                apresentadores e criadores de conteúdo, transformando suas vozes em notícias que importam</p>
+
+             <!-- Botão estilizado com classes renomeadas e CSS em <style> -->
+
+<style>
+    .btn-custom {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 0.5em 0.5em 0.5em 0.5  em;
+      background-color: yellow;
+      cursor: pointer;
+      box-shadow: 4px 6px 0px black;
+      border: 4px solid;
+      border-radius: 15px;
+      position: relative;
+      overflow: hidden;
+      z-index: 100;
+      transition: box-shadow 250ms, transform 250ms, filter 50ms;
+      margin-bottom: 15%;
+      margin-top: 5%;
+    }
+  
+    .btn-custom:hover {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 3px 0px black;
+    }
+  
+    .btn-custom:active {
+      filter: saturate(0.75);
+    }
+  
+    .btn-custom::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: pink;
+      z-index: -1;
+      transform: translateX(-100%);
+      transition: transform 250ms;
+    }
+  
+    .btn-custom:hover::after {
+      transform: translateX(0);
+    }
+  
+    .btn-text-wrap {
+      position: relative;
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      overflow: hidden;
+      max-width: 35%;
+      font-size: 2em;
+      font-weight: 600;
+    }
+  
+    .btn-text-wrap span {
+      position: relative;
+      transform: translateX(-100%);
+      transition: all 250ms;
+    }
+  
+    .btn-custom:hover .btn-text-wrap > span {
+      transform: translateX(0);
+    }
+  
+    .btn-arrow {
+      padding: 1em;
+      margin-inline-end: 1em;
+      border: 4px solid;
+      border-radius: 50%;
+      background-color: pink;
+      position: relative;
+      overflow: hidden;
+      transition: transform 250ms, background-color 250ms;
+      z-index: 100;
+    }
+  
+    .btn-arrow::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background-color: yellow;
+      transform: translateX(-100%);
+      z-index: -1;
+      transition: transform 250ms ease-in-out;
+    }
+  
+    .btn-custom:hover .btn-arrow::after {
+      transform: translateX(0);
+    }
+  
+    .btn-custom:hover .btn-arrow {
+      transform: translateX(5px);
+    }
+  
+    .btn-custom:active .btn-arrow {
+      transform: translateX(8px);
+    }
+  
+    .btn-arrow svg {
+      vertical-align: middle;
+    }
+  </style>
+  
+  <button class="btn-custom">
+    <div class="btn-text-wrap">
+      <span>Mais</span>
+      <span>Mais</span>
+    </div>
+    <div class="btn-arrow">
+      <svg
+        width="15"
+        height="15"
+        viewBox="0 0 45 38"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M43.7678 20.7678C44.7441 19.7915 44.7441 18.2085 43.7678 17.2322L27.8579 1.32233C26.8816 0.34602 25.2986 0.34602 24.3223 1.32233C23.346 2.29864 23.346 3.88155 24.3223 4.85786L38.4645 19L24.3223 33.1421C23.346 34.1184 23.346 35.7014 24.3223 36.6777C25.2986 37.654 26.8816 37.654 27.8579 36.6777L43.7678 20.7678ZM0 21.5L42 21.5V16.5L0 16.5L0 21.5Z"
+          fill="black"
+        ></path>
+      </svg>
+    </div>
+  </button>
+  
+          </div>
+        </section>
+      </section>
+
+
 
     <main class="content">
         
+       
         <!-- Seção de Manchete Principal -->
 <section class="featured-news">
     <div class="headline-container">
