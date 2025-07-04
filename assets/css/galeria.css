@@ -432,7 +432,7 @@
      color: var(--light-gray);
      transition: color var(--transition-fast);
  }
- 
+
  .footer-links a:hover {
      color: var(--white);
      padding-left: 5px;
@@ -445,8 +445,8 @@
      border: none;
      border-radius: var(--border-radius);
  }
- 
- .newsletter-btn {
+
+.newsletter-btn {
      width: 100%;
      padding: var(--space-xs);
      background-color: var(--primary-color);
