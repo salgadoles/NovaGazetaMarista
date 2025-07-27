@@ -333,6 +333,29 @@ document.addEventListener('DOMContentLoaded', function () {
       
         setInterval(showNextImage, 6000); // troca a cada 6 segundos
 
+        
+    (function() {
+           var script = document.createElement("script");
+           script.src = "https://unpkg.com/scrollreveal";
+           script.async = true;
+           script.onload = function() {
+               iniciarScrollReveal();
+           };
+           document.head.appendChild(script);
+       })();
+   
+       function iniciarScrollReveal() {
+       if (typeof ScrollReveal !== "undefined") {
+           ScrollReveal().reveal(" .content, .featured-news, .headline-container, .headline-card, .headline-content, .read-more-btn, .hidden, .search-results-title, .news-section, .news-card, .news-image, .news-card-content, .section-title, .footer, .footer-container, .footer-section, .footer-links, .newsletter-form, .newsletter-btn, .social-icons, .footer-bottom, .loading-overlay, .loading-spinner, .info-sidebar, .sidebar-toggle, .sidebar-icon, .sidebar-content, .sidebar-header, .sidebar-close, .sidebar-section, #searchResultsContainer, #searchResultsTitle, #searchResults, #allNews, #currentYear, #loadingOverlay, .conteiner-sobre, .dobra-1-topo, .logo-conexao, .txt-dobra-1, .tittle-dobra-1-esquerda, .tittle-dobra-1-direita, .wrapper-text, .img-dobra-1-direita, .txt-dobra-1-direita, .btn-custom, .btn-text-wrap, .btn-arrow", {
+               duration: 1200,
+               origin: "bottom",
+               distance: "20px",
+               delay: 0.5,
+               reset: true
+           });
+       }
+   }
+
     // --- INICIALIZAÇÃO ---
     initialize();
 });
