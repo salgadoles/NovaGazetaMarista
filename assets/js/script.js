@@ -278,7 +278,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 updateWeatherUI(data);
             } catch (error) {
                 console.error('Erro no widget de clima:', error);
-                weatherElements.city.textContent = 'Não disponível';
+                weatherElements.city.textContent = 'disponível';
                 weatherElements.temp.textContent = '--°C';
             } finally {
                 weatherElements.refreshBtn.classList.remove('loading');
