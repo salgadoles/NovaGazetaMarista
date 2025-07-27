@@ -185,18 +185,7 @@
           <img src="assets/img/logos/Lalala.pdf.jpg" alt="Banner 2">
         </div>
       </section>
-      <script>
-        const images = document.querySelectorAll(".carousel img");
-        let current = 0;
-      
-        function showNextImage() {
-          images[current].classList.remove("active");
-          current = (current + 1) % images.length;
-          images[current].classList.add("active");
-        }
-      
-        setInterval(showNextImage, 4000); // troca a cada 4 segundos
-      </script>
+     
       
       <section class="conteiner-sobre">
         <div class="dobra-1-topo">
@@ -225,108 +214,6 @@
 
              <!-- Botão estilizado com classes renomeadas e CSS em <style> -->
 
-<style>
-    .btn-custom {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      padding: 0.5em 0.5em 0.5em 0.5  em;
-      background-color: yellow;
-      cursor: pointer;
-      box-shadow: 4px 6px 0px black;
-      border: 4px solid;
-      border-radius: 15px;
-      position: relative;
-      overflow: hidden;
-      z-index: 100;
-      transition: box-shadow 250ms, transform 250ms, filter 50ms;
-      margin-bottom: 15%;
-      margin-top: 5%;
-    }
-  
-    .btn-custom:hover {
-      transform: translate(2px, 2px);
-      box-shadow: 2px 3px 0px black;
-    }
-  
-    .btn-custom:active {
-      filter: saturate(0.75);
-    }
-  
-    .btn-custom::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-color: pink;
-      z-index: -1;
-      transform: translateX(-100%);
-      transition: transform 250ms;
-    }
-  
-    .btn-custom:hover::after {
-      transform: translateX(0);
-    }
-  
-    .btn-text-wrap {
-      position: relative;
-      display: flex;
-      justify-content: start;
-      align-items: center;
-      overflow: hidden;
-      max-width: 35%;
-      font-size: 2em;
-      font-weight: 600;
-    }
-  
-    .btn-text-wrap span {
-      position: relative;
-      transform: translateX(-100%);
-      transition: all 250ms;
-    }
-  
-    .btn-custom:hover .btn-text-wrap > span {
-      transform: translateX(0);
-    }
-  
-    .btn-arrow {
-      padding: 1em;
-      margin-inline-end: 1em;
-      border: 4px solid;
-      border-radius: 50%;
-      background-color: pink;
-      position: relative;
-      overflow: hidden;
-      transition: transform 250ms, background-color 250ms;
-      z-index: 100;
-    }
-  
-    .btn-arrow::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      background-color: yellow;
-      transform: translateX(-100%);
-      z-index: -1;
-      transition: transform 250ms ease-in-out;
-    }
-  
-    .btn-custom:hover .btn-arrow::after {
-      transform: translateX(0);
-    }
-  
-    .btn-custom:hover .btn-arrow {
-      transform: translateX(5px);
-    }
-  
-    .btn-custom:active .btn-arrow {
-      transform: translateX(8px);
-    }
-  
-    .btn-arrow svg {
-      vertical-align: middle;
-    }
-  </style>
   
   <button class="btn-custom">
     <div class="btn-text-wrap">

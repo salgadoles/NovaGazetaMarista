@@ -322,6 +322,17 @@ document.addEventListener('DOMContentLoaded', function () {
         getLocation();
     }
 
+    const images = document.querySelectorAll(".carousel img");
+        let current = 0;
+      
+        function showNextImage() {
+          images[current].classList.remove("active");
+          current = (current + 1) % images.length;
+          images[current].classList.add("active");
+        }
+      
+        setInterval(showNextImage, 6000); // troca a cada 6 segundos
+
     // --- INICIALIZAÇÃO ---
     initialize();
 });
