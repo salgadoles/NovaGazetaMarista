@@ -1,68 +1,62 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <!-- Meta Tags Essenciais -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/svg+xml" href="assets/img/decorativos/icom.ico">
     <meta name="description" content="Nova Gazeta Marista - Notícias e informações para a comunidade escolar">
+    
     <!-- Scripts JavaScript -->
     <script defer src="assets/js/script.js"></script>
-
+    <script defer src="assets/js/galeia.js"></script>
+    
     <!-- Título da Página -->
     <title>Nova Gazeta Marista | Notícias da Escola</title>
-
+    
     <!-- Favicon -->
-    <link rel="icon" href="/assets/img/logos/gazeta-marista_radio-conexao.png" type="image/x-icon">
-
+    <link rel="icon" href="assets/img/logos/gazeta-marista_radio-conexao.png" type="image/x-icon">
+    
     <!-- Folhas de Estilo -->
     <link rel="stylesheet" href="assets/css/primcipal.css">
-
+    
     <!-- Font Awesome para Ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://unpkg.com/scrollreveal"></script>
 
     <!-- Pré-conexão para melhor performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- adição de uma nova fonte -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="stylesheet" href="https://use.typekit.net/coa1flt.css">
     <link rel="stylesheet" href="https://use.typekit.net/coa1flt.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Anton+SC&family=DM+Serif+Display:ital@0;1&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
     </style>
 </head>
 
-
-
 <body>
     <!-- Barra de Edição Dinâmica -->
     <div class="edition-banner" id="editionBanner"></div>
 
-
     <!-- Cabeçalho com Logo -->
     <header class="header">
         <style>
-            .logo-container {
-                display: flex !important;
-                flex-direction: row !important;
-            }
-
+            .logo-container { display: flex !important; flex-direction: row !important; }
             @media (max-width: 768px) {
-                .logo-container {
-                    flex-direction: column !important;
-                }
+                .logo-container { flex-direction: column !important; }
             }
         </style>
         <div class="logo-container">
-            <img src="assets/img/logos/gazeta-marista_radio-conexao.png" alt="Gazeta Marista" class="logo-icone">
-            <img id="projetoco" src="assets/img/logos/projetoco.png" alt="Rádio Conexão" class="logo-icone">
-
+            <img src="assets/img/logos/gazeta-marista_radio-conexao.png" 
+                 alt="Gazeta Marista" 
+                 class="logo-icone">
+            <img id="projetoco" src="assets/img/logos/projetoco.png" 
+                 alt="Rádio Conexão"
+                 class="logo-icone">
         </div>
 
-        <!--  mostrar o clima -->
+        <!-- Mostrar o clima -->
         <div class="weather-widget">
             <div class="weather-content">
                 <div class="weather-icon">
@@ -78,9 +72,8 @@
                 <i class="fas fa-sync-alt"></i>
             </button>
         </div>
-
     </header>
-
+    
     <nav class="navbar">
         <div class="nav-container">
             <!-- Menu Desktop -->
@@ -89,27 +82,31 @@
                 <ul class="menu">
                     <li><a href="paginas/saude.html">Saúde</a></li>
                     <li><a href="paginas/entretenimento.html">Entretenimento</a></li>
-                    <li><a href="paginas/esportes.html">Esportes</a></li>
+                    <li><a href="paginas/esportes.html">Esportes</a></li> 
                     <li><a href="paginas/vida-estudantil.html">Vida Estudantil</a></li>
                     <li><a href="paginas/entrevistas.html">Entrevistas</a></li>
-                    <li><a href="paginas/galeria.html">galeria</a></li>
+                    <li><a href="paginas/galeria.html">Galeria</a></li> 
                     <li><a href="paginas/recomendados.html">Notícias Passadas</a></li>
-
                 </ul>
                 <button class="nav-arrow nav-arrow-right" aria-label="Scroll menu right">&#10095;</button>
             </div>
 
             <!-- Barra de Pesquisa -->
             <div class="search-container">
-                <input type="text" placeholder="Pesquisar notícias..." id="searchInput"
-                    aria-label="Campo de pesquisa de notícias">
+                <input type="text" 
+                       placeholder="Pesquisar notícias..." 
+                       id="searchInput"
+                       aria-label="Campo de pesquisa de notícias">
                 <button id="searchBtn" aria-label="Buscar">
                     <i class="fas fa-search"></i>
                 </button>
             </div>
 
             <!-- Botão do Menu Mobile -->
-            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir menu mobile" aria-expanded="false">
+            <button class="mobile-menu-btn" 
+                    id="mobileMenuBtn"
+                    aria-label="Abrir menu mobile"
+                    aria-expanded="false">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
@@ -119,16 +116,18 @@
             <ul>
                 <li><a href="paginas/saude.html">Saúde</a></li>
                 <li><a href="paginas/entretenimento.html">Entretenimento</a></li>
-                <li><a href="paginas/esportes.html">Esportes</a></li>
+                <li><a href="paginas/esportes.html">Esportes</a></li> 
                 <li><a href="paginas/vida-estudantil.html">Vida Estudantil</a></li>
                 <li><a href="paginas/entrevistas.html">Entrevistas</a></li>
-                <li><a href="paginas/galeria.html">galeria</a></li>
+                <li><a href="paginas/galeria.html">Galeria</a></li> 
                 <li><a href="paginas/recomendados.html">Notícias Passadas</a></li>
             </ul>
-
+            
             <!-- Pesquisa Mobile -->
             <div class="mobile-search">
-                <input type="text" placeholder="Pesquisar..." aria-label="Campo de pesquisa mobile">
+                <input type="text" 
+                       placeholder="Pesquisar..."
+                       aria-label="Campo de pesquisa mobile">
                 <button aria-label="Buscar"><i class="fas fa-search"></i></button>
             </div>
         </div>
@@ -151,7 +150,6 @@
 
     <!-- Conteúdo Principal -->
     <main class="content">
-
         <!-- Seção de Manchete Principal -->
         <section class="featured-news">
             <div class="headline-container">
@@ -160,8 +158,7 @@
                     <img src="assets/img/artigos/news-24.jpeg"
                         alt="Mala peregrina chega à nossa escola na celebração dos 20 anos da PJM">
                     <div class="headline-content">
-                        <h2>No dia 12 de maio, nossa escola recebeu com alegria a mala peregrina, símbolo itinerante
-                        </h2>
+                        <h2>No dia 12 de maio, nossa escola recebeu com alegria a mala peregrina, símbolo itinerante</h2>
                         <p>da comemoração pelos 20 anos da Pastoral Juvenil Marista (PJM). A mala veio da </p>
                         <a href="assets/postis/vida13.html" class="read-more-btn">Ler mais</a>
                     </div>
@@ -169,9 +166,12 @@
             </div>
         </section>
 
-
-
-
+        <section class="banner-principal">
+            <div class="carousel">
+                <img src="assets/img/Design sem nome (1).jpg" class="active" alt="Banner 1">
+                <img src="assets/img/logos/Lalala.pdf.jpg" alt="Banner 2">
+            </div>
+        </section>
 
         <!-- Container de Resultados da Busca (inicialmente oculto) -->
         <div id="searchResultsContainer" class="hidden">
@@ -182,18 +182,11 @@
         <!-- Seção de Todas as Notícias -->
         <div id="allNews">
             <h1 class="section-title">Últimas Notícias</h1>
-
+            
             <!-- Grid de Notícias -->
-
-            <!-- ultima noticia que eu consegui fazer -->
-
-
             <div class="news-section">
-
-
-
                 <article class="news-card" data-keywords="Homem com H – Ney Matogrosso e a liberdade de ser">
-                    <img src="../assets/img/artigos/Homem com H.jpg"
+                    <img src="assets/img/artigos/Homem com H.jpg"
                         alt="Imagem Homem com H – Ney Matogrosso e a liberdade de ser" class="news-image">
                     <div class="news-card-content">
                         <h3>Homem com H – Ney Matogrosso e a liberdade de ser</h3>
@@ -203,249 +196,17 @@
                             ato de liberdade. Com sua presença marcante, Ney rompeu padrões e se firmou como uma das
                             figuras mais expressivas da cultura brasileira...
                         </p>
-                        <a href="../assets/postis/entretenimento16.html" class="read-more-btn">Continuar lendo</a>
+                        <a href="assets/postis/entretenimento16.html" class="read-more-btn">Continuar lendo</a>
                     </div>
                 </article>
 
-                <article class="news-card"
-                    data-keywords="Que Horas Ela Volta? Um retrato sensível e necessário do Brasil">
-                    <img src="../assets/img/artigos/Que horas ela volta.jpg"
-                        alt="Imagem Que Horas Ela Volta? Um retrato sensível e necessário do Brasil" class="news-image">
-                    <div class="news-card-content">
-                        <h3>Que Horas Ela Volta? Um retrato sensível e necessário do Brasil</h3>
-                        <p>Que Horas Ela Volta?, dirigido por Anna Muylaert, é um dos filmes brasileiros mais
-                            impactantes da última década. Através da história de Val, uma empregada doméstica que
-                            trabalha há anos na casa de uma família rica em São Paulo, o filme discute desigualdade
-                            social, relações de classe e o lugar que se espera que cada um ocupe dentro dessa estrutura.
-                            ...</p>
-                        <a href="../assets/postis/entretenimento15.html" class="read-more-btn">Continuar lendo</a>
-                    </div>
-                </article>
-
-
-                <article class="news-card"
-                    data-keywords="Madrugada de inovação: tecnologia e sustentabilidade no Hackathon Programar">
-                    <img src="../assets/img/artigos/hackaton1.jpeg" alt="Imagem do Programar Marista"
-                        class="news-image">
-                    <div class="news-card-content">
-                        <h3>Madrugada de inovação: tecnologia e sustentabilidade no Hackathon Programar</h3>
-                        <p>Na madrugada dos dias 27 para 28 de junho, o Colégio Santa Maria, em Curitiba, foi palco do
-                            Hackathon Programar, um evento que reuniu estudantes apaixonados por tecnologia para
-                            desenvolver projetos inovadores...</p>
-                        <a href="../assets/postis/entretenimento14.html" class="read-more-btn">Continuar lendo</a>
-                    </div>
-                </article>
-
-                <article class="news-card"
-                    data-keywords="Arraial no Marista Irmão Acácio celebra cultura e alegria dos alunos">
-                    <img src="../assets/img/artigos/arraiaMarista1.jpg"
-                        alt="Imagem do Arraial no Marista Irmão Acácio celebra cultura e alegria dos alunos"
-                        class="news-image">
-                    <div class="news-card-content">
-                        <h3>Arraial no Marista Irmão Acácio celebra cultura e alegria dos alunos</h3>
-                        <p>A Escola Social Marista Irmão Acácio realizou, no dia 6 de junho, sua tradicional festa
-                            junina, organizada pela coordenação do colégio. O evento contou com diversas comidas
-                            típicas, como cachorro-quente, paçoca, pé de moleque, canudo de doce de leite, pastel e
-                            outras...</p>
-                        <a href="../assets/postis/entretenimento13.html" class="read-more-btn">Continuar lendo</a>
-                    </div>
-                </article>
-
-                <article class="news-card" data-keywords="Dia dos Namorados: um dia para amar">
-                    <img src="../assets/img/artigos/Dia dos Namorados.jpg" alt="Dia dos Namorados: um dia para amar"
-                        class="news-image">
-                    <div class="news-card-content">
-                        <h3>Dia dos Namorados: um dia para amar</h3>
-                        <p>O Dia dos Namorados, comemorado em 12 de junho, é uma data feita para celebrar o amor em
-                            todas as suas formas. É quando os corações... </p>
-                        <a href="../assets/postis/entretenimento12.html" class="read-more-btn">Continuar lendo</a>
-                    </div>
-                </article>
-
-                <article class="news-card"
-                    data-keywords="Dia D Voluntariado reúne o Colégio Marista Londrina e a Escola Social Marista Ir. Acácio">
-                    <img src="../assets/img/artigos/Dia-D-Voluntariado.png"
-                        alt="Dia D Voluntariado reúne o Colégio Marista Londrina e a Escola Social Marista Ir. Acácio"
-                        class="news-image">
-                    <div class="news-card-content">
-                        <h3>Dia D Voluntariado reúne o Colégio Marista Londrina e a Escola Social Marista Ir. Acácio
-                        </h3>
-                        <p>No dia 14 de junho, ocorreu em nossa escola o Dia D Voluntariado, que reuniu os participantes
-                            da PJM do Colégio Marista Londrina e da Escola Social Marista Ir. Acácio...</p>
-                        <a href="../assets/postis/entretenimento11.html" class="read-more-btn">Continuar lendo</a>
-                    </div>
-                </article>
-
-                <article class="news-card"
-                    data-keywords="Mariana: a mente por trás da celebração esportiva nos Jogos Escolares Marista">
-                    <img src="../assets/img/artigos/Mariana.jpg"
-                        alt="Imagem de Mariana: a mente por trás da celebração esportiva nos Jogos Escolares Marista"
-                        class="news-image">
-                    <div class="news-card-content">
-                        <h3>Mariana: a mente por trás da celebração esportiva nos Jogos Escolares Marista</h3>
-                        <p>
-                            “Os Jogos Escolares: uma celebração inclusiva de esporte e união escolar, promovida pela
-                            colaboração entre a Pastoral e a escola, onde alunos de diferentes níveis e gêneros se
-                            destacam no vôlei e no futebol.”...
-                        </p>
-                        <a href="../assets/postis/entrevista6.html" class="read-more-btn">Continuar lendo</a>
-                    </div>
-                </article>
-
-
-                <article class="news-card"
-                    data-keywords="Wagner: o juiz estratégico por trás da pontuação nos Jogos Escolares">
-                    <img src="../assets/img/artigos/Wagner.jpg"
-                        alt="Imagem de Wagner: o juiz estratégico por trás da pontuação nos Jogos Escolares"
-                        class="news-image">
-                    <div class="news-card-content">
-                        <h3>Wagner: o juiz estratégico por trás da pontuação nos Jogos Escolares</h3>
-                        <p>
-                            “Nos Jogos Escolares, Wagner desempenhou um papel crucial como um dos juízes, marcando os
-                            pontos com precisão e garantindo a justiça nas competições. Sua atuação foi fundamental para
-                            o sucesso do evento, proporcionando uma experiência esportiva memorável para todos os
-                            participantes.”...
-                        </p>
-                        <a href="../assets/postis/entrevista5.html" class="read-more-btn">Continuar lendo</a>
-                    </div>
-                </article>
-
-                <article class="news-card" data-keywords="Entrevista Interclasse Marista – Juiz Gustavo">
-                    <div style="display: flex; align-items: center; background-color: black; width: 100%;">
-                        <img src="../assets/img/artigos/ArbitroGustavo.jpeg"
-                            alt="Imagem da Entrevista Interclasse Marista – Juiz Gustavo" class="news-image"
-                            style="width:fit-content; position: relative; left: 30%; background-color: black;">
-                    </div>
-                    <div class="news-card-content">
-                        <h3>Entrevista Interclasse Marista – Juiz Gustavo</h3>
-                        <p> <b>Gazeta Marista:</b> Você é árbitro há quanto tempo?
-                            <br>
-                            <b>Gustavo:</b> Bom dia. Hoje é o meu primeiro jogo como árbitro, mas sou professor de
-                            futsal,
-                            então estou bastante envolvido com o futebol.
-                            ...
-                        </p>
-                        <a href="../assets/postis/entrevista4.html" class="read-more-btn">Continuar lendo</a>
-                    </div>
-                </article>
-
-                <article class="news-card"
-                    data-keywords="Entrevista com a professora Gabriella Ciotto sobre suas rodas de leitura">
-                    <img src="../assets/img/artigos/Entrevista-com-a-professora-Gabriella-Ciotto.jpg"
-                        alt="Imagem da entrevista com a professora Gabriella Ciotto sobre suas rodas de leitura"
-                        class="news-image">
-                    <div class="news-card-content">
-                        <h3>Entrevista com a professora Gabriella Ciotto sobre suas rodas de leitura</h3>
-                        <p> “Gabriella Ciotto, atualmente professora de Português, já foi educadora social. Formada em
-                            Letras – Português, é pós-graduada em Direitos Humanos e Questões Sociais. Em nossa escola,
-                            sua trajetória começou com um estágio obrigatório da faculdade, em 2016. Após...</p>
-                        <a href="../assets/postis/entrevista3.html" class="read-more-btn">Continuar lendo</a>
-                    </div>
-                </article>
-
-                <article class="news-card" data-keywords="COP 30 movimenta a escola">
-                    <img src="../assets/img/artigos/coptrinta2.jpeg" alt="COP 30 movimenta a escola" class="news-image">
-                    <div class="news-card-content">
-                        <h3>COP 30 movimenta a escola</h3>
-                        <p>Ao longo do primeiro semestre de 2025, os alunos do Marista Escola Social Ir. Acácio
-                            desenvolveram projetos voltados à 30ª Conferência das Partes (COP)...
-                        </p>
-                        <a href="../assets/postis/vida10.html" class="read-more-btn">Continuar lendo</a>
-                    </div>
-                </article>
-
-                <article class="news-card" data-keywords="Gabriela Bodon Entrevista">
-                    <img src="../assets/img/artigos/Gabi Bodon.jpeg" alt="Gabriela Bodon" class="news-image">
-                    <div class="news-card-content">
-                        <h3>Gabriela Bodon: a árbitra que ofereceu apoio e organização nos Jogos Escolares</h3>
-                        <p> “Nos Jogos Escolares, Gabriela Bodon desempenhou um papel abrangente como árbitra, apoiando
-                            os jogadores, organizando o evento e oferecendo apoio moral...
-                        </p>
-                        <a href="../assets/postis/vida11.html" class="read-more-btn">Continuar lendo</a>
-                    </div>
-                </article>
-
-                <article class="news-card" data-keywords="Estudantes do segundo e terceiro ano participam de projeto de extensão sobre acesso à
-                justiça">
-                    <img src="../assets/img/artigos/projetoExtensao.jpg" alt="Imagem Projeto Extensão"
-                        class="news-image">
-                    <div class="news-card-content">
-                        <h3>Estudantes do segundo e terceiro ano participam de projeto de extensão sobre acesso à
-                            justiça</h3>
-                        <p>Na manhã de segunda-feira (9) e terça-feira (10), alunos do segundo e terceiro ano do Ensino
-                            Médio da Escola Social Marista Ir. Acácio participaram de um projeto de extensão com
-                            estudantes do curso de Direito da PUC. ...
-                        </p>
-                        <a href="../assets/postis/vida12.html" class="read-more-btn">Continuar lendo</a>
-                    </div>
-                </article>
-
-                <article class="news-card" data-keywords="Indústria da moda: impactos psicológicos e sociais">
-                    <img src="../assets/img/artigos/Mercado da moda (1).jpg"
-                        alt="Imagem Indústria da moda: impactos psicológicos e sociais" class="news-image">
-                    <div class="news-card-content">
-                        <h3>Indústria da moda: impactos psicológicos e sociais</h3>
-                        <p>A indústria da moda tem exercido uma influência significativa nos padrões estéticos da
-                            sociedade desde o século passado, exibindo visuais muitas vezes irreais. Esse impacto é
-                            especialmente notável...</p>
-                        <a href="../assets/postis/saude2.html" class="read-more-btn">Continuar lendo</a>
-                    </div>
-                </article>
-
-                <!-- Fim noticias de Junho -->
-                <!-- Inicio noticias de Maio -->
-
+                <!-- Outros artigos de notícias... -->
+                <!-- (Manter a estrutura consistente para todos os artigos) -->
                 
-                <article class="news-card"
-                data-keywords="Estudantes representam a escola em palestra sobre mudanças climáticas e COP30 ">
-                <img src="../assets/img/artigos/hiphop1.JPG"
-                    alt="Estudantes representam a escola em palestra sobre mudanças climáticas e COP30 " class="news-image">
-                <div class="news-card-content">
-                    <h3>Geografia em Maquetes: Criatividade e Conhecimento em Ação
-                    </h3>
-                    <p> No dia 29 de maio, quatro estudantes da Escola Social Marista Irmão Acácio participaram de uma palestra sobre mudanças climáticas e a COP30, realizada na Subseção da OAB em Londrina. O evento contou com a presença de figuras importantes como o diretor da OAB Londrina, Mário Sergio Dias Xavier, o coordenador do núcleo socioambiental do norte do Paraná, Bruno Bahiana, e o renomado palestrante Átila Iamarino. Representando a escola e atuando como porta-vozes do conteúdo apresentado, foram selecionados Alexandre Mário (1ºB), Vitória Oliveira (1ºA), Murillo Lucas (9ºA) e Sophia Murare (9ºB), acompanhados pelo  . 
-                        ...</p>
-                    <a href="../assets/postis/entretenimento18.html" class="read-more-btn">Continuar lendo</a>
-                </div>
-            </article>
-
-
-                <article class="news-card"
-                data-keywords="Segunda edição do “Irmão Acácio Convida” traz palestra sobre design e mercado digital">
-                <img src="../assets/img/artigos/hiphop1.JPG"
-                    alt="Segunda edição do “Irmão Acácio Convida” traz palestra sobre design e mercado digital" class="news-image">
-                <div class="news-card-content">
-                    <h3>Segunda edição do “Irmão Acácio Convida” traz palestra sobre design e mercado digital
-                    </h3>
-                    <p> Na manhã do dia 27 de maio, os alunos do 3º ano do Ensino Médio da Escola Social Marista Irmão Acácio participaram da segunda edição do projeto “Irmão Acácio Convida”. A iniciativa tem como objetivo oferecer palestras com profissionais de diferentes áreas ligadas à tecnologia, programação e design, ampliando. 
-                        ...</p>
-                    <a href="../assets/postis/entretenimento18.html" class="read-more-btn">Continuar lendo</a>
-                </div>
-            </article>
-
-
-                <article class="news-card"
-                    data-keywords="Escola Marista Social promove conscientização com dança Hip Hop no combate ao abuso infantil">
-                    <img src="../assets/img/artigos/hiphop1.JPG"
-                        alt="Escola Marista Social promove conscientização com dança Hip Hop no combate ao abuso infantil" class="news-image">
-                    <div class="news-card-content">
-                        <h3>Escola Marista Social promove conscientização com dança Hip Hop no combate ao abuso infantil
-                        </h3>
-                        <p> Alunos da Escola Marista Social realizaram uma roda de dança Hip Hop como parte de uma ação
-                            de
-                            conscientização contra o abuso e a exploração sexual de crianças e adolescentes, em
-                            referência ao
-                            Dia Nacional de Combate, celebrado em 18 de maio..
-                            ...</p>
-                        <a href="../assets/postis/entretenimento17.html" class="read-more-btn">Continuar lendo</a>
-                    </div>
-                </article>
-
-                <article class="news-card"
-                    data-keywords="MeetUp conecta ex-alunos e discute formação em vendas na Escola Marista Ir. Acácio">
-                    <img src="assets/img/artigos/news-21.jpeg"
-                        alt="MeetUp conecta ex-alunos e discute formação em vendas na Escola Marista Ir. Acácio"
-                        class="news-image">
+                <article class="news-card" data-keywords="Alunos do Projeto Conexão Realizam Visita à Tarobá">
+                    <img src="assets/img/artigos/news-21.jpeg" 
+                         alt="MeetUp conecta ex-alunos e discute formação em vendas na Escola Marista Ir. Acácio"
+                         class="news-image">
                     <div class="news-card-content">
                         <h3>Alunos do Projeto Conexão Realizam Visita à Tarobá</h3>
                         <p> Durante as tardes dos dias 17 e 25 de abril, os estudantes do Projeto Conexão, da </p>
@@ -453,189 +214,18 @@
                     </div>
                 </article>
 
-
                 <article class="news-card" data-keywords="Olhar de Poesia - Descobrindo o Mundo Infantil">
-                    <img src="assets/img/artigos/news-23.jpg" alt="Olhar de Poesia - Descobrindo o Mundo Infantil"
-                        class="news-image">
+                    <img src="assets/img/artigos/news-23.jpg" 
+                         alt="Olhar de Poesia - Descobrindo o Mundo Infantil"
+                         class="news-image">
                     <div class="news-card-content">
-                        <h3>Alunos da Escola Social Marista Irmão Acácio recebem visita inspiradora de profissionais da
-                            área de dados</h3>
+                        <h3>Alunos da Escola Social Marista Irmão Acácio recebem visita inspiradora de profissionais da área de dados</h3>
                         <p>Na última semana, os alunos do 2º ano do Ensino Médio da Marista Escola Social </p>
-                        <br>
                         <a href="assets/postis/vida9.html" class="read-more-btn">Continuar lendo</a>
                     </div>
                 </article>
-
-                <article class="news-card" data-keywords="Olhar de Poesia - Descobrindo o Mundo Infantil">
-                    <img src="assets/img/artigos/news-22.jpeg" alt="Olhar de Poesia - Descobrindo o Mundo Infantil"
-                        class="news-image">
-                    <div class="news-card-content">
-                        <h3>Participantes da PJM São Convidados para Participar do CLIMA</h3>
-                        <p>No dia 3 de abril, três alunos da nossa escola foram convidados a participar do </p>
-                        <a href="assets/postis/vida8.html" class="read-more-btn">Continuar lendo</a>
-                    </div>
-                </article>
-
-
-                <article class="news-card"
-                    data-keywords="Projeto Rua Leva Cultura Hip Hop para Crianças de 10 a 12 Anos">
-                    <img src="assets/img/artigos/news-20.jpeg"
-                        alt="Projeto Rua Leva Cultura Hip Hop para Crianças de 10 a 12 Anos" class="news-image">
-                    <div class="news-card-content">
-                        <h3>Projeto Rua Leva Cultura Hip Hop para Crianças de 10 a 12 Anos</h3>
-                        <p> O Projeto Rua, liderado pela educadora Priscila, está transformando a vida de </p>
-                        <a href="assets/postis/entretenimento10.html" class="read-more-btn">Continuar lendo</a>
-                    </div>
-                </article>
-
-
-                <article class="news-card" data-keywords="Olhar de Poesia - Descobrindo o Mundo Infantil">
-                    <img src="assets/img/artigos/news-19.jpeg" alt="Olhar de Poesia - Descobrindo o Mundo Infantil"
-                        class="news-image">
-                    <div class="news-card-content">
-                        <h3>Olhar de Poesia - Descobrindo o Mundo Infantil</h3>
-                        <p> Poesia é um projeto do Serviço de Convivência do Irmão Acácio, voltado para as crianças </p>
-                        <a href="assets/postis/vida6.html" class="read-more-btn">Continuar lendo</a>
-                    </div>
-                </article>
-
-                <article class="news-card"
-                    data-keywords="MeetUp conecta ex-alunos e discute formação em vendas na Escola Marista Ir. Acácio">
-                    <img src="assets/img/artigos/news-18.JPG"
-                        alt="MeetUp conecta ex-alunos e discute formação em vendas na Escola Marista Ir. Acácio"
-                        class="news-image">
-                    <div class="news-card-content">
-                        <h3>Irmão João e a PJM: Uma História de Vocação, Educação e Missão Solidária</h3>
-                        <p> A trajetória do Irmão João é marcada pela vocação, educação e dedicação à </p>
-                        <a href="assets/postis/entretenimento9.html" class="read-more-btn">Continuar lendo</a>
-                    </div>
-                </article>
-
-                <article class="news-card"
-                    data-keywords="MeetUp conecta ex-alunos e discute formação em vendas na Escola Marista Ir. Acácio">
-                    <img src="assets/img/artigos/news-papa.jpg"
-                        alt="MeetUp conecta ex-alunos e discute formação em vendas na Escola Marista Ir. Acácio"
-                        class="news-image">
-                    <div class="news-card-content">
-                        <h3>Papa Francisco: voz da paz, símbolo de esperança e união entre as nações</h3>
-                        <p> Faleceu no dia 21 de abril o Papa Francisco (nome de nascimento: Jorge Mario Bergoglio),
-                        </p>
-                        <a href="assets/postis/recomendados3.html" class="read-more-btn">Continuar lendo</a>
-                    </div>
-                </article>
-
-
-                <article class="news-card"
-                    data-keywords="MeetUp conecta ex-alunos e discute formação em vendas na Escola Marista Ir. Acácio">
-                    <img src="assets/img/artigos/news-15.JPG"
-                        alt="MeetUp conecta ex-alunos e discute formação em vendas na Escola Marista Ir. Acácio"
-                        class="news-image">
-                    <div class="news-card-content">
-                        <h3>MeetUp conecta ex-alunos e discute formação em vendas na Escola Marista Ir. Acácio</h3>
-                        <p> No dia 28 de março, a Marista Escola Social Irmão Acácio realizou um MeetUp </p>
-                        <a href="assets/postis/entretenimento8.html" class="read-more-btn">Continuar lendo</a>
-                    </div>
-                </article>
-
-                <article class="news-card"
-                    data-keywords="Projeto Pretitudes promove debate sobre o mito do “racismo reverso”">
-                    <img src="assets/img/artigos/news-16.JPG"
-                        alt="Projeto Pretitudes promove debate sobre o mito do “racismo reverso”" class="news-image">
-                    <div class="news-card-content">
-                        <h3>Projeto Pretitudes promove debate sobre o mito do “racismo reverso”</h3>
-                        <p>No dia 29 de abril, foi realizado, no espaço Papa Francisco (conhecido como “redondo”), </p>
-                        <a href="assets/postis/entretenimento7.html" class="read-more-btn">Continuar lendo</a>
-                    </div>
-                </article>
-
-                <article class="news-card"
-                    data-keywords="Escola Social Marista Irmão Acácio estreia com garra nos Jogos Escolares">
-                    <img src="assets/img/artigos/news-14.JPG"
-                        alt="Escola Social Marista Irmão Acácio estreia com garra nos Jogos Escolares"
-                        class="news-image">
-                    <div class="news-card-content">
-                        <h3>Escola Social Marista Irmão Acácio estreia com garra nos Jogos Escolares</h3>
-                        <p>Os Jogos Escolares de Londrina e região aconteceram entre os dias 24 de março e </p>
-                        <a href="assets/postis/esportes0.html" class="read-more-btn">Continuar lendo</a>
-                    </div>
-                </article>
-
-
-                <article class="news-card"
-                    data-keywords="Evento celebra ações pastorais e fortalece vínculos na comunidade escolar">
-                    <img src="assets/img/artigos/wews-14.jpeg"
-                        alt="Evento celebra ações pastorais e fortalece vínculos na comunidade escolar"
-                        class="news-image">
-                    <div class="news-card-content">
-                        <h3>Evento celebra ações pastorais e fortalece vínculos na comunidade escolar</h3>
-                        <p>No dia 25 de março, o Marista Escola Social Irmão Acácio realizou um evento em homenagem às
-                            ações pastorais do colégio, que fortalecem vínculos e oferecem </p>
-                        <a href="assets/postis/vida5.html" class="read-more-btn">Continuar lendo</a>
-                    </div>
-                </article>
-
-
-
-                <article class="news-card" data-keywords="Biblioteca clube do livro leitura debate literário">
-                    <img src="assets/img/artigos/news-9_1.jpeg"
-                        alt="Estudantes participando do clube do livro na biblioteca" class="news-image">
-                    <div class="news-card-content">
-                        <h3>BIBLIOTECA LANÇA CLUBE DO LIVRO PARA INCENTIVAR A LEITURA</h3>
-                        <p>A ideia de criar um Clube do Livro partiu da bibliotecária Tamires, que percebeu a
-                            necessidade de um projeto exclusivo da biblioteca escolar...</p>
-                        <a href="assets/postis/recomendados0.html" class="read-more-btn">Continuar lendo</a>
-                    </div>
-                </article>
-
-
-                <article class="news-card" data-keywords="Goit hackaton tecnologia competição estudantes">
-                    <img src="assets/img/artigos/news-11.JPG" alt="Estudantes participando do hackaton GoIT"
-                        class="news-image">
-                    <div class="news-card-content">
-                        <h3>GOIT: O QUE ACONTECEU NO HACKEATON DE 2024?</h3>
-                        <p>No dia 30 de novembro de 2024 (sábado) a Escola Social Marista Irmão Acácio sediou o evento
-                            de Hackeaton "GoIT", juntamente com a multinacional TCS para os alunos do segundo ano do
-                            Ensino Médio da instituição...</p>
-                        <a href="assets/postis/vida0.html" class="read-more-btn">Continuar lendo</a>
-                    </div>
-                </article>
-
-
-
-                <article class="news-card" data-keywords="Tata mulheres tecnologia palestra dia internacional">
-                    <img src="assets/img/artigos/news-12.jpeg" alt="Funcionárias da Tata ministrando palestra"
-                        class="news-image">
-                    <div class="news-card-content">
-                        <h3>FUNCIONÁRIAS DA TATA REALIZAM PALESTRA NO DIA DAS MULHERES NA TECNOLOGIA</h3>
-                        <p>No dia 11 de fevereiro (terça-feira), duas funcionárias da empresa multinacional Tata
-                            realizaram uma palestra para o público feminino da Escola Social Marista Ir. Acácio...</p>
-                        <a href="assets/postis/entretenimento1.html" class="read-more-btn">Continuar lendo</a>
-                    </div>
-                </article>
-
-
-                <article class="news-card" data-keywords="ESTUDANTES GANHAM NOVOS COMPUTADORES EM AÇÃO SOLIDÁRIA">
-                    <img src="assets/img/artigos/news-13.jpg" alt="Estudantes recebendo computadores novos"
-                        class="news-image">
-                    <div class="news-card-content">
-                        <h3>ESTUDANTES GANHAM NOVOS COMPUTADORES EM AÇÃO SOLIDÁRIA</h3>
-                        <p>No dia 21 de fevereiro, a Escola Social Marista Irmão Acácio recebeu a visita de uma
-                            importante iniciativa do projeto OAT, em parceria com uma Empresa Tecnológica...</p>
-                        <a href="assets/postis/recomendados1.html" class="read-more-btn">Continuar lendo</a>
-                    </div>
-                </article>
-
-
-
-
-
-
-
-
-                <!-- esta é uma estrutura base para novas noticias 
-               Adicione mais notícias conforme necessário seguindo o mesmo padrão -->
-
-                <!-- Outros cards de notícia... -->
+                
+                <!-- Continuar com os demais artigos mantendo a mesma estrutura -->
             </div>
         </div>
     </main>
@@ -643,42 +233,30 @@
     <!-- Rodapé -->
     <footer class="footer">
         <div class="footer-container">
-            <!-- Seção Sobre Nós -->
+            <!-- Seção Projeto Conexão -->
             <section class="footer-section">
-                <h3>Sobre Nós</h3>
-                <p>Somos a equipe de alunos dedicados da rádio Conexão, responsáveis por trazer as melhores informações
-                    sobre o Marista e o mundo. Garantimos conteúdo de qualidade para alunos e responsáveis.</p>
+                <h3>Projeto Conexão</h3>
+                <p>O Projeto Conexão é uma iniciativa que une informação, criatividade e colaboração. Aqui, nossos alunos se tornam jornalistas, apresentadores e criadores de conteúdo, transformando suas vozes em notícias que importam.</p>
+                <button type="submit" class="newsletter-btn">leia mais sobre</button>
             </section>
 
             <!-- Links Rápidos -->
             <section class="footer-section">
                 <h3>Links Rápidos</h3>
                 <ul class="footer-links">
-                    <li><a href="./html/sobre.html">Sobre o Projeto</a></li>
-                    <li><a href="./html/equipe.html">Nossa Equipe</a></li>
-                    <li><a href="./html/contato.html">Contato</a></li>
-                    <li><a href="./html/privacidade.html">Política de Privacidade</a></li>
+                    <li><a href="html/sobre.html">Sobre o Projeto</a></li>
+                    <li><a href="html/equipe.html">Nossa Equipe</a></li>
+                    <li><a href="html/contato.html">Contato</a></li>
+                    <li><a href="html/privacidade.html">Política de Privacidade</a></li>
                 </ul>
-            </section>
-
-            <!-- Newsletter -->
-            <section class="footer-section">
-                <h3>Receba Nossa Newsletter</h3>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Seu melhor e-mail" required
-                        aria-label="Insira seu e-mail para newsletter">
-                    <button type="submit" class="newsletter-btn">Assinar</button>
-                </form>
             </section>
 
             <!-- Redes Sociais -->
             <section class="footer-section">
                 <h3>Conecte-se</h3>
                 <div class="social-icons">
-                    <a href="https://facebook.com" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
                     <a href="https://instagram.com" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     <a href="https://youtube.com" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                    <a href="https://spotify.com" aria-label="Spotify"><i class="fab fa-spotify"></i></a>
                 </div>
             </section>
         </div>
@@ -691,14 +269,9 @@
 
     <div id="loadingOverlay" class="loading-overlay">
         <div class="loading-spinner"></div>
-
-
     </div>
 
     <!-- Barra Lateral Informativa -->
-    <!-- <div class="info-sidebar">
-
- <!-- Barra Lateral Informativa -->
     <div class="info-sidebar">
         <button class="sidebar-toggle" aria-label="Abrir informações da equipe">
             <img src="assets/img/decorativos/barra-lateral.png" alt="Ícone da equipe" class="sidebar-icon">
@@ -723,34 +296,20 @@
             <div class="sidebar-section">
                 <h4><i class="fas fa-code"></i> Equipe de Programação</h4>
                 <ul>
-                    <!-- eu se eu sei eu esqueci de pegar alguns nome  -->
-                    <li>felipe da silva gonçalves</li>
+                    <li>Felipe da Silva Gonçalves</li>
                     <li>Samuel Lima Do Amaral</li>
                     <li>Chrystian de Almeida Silva</li>
                     <li>Emanuel Pereira da Silva</li>
                     <li>Alexandre Mario Costa Gurgel</li>
                     <li>Heitor Oliveira Almeida</li>
-
                 </ul>
             </div>
 
             <div class="sidebar-section">
                 <h4><i class="fas fa-info-circle"></i> Sobre o Projeto</h4>
-                <p> Somos a equipe responsável pelo site da Gazeta Marista. Cuidamos da seleção, edição e publicação de
-                    todo o conteúdo que você vê por aqui. Com a orientação dos professores. </p>
+                <p>Somos a equipe responsável pelo site da Gazeta Marista. Cuidamos da seleção, edição e publicação de todo o conteúdo que você vê por aqui. Com a orientação dos professores.</p>
             </div>
-
-            <!-- <div class="sidebar-footer">
-            <a href="paginas/sobre.html" class="read-more-btn">Mais informações</a>
-        </div> -->
         </div>
-
-    </div> -->
-    <!-- final da barra latera  -->
     </div>
-    <!-- final da barra latera  -->
-
-
 </body>
-
 </html>
