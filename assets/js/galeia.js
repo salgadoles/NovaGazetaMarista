@@ -1,16 +1,20 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Inicializa a galeria lightbox
-    const gallery = lightGallery(document.querySelector('.gallery-container'), {
-        selector: '.gallery-link',
-        download: false,
-        counter: false,
-        plugins: [lgZoom, lgThumbnail],
-        mobileSettings: {
-            controls: true,
-            showCloseIcon: true,
-            download: false
-        }
-    });
+    const galleryContainer = document.querySelector('.gallery-container');
+    
+    if (galleryContainer) {
+        lightGallery(galleryContainer, {
+            selector: '.gallery-link',
+            download: false,
+            counter: false,
+            plugins: [lgZoom, lgThumbnail],
+            mobileSettings: {
+                controls: true,
+                showCloseIcon: true,
+                download: false
+            }
+        });
+    }
 
     // Filtro por palavras-chave (opcional)
     const filterButtons = document.querySelectorAll('.filter-btn');
@@ -31,4 +35,3 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
-

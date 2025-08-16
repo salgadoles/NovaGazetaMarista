@@ -1032,6 +1032,92 @@ a:hover {
     display: none !important;
 }
 
+/* ==============================================
+   GALERIA - REDUÇÃO DE TAMANHO DAS IMAGENS
+   ============================================== */
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-lg);
+    padding: var(--space-md);
+}
+
+.gallery-card {
+    background-color: var(--white);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    /* transition: transform var(--transition-normal); */ /* CORREÇÃO: Transição removida */
+}
+
+/*
+.gallery-card:hover {
+    transform: translateY(-5px);
+}
+*/ /* CORREÇÃO: Bloco :hover removido */
+
+.gallery-image {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    display: block;
+    border-radius: var(--border-radius-lg);
+}
+
+/* ==============================================
+   BOTÃO FECHAR PARA GALERIA EXPANDIDA
+   ============================================== */
+
+/* Estilos para o botão de fechar do lightGallery */
+.lg-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1080;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.lg-close:hover {
+    background-color: rgba(253, 195, 0, 0.9);
+    transform: scale(1.1);
+}
+
+.lg-close:active {
+    transform: scale(0.9);
+}
+
+/* Botão de fechar para dispositivos móveis */
+@media (max-width: 768px) {
+    .lg-close {
+        top: 10px;
+        right: 10px;
+        width: 35px;
+        height: 35px;
+        font-size: 20px;
+    }
+}
+
+/* Garantir que o botão esteja sempre visível */
+.lg-toolbar {
+    z-index: 1080;
+}
+
+
 .loading {
     position: relative;
 }
@@ -1703,10 +1789,6 @@ margin-top: -15%;
     .conteiner-sobre {
         background-size: cover;
         background-position: center;
-    }
-
-    .banner-principal{
-
     }
 }
   
