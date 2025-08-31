@@ -4,34 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/svg+xml" href="../assets/img/decorativos/icom.ico">
-    <meta name="description" content="Nova Gazeta Marista - Notícias e informações para a comunidade escolar">
+    <meta name="description" content="Galeria de Cartuns e Charges - Nova Gazeta Marista">
     
     <title>Nova Gazeta Marista | Cartum e Charges</title>
     
-    <link rel="icon" href="../../assets/img/decorativos/icom.ico" type="image/x-icon">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
+    <link rel="icon" href="../assets/img/decorativos/icom.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lg-zoom.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lg-thumbnail.min.css">
+    
+    <!-- LightGallery CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/css/lg-zoom.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/css/lg-thumbnail.min.css">
     
     <link rel="stylesheet" href="../assets/css/primcipal.css">
+    <link rel="stylesheet" href="../assets/css/galeria.css">
 </head>
 
 <body>
-
     <header class="header">
         <div class="logo-container">
-            <img src="../assets/img/logos/gazeta-marista_radio-conexao.png" 
-                 alt="Gazeta Marista" 
-                 class="logo-icone">
-            <img src="../assets/img/logos/projetoco.png" 
-                 alt="Rádio Conexão" 
-                 class="logo-icone">
+            <img src="../assets/img/logos/gazeta-marista_radio-conexao.png" alt="Gazeta Marista" class="logo-icone">
+            <img src="../assets/img/logos/projetoco.png" alt="Rádio Conexão" class="logo-icone">
         </div>
     </header>
 
@@ -48,19 +41,11 @@
             </ul>
 
             <div class="search-container">
-                <input type="text" 
-                       placeholder="Pesquisar notícias..." 
-                       id="searchInput"
-                       aria-label="Campo de pesquisa de notícias">
-                <button id="searchBtn" aria-label="Buscar">
-                    <i class="fas fa-search"></i>
-                </button>
+                <input type="text" placeholder="Pesquisar notícias..." id="searchInput" aria-label="Campo de pesquisa">
+                <button id="searchBtn" aria-label="Buscar"><i class="fas fa-search"></i></button>
             </div>
 
-            <button class="mobile-menu-btn" 
-                    id="mobileMenuBtn"
-                    aria-label="Abrir menu mobile"
-                    aria-expanded="false">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir menu mobile" aria-expanded="false">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
@@ -77,9 +62,7 @@
             </ul>
             
             <div class="mobile-search">
-                <input type="text" 
-                       placeholder="Pesquisar..."
-                       aria-label="Campo de pesquisa mobile">
+                <input type="text" placeholder="Pesquisar..." aria-label="Campo de pesquisa mobile">
                 <button aria-label="Buscar"><i class="fas fa-search"></i></button>
             </div>
         </div>
@@ -94,23 +77,19 @@
         <div id="allNews">
             <h1 class="section-title">Cartum e Charges</h1>
             
-            <div class="gallery-container">
-    
-
+            <div class="gallery-container" id="lightgallery">
                 <article class="gallery-card" data-keywords="Cartum Do mês Maio">
-                    <a href="../assets/img/CartumOuCharges/CartumDeMaio.png" class="gallery-link" data-lg-size="1600-1200">
-                        <img src="../assets/img/CartumOuCharges/CartumDeMaio.png" 
-                             alt="Cartum do mês de Maio"
-                             class="gallery-image">
+                    <a href="../assets/img/CartumOuCharges/CartumDeMaio.png" class="gallery-item">
+                        <img src="../assets/img/CartumOuCharges/CartumDeMaio.png" alt="Cartum do mês de Maio" class="gallery-image">
                     </a>
                 </article>
+
                 <article class="gallery-card" data-keywords="Cartum Do mês Abril">
-                    <a href="../assets/img/CartumOuCharges/Cartumjulho (2).png" class="gallery-link" data-lg-size="1600-1200">
-                        <img src="../assets/img/CartumOuCharges/Cartumjulho (2).png" 
-                             alt="Cartum do mês de Abril"
-                             class="gallery-image">
+                    <a href="../assets/img/CartumOuCharges/Cartumjulho (2).png" class="gallery-item">
+                        <img src="../assets/img/CartumOuCharges/Cartumjulho (2).png" alt="Cartum do mês de Abril" class="gallery-image">
                     </a>
-                </div>
+                </article>
+            </div>
         </div>
     </main>
 
@@ -118,8 +97,8 @@
         <div class="footer-container">
             <section class="footer-section">
                 <h3>Projeto Conexão</h3>
-                <p>O Projeto Conexão é uma iniciativa que une informação, criatividade e colaboração. Aqui, nossos alunos se tornam jornalistas, apresentadores e criadores de conteúdo, transformando suas vozes em notícias que importam.</p>
-                <a href="sobre.html" class="read-more-btn">ler mais sobre </a>
+                <p>O Projeto Conexão é uma iniciativa que une informação, criatividade e colaboração.</p>
+                <a href="sobre.html" class="read-more-btn">ler mais sobre</a>
             </section>
 
             <section class="footer-section">
@@ -146,13 +125,25 @@
         </div>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/lightgallery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/plugins/zoom/lg-zoom.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/plugins/thumbnail/lg-thumbnail.min.js"></script>
+    <!-- LightGallery JS -->
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/lightgallery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/plugins/zoom/lg-zoom.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/plugins/thumbnail/lg-thumbnail.min.js"></script>
     
+    <!-- Scripts principais -->
     <script defer src="../assets/js/script.js"></script>
-    
-    <script src="../assets/js/galeia.js"></script>
+    <script defer src="../assets/js/galeria.js"></script>
 
+    <!--  Script para inicialização forçada -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Forçar inicialização após carregamento completo
+        setTimeout(function() {
+            if (typeof initLightGallery === 'function') {
+                initLightGallery();
+            }
+        }, 500);
+    });
+    </script> -->
 </body>
 </html>

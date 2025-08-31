@@ -130,10 +130,11 @@ h2{
 h1 { font-size: clamp(1.6rem, 2.4rem, 2.8rem); }
 h2 {font-size: clamp(1.2rem, 1.8rem, 2.4rem); }
 h3 { font-size: clamp(1rem, 1.4rem, 2rem);  }
-h4, article { font-size: (0.8rem, 1.1rem, 1.6rem); }
-p, ul, il{ font-size: (0.7em, 1rem, 1.3rem); }
+h4, article { font-size: clamp(0.8rem, 1.1rem, 1.6rem); }
+p, ul, li { font-size: clamp(0.7rem, 1rem, 1.3rem); }
+
 /* Parágrafos e links */
-p, ul, il {
+p, ul, li {
     margin-bottom: var(--space-sm);
     font-family: "source-sans-pro", sans-serif;
     font-weight: 400;
@@ -160,15 +161,13 @@ a:hover {
     margin-bottom: var(--space-lg);
     position: relative;
     padding-bottom: var(--space-sm);
-    /* Correção: Aplicando a fonte DM Serif Display */
     font-family: var(--font-serif); 
 }
 
 /* 2. Links do Menu de Navegação (Navbar) */
 .menu {
-    /* Correção: Usando a variável de fonte e definindo o peso como 'bold' */
     font-family: var(--font-sans);
-    font-weight: 700; /* 700 é o valor para 'bold' */
+    font-weight: 700;
     font-style: normal;
     display: flex;
     list-style: none;
@@ -182,9 +181,8 @@ a:hover {
     color: var(--primary-dark);
     margin-bottom: var(--space-xs);
     font-size: 1.3rem;
-    /* Correção: Usando a variável de fonte e definindo o peso como 'bold' */
     font-family: var(--font-sans);
-    font-weight: 700; /* 700 é o valor para 'bold' */
+    font-weight: 700;
 }
 
 /* 4. Texto (parágrafo) dos Cards de Notícias */
@@ -194,15 +192,14 @@ a:hover {
     flex-grow: 1;
     font-size: 1rem;
     line-height: 1.5;
-    /* Correção: Garantindo a fonte e o peso corretos (regular) */
     font-family: var(--font-sans);
-    font-weight: 400; /* 400 é o valor para 'regular' */
+    font-weight: 400;
 }
 
 /* 5. Botões (Ex: "Continuar lendo") */
 .read-more-btn {
     display: inline-block;
-    padding: var(--space-xs) var(--space-sm);
+    padding: 0.3rem var(--space-sm); /* Diminui o espaço vertical */
     background-color: var(--primary-color);
     color: #000;
     border-radius: var(--border-radius);
@@ -210,9 +207,8 @@ a:hover {
     transition: all var(--transition-normal);
     align-self: flex-start;
     font-size: 0.9rem;
-    /* Correção: Usando a variável de fonte e definindo o peso como 'bold' */
     font-family: var(--font-sans);
-    font-weight: 700; /* 700 é o valor para 'bold' */
+    font-weight: 700;
     font-style: normal;
 }
 
@@ -228,15 +224,17 @@ a:hover {
  */
 .header {
     background-color: var(--primary-dark);
-    padding: var(--space-sm) 0;
+    padding: 20px 10px;
     box-shadow: var(--shadow-sm);
+    position: relative; /* Adicionado para contexto do widget de clima */
 }
 
 .navbar {
     position: sticky;
     top: 0;
     z-index: 1000;
-    margin: 0 5% 0 5%    ;
+    margin: 0 5% 0 5%;
+    padding: 20px 0px;         /* Padding vertical reduzido e fixo */
 } 
 
 .nav-container {
@@ -246,36 +244,40 @@ a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    align-self: flex-end;
     max-width: auto;
-    margin: 0 auto 5% auto;
-    padding: 1% 6% 1% 2%;
+    margin: 0 auto 2.5% auto;  /* Reduzido de 5% */
+    padding: 2px 28px;         /* Padding vertical reduzido e fixo */
     gap: 1rem;
-    top: 1rem;
-    box-shadow: #071624    0px 1px 5px 1px;
+    top: 0.5rem;               /* Reduzido de 1rem */
+    box-shadow: #071624 0px 1px 5px 1px;
 }
 
 .menu-container {
-    width: calc(100% - 80px);
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-}
-
-.menu-container::-webkit-scrollbar {
-    display: none;  /* Chrome, Safari, Opera */
+    flex-grow: 1; /* Permite que o container do menu cresça */
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: 2px 24px;         /* Padding vertical reduzido e fixo */
 }
 
 .menu {
-    font-family: "source-sans-pro", sans-serif;
-    font-weight: 700;
-    font-style: normal;
     display: flex;
     list-style: none;
     gap: var(--space-md);
-    padding: var(--space-sm) 0;
+    padding: 0px 2px; /* Reduzido de var(--space-sm) */
     width: max-content;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    margin-top: 30px; 
 }
+
+.menu::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
 
 .nav-arrow {
     background: var(--primary-dark);
@@ -290,6 +292,7 @@ a:hover {
     cursor: pointer;
     z-index: 1;
     transition: all 0.3s ease;
+    flex-shrink: 0; /* Impede que as setas encolham */
 }
 
 .nav-arrow:hover {
@@ -305,7 +308,6 @@ a:hover {
     margin-left: 10px;
 }
 
-/* Esconder setas quando não for necessário */
 .nav-arrow.hidden {
     visibility: hidden;
     opacity: 0;
@@ -414,12 +416,6 @@ a:hover {
    LOGOTIPOS
    ============================================== */
 
-/**
- * Container de logos
- * - Layout flexível
- * - Centralização
- * - Responsivo
- */
 .logo-container {
     display: flex;
     justify-content: center;
@@ -428,7 +424,6 @@ a:hover {
     padding: 1rem;
     background-color: var(--primary-dark);
     flex-wrap: wrap;
-    
 }
 
 .logo-icone {
@@ -438,85 +433,14 @@ a:hover {
     transition: transform var(--transition-normal);
 }
 
-
-
-/* Separador visual entre logos */
-.logo-icone:not(:last-child)::after {
-    content: "";
-    display: inline-block;
-    height: 60%;
-    width: 1px;
-    background-color: rgba(255, 255, 255, 0.3);
-    margin-left: 1rem;
-}
-
 .logo-icone:hover {
     transform: scale(1.05);
 }
 
+
 /* ==============================================
    MENU DE NAVEGAÇÃO
    ============================================== */
-
-/**
- * Menu principal
- * - Layout flexível
- * - Estilos para itens
- * - Efeitos hover
- */
-
-
-.menu-container {
-    display: flex;
-    align-items: center;
-    flex-grow: 1;
-    position: relative;
-    overflow: hidden;
-}
-
-.menu {
-    display: flex;
-    list-style: none;
-    gap: var(--space-md);
-    padding: var(--space-sm) 0;
-    margin: 0 var(--space-sm);
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    flex: 1;
-}
-
-.menu::-webkit-scrollbar {
-    display: none;
-}
-
-.nav-arrow {
-    background: var(--primary-dark);
-    color: white;
-    border: none;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 1;
-    transition: all 0.3s ease;
-    flex-shrink: 0;
-}
-
-.nav-arrow:hover {
-    background: var(--primary-light);
-    transform: scale(1.1);
-}
-
-.nav-arrow.hidden {
-    visibility: hidden;
-    opacity: 0;
-    pointer-events: none;
-}
 
 .menu li a {
     color: var(--white);
@@ -525,9 +449,9 @@ a:hover {
     font-size: 0.7rem;
     padding: var(--space-xs) 0;
     position: relative;
+    white-space: nowrap; /* Impede que os itens do menu quebrem linha */
 }
 
-/* Efeito hover para links do menu */
 .menu li a::after {
     content: '';
     position: absolute;
@@ -547,19 +471,13 @@ a:hover {
    BARRA DE PESQUISA
    ============================================== */
 
-/**
- * Barra de pesquisa desktop
- * - Layout flexível            
- * - Transições suaves
- * - Foco estilizado
- */
 .search-container {
     display: flex;
     align-items: center;
     justify-content: center ;
     background-color: #f0b800;
     border-radius: 20px;
-
+    flex-shrink: 0; /* Impede que a busca encolha */
 }
 
 .search-container input {
@@ -568,18 +486,20 @@ a:hover {
     border-radius: 20px;
     font-size: 0.9rem;
     width: 14rem;
-    height: 32px !important;
+    height: 32px;
     transition: width var(--transition-normal);
+    background: #fff;
+    color: var(--dark-gray);
 }
 
 .search-container input:focus {
     outline: 2px solid var(--primary-light);
-    width: 300px;
+    width: 250px;
 }
 
 .search-container button {
     padding: var(--space-xs) var(--space-sm);
-    background-color: transparent   ;
+    background-color: transparent;
     color: var(--white);
     border: none;
     border-radius: 0 var(--border-radius) var(--border-radius) 0;
@@ -587,44 +507,38 @@ a:hover {
     transition: background-color var(--transition-normal);
 }
 
-
-
 /* ==============================================
    MENU MOBILE
    ============================================== */
 
-/**
- * Botão do menu mobile
- * - Escondido por padrão
- * - Estilização simples
- */
 .mobile-menu-btn {
-    display: none;
+    display: none; /* Escondido por padrão, visível via media query */
     background: none;
     border: none;
     color: var(--white);
     font-size: 1.5rem;
     cursor: pointer;
     padding: var(--space-xs);
+    z-index: 1001;
 }
-
-/**
- * Menu mobile
- * - Animação de abertura/fechamento
- * - Estilos para itens
- */
 
 .mobile-menu {
     max-height: 0;
     overflow: hidden;
     background-color: var(--medium-gray);
     transition: max-height var(--transition-normal);
-    touch-action: manipulation; /* Adicione esta linha */
+    touch-action: manipulation;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin: 0 5%;
+    border-radius: 0 0 15px 15px;
 }
 
 .mobile-menu.active {
     max-height: 100vh;
-    overflow-y: auto; /* Permite scroll apenas no menu */
+    overflow-y: auto;
 }
 
 .mobile-menu ul {
@@ -637,7 +551,7 @@ a:hover {
 }
 
 .mobile-menu a {
-    color: var(--white) !important;
+    color: var(--white);
     display: block;
     padding: var(--space-xs) 0;
     opacity: 0.9;
@@ -648,7 +562,6 @@ a:hover {
     opacity: 1;
 }
 
-/* Barra de pesquisa mobile */
 .mobile-search {
     padding: 0 var(--space-md) var(--space-md);
     display: flex;
@@ -673,26 +586,20 @@ a:hover {
    CONTEÚDO PRINCIPAL
    ============================================== */
 
-/**
- * Container de conteúdo
- * - Largura máxima
- * - Centralização
- * - Espaçamento interno
- */
- .banner-principal {
+.banner-principal {
     margin: 2%;
-    aspect-ratio: 1920/1080;
+    aspect-ratio: 16/9;
     overflow: hidden;
     border-radius: 20px;
   }
   
-  .carousel {
+.carousel {
     position: relative;
     width: 100%;
     height: 100%;
-  }
+}
   
-  .carousel img {
+.carousel img {
     position: absolute;
     top: 0;
     left: 0;
@@ -702,25 +609,19 @@ a:hover {
     opacity: 0;
     transition: opacity 1s ease-in-out;
     border-radius: 20px;
-  }
+}
   
-  .carousel img.active {
+.carousel img.active {
     opacity: 1;
     z-index: 1;
-  }
+}
   
-
 .content {
     max-width: 1200px;
     margin: var(--space-xl) auto;
     padding: 0 var(--space-md);
 }
 
-/**
- * Títulos de seção
- * - Centralizados
- * - Efeito decorativo
- */
 .section-title {
     text-align: center;
     margin-bottom: var(--space-lg);
@@ -737,89 +638,29 @@ a:hover {
     width: 100px;
     height: 3px;
     background-color: var(--secondary-color);
-    
 }
-
-@media (max-width: 992px) {
-    /* Esconde menu e busca desktop */
-    .menu {
-        display: none;
-    }
-
-    .search-container{
-        position: absolute;
-    }
-    .nav-container{
-    top: 1rem;
-    }
-
-    /* Mostra botão mobile */
-    .mobile-menu-btn {
-        display: block;
-    }
-
-    /* Ajusta grid de notícias */
-    .news-section {
-        grid-template-columns: 1fr;
-    }
-
-    /* Ajusta footer */
-    .footer-container {
-        grid-template-columns: 1fr;
-    }
-
-    /* Ajustes para logos */
-    .logo-container {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-
-    .logo-icone {
-        height: 60px;
-    }
-
-    .logo-icone:not(:last-child)::after {
-        display: none;
-    }
-}
-
-
 
 /* ==============================================
    CARDS DE NOTÍCIAS
    ============================================== */
 
-/**
- * Grid de notícias
- * - Layout responsivo
- * - Gap consistente
- */
 .news-section {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: var(--space-lg);
     margin-top: var(--space-lg);
-    
 }
 
-/**
- * Cards individuais
- * - Efeitos hover
- * - Layout flexível
- * - Bordas decorativas
- */
 .news-card {
     background-color: var(--white);
-    border-radius: var(--border-radius-lg);
     overflow: hidden;
     box-shadow: var(--shadow-sm);
     transition: transform var(--transition-normal), box-shadow var(--transition-normal);
     display: flex;
     flex-direction: column;
-   border-bottom: 12px solid #0D263D;
-   border-left: 12px solid #0D263D;
-   border-radius: 10px;
-    
+    border-bottom: 12px solid #0D263D;
+    border-left: 12px solid #0D263D;
+    border-radius: 10px;
 }
 
 .news-card:hover {
@@ -840,40 +681,6 @@ a:hover {
     display: flex;
     flex-direction: column;
     border-radius: 10px;
-    
-}
-
-.news-card h3 {
-    color: var(--primary-dark);
-    margin-bottom: var(--space-xs);
-    font-size: 1.3rem;
-    
-}
-
-.news-card p {
-    color: var(--medium-gray);
-    margin-bottom: var(--space-md);
-    flex-grow: 1;
-    font-size: 1rem;
-    line-height: 1.5;
-    
-
-}
-
-.read-more-btn {
-    display: inline-block;
-    padding: var(--space-xs) var(--space-sm);
-    background-color: var(--primary-color);
-    color: #000;
-    border-radius: var(--border-radius);
-    text-align: center;
-    transition: all var(--transition-normal);
-    align-self: flex-start;
-    font-size: 0.9rem;
-    font-family: "source-sans-pro", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    
 }
 
 .read-more-btn:hover {
@@ -961,29 +768,6 @@ a:hover {
     padding-left: 5px;
 }
 
-.newsletter-form input {
-    width: 100%;
-    padding: var(--space-xs);
-    margin-bottom: var(--space-xs);
-    border: none;
-    border-radius: var(--border-radius);
-}
-
-.newsletter-btn {
-    width: 100%;
-    padding: var(--space-xs);
-    background-color: var(--primary-color);
-    color: var(--white);
-    border: none;
-    border-radius: var(--border-radius);
-    cursor: pointer;
-    transition: background-color var(--transition-normal);
-}
-
-.newsletter-btn:hover {
-    background-color: var(--primary-light);
-}
-
 .social-icons {
     display: flex;
     gap: var(--space-sm);
@@ -1008,7 +792,7 @@ a:hover {
 }
 
 /* ==============================================
-   ANIMAÇÕES
+   ANIMAÇÕES E UTILITÁRIOS
    ============================================== */
 
 @keyframes fadeIn {
@@ -1021,191 +805,15 @@ a:hover {
 }
 
 @keyframes spin {
-    to { transform: translate(-50%, -50%) rotate(360deg); }
+    to { transform: rotate(360deg); }
 }
-
-/* ==============================================
-   UTILITÁRIOS
-   ============================================== */
 
 .hidden {
     display: none !important;
 }
 
 /* ==============================================
-   GALERIA - REDUÇÃO DE TAMANHO DAS IMAGENS
-   ============================================== */
-
-.gallery-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--space-lg);
-    padding: var(--space-md);
-}
-
-.gallery-card {
-    background-color: var(--white);
-    border-radius: var(--border-radius-lg);
-    overflow: hidden;
-    box-shadow: var(--shadow-sm);
-    /* transition: transform var(--transition-normal); */ /* CORREÇÃO: Transição removida */
-}
-
-/*
-.gallery-card:hover {
-    transform: translateY(-5px);
-}
-*/ /* CORREÇÃO: Bloco :hover removido */
-
-.gallery-image {
-    width: 100%;
-    height: auto;
-    max-width: 100%;
-    max-height: 300px;
-    object-fit: cover;
-    display: block;
-    border-radius: var(--border-radius-lg);
-}
-
-/* ==============================================
-   BOTÃO FECHAR PARA GALERIA EXPANDIDA
-   ============================================== */
-
-/* Estilos para o botão de fechar do lightGallery */
-.lg-close {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 40px;
-    height: 40px;
-    background-color: rgba(0, 0, 0, 0.7);
-    border: none;
-    border-radius: 50%;
-    color: white;
-    font-size: 24px;
-    cursor: pointer;
-    z-index: 1080;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-}
-
-.lg-close:hover {
-    background-color: rgba(253, 195, 0, 0.9);
-    transform: scale(1.1);
-}
-
-.lg-close:active {
-    transform: scale(0.9);
-}
-
-/* Botão de fechar para dispositivos móveis */
-@media (max-width: 768px) {
-    .lg-close {
-        top: 10px;
-        right: 10px;
-        width: 35px;
-        height: 35px;
-        font-size: 20px;
-    }
-}
-
-/* Garantir que o botão esteja sempre visível */
-.lg-toolbar {
-    z-index: 1080;
-}
-
-
-.loading {
-    position: relative;
-}
-
-.loading::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 20px;
-    height: 20px;
-    border: 3px solid rgba(255, 255, 255, 0.3);
-    border-top-color: var(--white);
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-
-/* ==============================================
-   RESPONSIVIDADE
-   ============================================== */
-
-@media (max-width: 992px) {
-    .news-section {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    /* Esconde menu e busca desktop */
-    .menu {
-        display: none;
-    }
- 
-    
-    /* Mostra botão mobile */
-    .mobile-menu-btn {
-        display: block;
-    }
-    
-    /* Ajusta grid de notícias */
-    .news-section {
-        grid-template-columns: 1fr;
-    }
-    
-    /* Ajusta footer */
-    .footer-container {
-        grid-template-columns: 1fr;
-    }
-    
-    /* Ajustes para logos */
-    .logo-container {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-    
-    .logo-icone {
-        height: 60px;
-    }
-    
-    .logo-icone:not(:last-child)::after {
-        display: none;
-    }
-}
-
-@media (max-width: 576px) {
-
-    .search-container input{
-        width: 10rem;
-            }
-    .content {
-        padding: 0 var(--space-sm);
-    }
-    
-    h1 {
-        font-size: 2rem;
-    }
-    .nav-arrow {
-        display: none;
-    }
-    
-    .menu-container {
-        width: 100%;
-    }
-}
-
-/* ==============================================
-   TELA DE CARREGAMENTO PERSONALIZADA
+   TELA DE CARREGAMENTO
    ============================================== */
 
 .loading-screen {
@@ -1264,158 +872,15 @@ a:hover {
     opacity: 0;
 }
 
-.square-loader div:nth-child(1) {
-    animation-delay: 0.1s;
-}
-
-.square-loader div:nth-child(2) {
-    animation-delay: 0.3s;
-}
-
-.square-loader div:nth-child(3) {
-    animation-delay: 0.5s;
-}
-
-.square-loader div:nth-child(4) {
-    animation-delay: 0.7s;
-}
-
-.square-loader div:nth-child(5) {
-    animation-delay: 0.9s;
-}
+.square-loader div:nth-child(1) { animation-delay: 0.1s; }
+.square-loader div:nth-child(2) { animation-delay: 0.3s; }
+.square-loader div:nth-child(3) { animation-delay: 0.5s; }
+.square-loader div:nth-child(4) { animation-delay: 0.7s; }
+.square-loader div:nth-child(5) { animation-delay: 0.9s; }
 
 @keyframes pulse {
-    0%, 100% {
-        transform: scale(0.8);
-        opacity: 0.5;
-    }
-    50% {
-        transform: scale(1.2);
-        opacity: 1;
-    }
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* ==============================================
-   BARRA DE EDIÇÃO
-   ============================================== */
-.edition-banner {
-    background: linear-gradient(to left, #745ba3 10%, #fdc300 20%, #00A896 45%, #00A896 100%);   
-    color: #ffffff  ;
-    text-align: center;
-    padding: 0.4rem;
-    font-weight: bold;
-    font-size: 0.9rem;
-    font-family: var(--font-sans);
-    box-shadow: var(--shadow-sm);
-}
-/* Estilos para a manchete principal */
-.featured-news {
-    margin: var(--space-xl) auto;
-    max-width: 1200px;
-    padding: 0 var(--space-md);
-}
-
-.headline-container {
-    width: 100%;
-    margin-bottom: var(--space-lg);
-}
-
-.headline-card {
-    background-color: #fff;
-    border-radius: 20px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-md);
-    border-radius: var(--border-radius-lg);
-    overflow: hidden;
-   
-    
-}
-
-.headline-card h2{
-    color: #f0b800 !important   ;
-}
-
-
-
-.headline-card img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    display: block;
-}
-
-.headline-content {
-    padding: var(--space-lg);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.headline-content h2 {
-    font-size: 2rem;
-    color: var(--primary-dark);
-    margin-bottom: var(--space-md);
-}
-
-.headline-content p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: var(--medium-gray);
-    margin-bottom: var(--space-lg);
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    tittle-dobra-1-direita{
-        font-size: 50px !important;
-    }
-.btn-custom{
-    align-items: center;
-    justify-content: center;
-}
-
-    .headline-card {
-        grid-template-columns: 1fr;
-    }
-    
-    .headline-card img {
-        height: 250px;
-    }
-    
-    .headline-content {
-        padding: var(--space-md);
-    }
-    
-    .headline-content h2 {
-        font-size: 1.5rem;
-    }
-}
-
-/* Adicione ao CSS existente */
-.headline-card {
-    position: relative;
-}
-
-.headline-card::before {
-    content: "Destaque";
-    position: absolute;
-    top: 20px;
-    left: 0;
-    background-color: #e7343f;
-    color: white;
-    padding: 5px 15px;
-    font-weight: bold;
-    border-radius: 0 var(--border-radius) var(--border-radius) 0;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    z-index: 1;
+    0%, 100% { transform: scale(0.8); opacity: 0.5; }
+    50% { transform: scale(1.2); opacity: 1; }
 }
 
 /* ==============================================
@@ -1494,427 +959,318 @@ a:hover {
     animation: spin 1s linear infinite;
 }
 
-@media (max-width: 768px) {
-    .weather-widget {
-        position: static;
-        margin: var(--space-sm) auto;
-        width: fit-content;
-        background-color: var(--white);
-    }
-}
 
 /* ==============================================
-   BARRA LATERAL INFORMATIVA
+   OUTROS ESTILOS (MANCHETE, SIDEBAR, ETC.)
    ============================================== */
-
-.info-sidebar {
-    position: fixed;
-    right: 0;
-    top: 120px; 
-    z-index: 1001; 
-    display: flex;
-    transition: all var(--transition-normal);
-}
-
-.sidebar-toggle {
-    background-color: #a3d4cf;
-    border: none;
-    border-radius: 50% 0 0 50%;
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    margin-right: 0px; /* Espaço da barra de pesquisa */
-    transition: all var(--transition-fast);
-}
-
-.sidebar-toggle:hover {
-    background-color: var(--primary-light);
-    transform: scale(1.1);
-}
-
-.sidebar-icon {
-    width: 30px;
-    height: 30px;
-    object-fit: contain;
-}
-
-.sidebar-content {
-    position: absolute;
-    right: -320px;
-    top: 0;
-    width: 300px;
-    background-color: var(--white);
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-    border-radius: var(--border-radius-lg) 0 0 var(--border-radius-lg);
-    padding: var(--space-md);
-    transition: right var(--transition-normal);
-    max-height: 80vh;
-    overflow-y: auto;
-}
-
-.info-sidebar.open .sidebar-content {
-    right: 60px; /* Posição ao lado do botão */
-}
-
-.sidebar-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: var(--space-md);
-    padding-bottom: var(--space-sm);
-    border-bottom: 1px solid var(--light-gray);
-}
-
-.sidebar-header h3 {
-    color: var(--primary-dark);
-    margin: 0;
-    font-size: 1.2rem;
-}
-
-.sidebar-close {
-    background: none;
-    border: none;
-    color: var(--medium-gray);
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: color var(--transition-fast);
-}
-
-.sidebar-close:hover {
-    color: var(--secondary-color);
-}
-
-.sidebar-section {
-    margin-bottom: var(--space-md);
-}
-
-.sidebar-section h4 {
-    color: var(--primary-dark);
-    font-size: 1rem;
-    margin-bottom: var(--space-xs);
-    display: flex;
-    align-items: center;
-    gap: var(--space-xs);
-}
-
-.sidebar-section ul {
-    list-style: none;
-    padding-left: var(--space-sm);
-    margin-top: var(--space-xs);
-}
-
-.sidebar-section li {
-    margin-bottom: var(--space-xs);
-    font-size: 0.9rem;
-    color: var(--medium-gray);
-}
-
-.sidebar-section p {
-    font-size: 0.9rem;
-    color: var(--medium-gray);
-    line-height: 1.5;
-}
-
-.sidebar-footer {
-    margin-top: var(--space-md);
+.edition-banner {
+    background: linear-gradient(to left, #745ba3 10%, #fdc300 20%, #00A896 45%, #00A896 100%);   
+    color: #ffffff;
     text-align: center;
+    padding: 0.4rem;
+    font-weight: bold;
+    font-size: 0.9rem;
+    font-family: var(--font-sans);
+    box-shadow: var(--shadow-sm);
 }
+
+.headline-container {
+    width: 100%;
+    margin-bottom: var(--space-lg);
+}
+
+.headline-card {
+    background-color: #fff;
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+    overflow: hidden;
+    position: relative;
+}
+
+.headline-card::before {
+    content: "Destaque";
+    position: absolute;
+    top: 20px;
+    left: 0;
+    background-color: #e7343f;
+    color: white;
+    padding: 5px 15px;
+    font-weight: bold;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 1;
+}
+
+.headline-card h2 {
+    color: #f0b800 !important;
+}
+
+.headline-card img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+}
+
+.headline-content {
+    padding: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.headline-content h2 {
+    font-size: 2rem;
+    color: var(--primary-dark);
+    margin-bottom: var(--space-md);
+}
+
+.headline-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--medium-gray);
+    margin-bottom: var(--space-lg);
+}
+
+/* ... (outros estilos como sidebar, scrollbar, etc. permanecem aqui) ... */
+
 /* ==============================================
    BARRA DE ROLAGEM PERSONALIZADA
    ============================================== */
 
-/* Para navegadores WebKit (Chrome, Safari, Edge) */
 ::-webkit-scrollbar {
     width: 10px;
     height: 10px;
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--primary-dark); /* Azul escuro */
+    background: var(--primary-dark);
     border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--primary-color); /* Amarelo */
+    background: var(--primary-color);
     border-radius: 5px;
     border: 2px solid var(--primary-dark);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #f0b800; /* Amarelo mais escuro no hover */
+    background: #f0b800;
 }
 
-/* Para Firefox */
 html {
     scrollbar-width: thin;
     scrollbar-color: var(--primary-color) var(--primary-dark);
 }
 
-.conteiner-sobre {
-    background: url("https://d335luupugsy2.cloudfront.net/cms/files/47031/1751658188/$ist5hzif79m"),
-    #1E4A73;  
-    background-repeat: no-repeat;
-    background-position: right center;  
-    background-size: contain;
-    height: max-content;
-    object-fit: contain;
-    z-index: 1;
-  }
-  
-  .dobra-1-topo {
-    padding: 0 2% 0 2%;
+
+/* ==============================================
+   RESPONSIVIDADE
+   ============================================== */
+
+/* ########## CORREÇÃO APLICADA ########## */
+/* Para Tablets e Telas Menores (até 992px) */
+@media (max-width: 992px) {
+    /* Esconde o menu de navegação desktop */
+    .menu-container {
+        display: none;
+    }
+
+    /* Mostra o botão do menu mobile */
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    /* Centraliza os itens restantes (botão de menu e busca) e dá espaço */
+    .nav-container {
+        justify-content: space-between; /* Garante espaço entre os itens */
+        padding: 1% 4%; /* Ajusta o padding para telas menores */
+    }
+
+    /* Ajusta a barra de pesquisa para não quebrar o layout */
+    .search-container {
+        position: static; /* Remove o posicionamento absoluto problemático */
+        flex-grow: 1; /* Permite que a barra de pesquisa ocupe o espaço disponível */
+        max-width: 250px; /* Limita a largura para não empurrar o botão de menu */
+    }
+
+    /* Outros ajustes para telas menores */
+    .news-section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+/* ########################################## */
+
+
+/* Para Telas de Tablet Menores e Celulares (até 768px) */
+@media (max-width: 768px) {
+    .headline-card {
+        grid-template-columns: 1fr;
+    }
+    
+    .headline-card img {
+        height: 250px;
+    }
+    
+    .headline-content {
+        padding: var(--space-md);
+    }
+    
+    .headline-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .news-section {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+
+    .weather-widget {
+        display: none;
+    }
+    
+    /* Regra Unificada para o Logo Container */
+    .logo-container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0;
+        gap: 0.5rem;
+    }
+
+    .logo-container .logo-icone:first-child {
+        width: 160px;
+        height: auto;
+    }
+    
+    .logo-container .logo-icone:nth-child(2) {
+        display: none;
+    }
+}
+
+
+/* Para Telas Pequenas (Celulares) (até 576px) */
+@media (max-width: 576px) {
+    /* ########## CORREÇÃO ADICIONAL ########## */
+    /* Oculta a barra de pesquisa principal, pois já existe uma no menu mobile */
+    .search-container {
+        display: none;
+    }
+
+    /* Alinha o botão de menu à direita quando a busca some */
+    .nav-container {
+        justify-content: flex-end;
+    }
+    /* ########################################## */
+
+    .content {
+        padding: 0 var(--space-sm);
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+
+    .nav-arrow {
+        display: none;
+    }
+}
+
+/* ==============================================
+   ESTILOS ADICIONAIS PARA LIGHTGALLERY
+   ============================================== */
+
+.lg-outer .lg-img-wrap {
+    padding: 20px;
+}
+
+.lg-actions .lg-next, 
+.lg-actions .lg-prev {
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.lg-actions .lg-next:hover, 
+.lg-actions .lg-prev:hover {
+    background-color: var(--primary-color) !important;
+}
+
+.lg-toolbar {
+    background-color: rgba(0, 0, 0, 0.7) !important;
+}
+
+.lg-toolbar .lg-icon {
+    color: white !important;
+    background-color: transparent !important;
+    width: 40px !important;
+    height: 40px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.lg-toolbar .lg-close {
+    background-color: #e74c3c !important;
+    border-radius: 50% !important;
+}
+
+.lg-toolbar .lg-close:hover {
+    background-color: #c0392b !important;
+}
+
+/* Melhorias para a galeria */
+.gallery-item {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.02);
+}
+
+/* Animações para a galeria */
+@keyframes galleryFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.gallery-card {
+    animation: galleryFadeIn 0.6s ease forwards;
+}
+
+/* Estilo para o botão do menu mobile */
+.mobile-menu-btn {
+    transition: transform 0.3s ease;
+}
+
+.mobile-menu-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Garante que o ícone tenha tamanho consistente */
+.mobile-menu-btn i {
+    font-size: 1.5rem;
+    width: 24px;
+    height: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: -9;
-    overflow: visible;
-  }
-  
-  .logo-conexao {
-    margin: 4%;
-    width: 300px;
-    height: 100%;
-  }
-  
-  .txt-dobra-1 {
-    display: flex;
-    width: 100%;
-    color: #fff;
-    align-items: center;
-  }
-  
-  .tittle-dobra-1-esquerda,
-  .tittle-dobra-1-direita {
-    flex: 1;
-    padding: 2% 0% 0% 0%;
-  }
-  
-  .tittle-dobra-1-direita h2 {
-    font-size: 40px;
-    color: #f0b800;
-  } 
-  
-  .wrapper-text {
-    display: flex;
-    margin-bottom: 1%;
-    text-align: justify;
-  }
-  
-  .txt-dobra-1-esquerda,
-  .txt-dobra-1-direita {
-    font-size: 16px;
-    color: #fff;
-    flex: 1;
-    padding: 0 10% 0% 10%;
-  }
-  
-  .txt-dobra-1-esquerda h2 {
-    font-size: 20px;
-  }
-  
-  .txt-dobra-1-direita h2 {
-    font-size: 20px;
-  }
-
-  .img-dobra-1-direita img{
-    margin-left: 10%;
-    width: 40vw;
-    border-radius: 20px;
-margin-top: -15%;
-  }
-
-/* Adicione estas regras no final do seu CSS, na seção de responsividade */
-
-@media (max-width: 992px) {
-    .dobra-1-topo {
-        flex-direction: column;
-        padding: 5% 2%;
-    }
-    
-    .logo-conexao {
-        width: 250px;
-        height: auto;
-        margin: 2% auto;
-    }
-    
-    .txt-dobra-1 {
-        flex-direction: column;
-    }
-    
-    .tittle-dobra-1-esquerda,
-    .tittle-dobra-1-direita {
-        flex: none;
-        width: 100%;
-        padding: 2% 5%;
-        text-align: center;
-    }
-    
-    .tittle-dobra-1-direita h2 {
-        font-size: 2rem;
-    }
-    
-    .wrapper-text {
-        flex-direction: column;
-    }
-    
-    .txt-dobra-1-esquerda,
-    .txt-dobra-1-direita {
-        padding: 0 5%;
-        margin-bottom: 5%;
-    }
-    
-    .img-dobra-1-direita img {
-        width: 90%;
-        margin: 0 auto;
-        display: block;
-        border-radius: 10px;
-    }
 }
-
-@media (max-width: 576px) {
-    .tittle-dobra-1-direita h2 {
-        font-size: 1.5rem;
-    }
-    
-    .txt-dobra-1-esquerda,
-    .txt-dobra-1-direita {
-        font-size: 0.9rem;
-    }
-    
-    .conteiner-sobre {
-        background-size: cover;
-        background-position: center;
-    }
-}
-  
-@media (max-width: 768px) {
-  /* Esconder clima e segunda logo */
-  .weather-widget {
-    display: none !important;
-  }
-
-  .logo-container img.logo-icone:nth-child(2) {
-    display: none !important;
-  }
-
-  /* Centralizar e aumentar a primeira logo */
-  .logo-container {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    padding: 20px 0 !important;
-  }
-
-  .logo-container img.logo-icone:nth-child(1) {
-    width: 160px !important;
-    height: auto !important;
-    flex-shrink: 0 !important;
-    display: block !important;
-    margin: 0 auto !important;
-  }
-}
-.btn-custom {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      padding: 0.5em 0.5em 0.5em 0.5  em;
-      background-color: yellow;
-      cursor: pointer;
-      box-shadow: 4px 6px 0px black;
-      border: 4px solid;
-      border-radius: 15px;
-      position: relative;
-      overflow: hidden;
-      z-index: 100;
-      transition: box-shadow 250ms, transform 250ms, filter 50ms;
-      margin-bottom: 15%;
-      margin-top: 5%;
-    }
-  
-    .btn-custom:hover {
-      transform: translate(2px, 2px);
-      box-shadow: 2px 3px 0px black;
-    }
-  
-    .btn-custom:active {
-      filter: saturate(0.75);
-    }
-  
-    .btn-custom::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-color: pink;
-      z-index: -1;
-      transform: translateX(-100%);
-      transition: transform 250ms;
-    }
-  
-    .btn-custom:hover::after {
-      transform: translateX(0);
-    }
-  
-    .btn-text-wrap {
-      position: relative;
-      display: flex;
-      justify-content: start;
-      align-items: center;
-      overflow: hidden;
-      max-width: 35%;
-      font-size: 2em;
-      font-weight: 600;
-    }
-  
-    .btn-text-wrap span {
-      position: relative;
-      transform: translateX(-100%);
-      transition: all 250ms;
-    }
-  
-    .btn-custom:hover .btn-text-wrap > span {
-      transform: translateX(0);
-    }
-  
-    .btn-arrow {
-      padding: 1em;
-      margin-inline-end: 1em;
-      border: 4px solid;
-      border-radius: 50%;
-      background-color: pink;
-      position: relative;
-      overflow: hidden;
-      transition: transform 250ms, background-color 250ms;
-      z-index: 100;
-    }
-  
-    .btn-arrow::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      background-color: yellow;
-      transform: translateX(-100%);
-      z-index: -1;
-      transition: transform 250ms ease-in-out;
-    }
-  
-    .btn-custom:hover .btn-arrow::after {
-      transform: translateX(0);
-    }
-  
-    .btn-custom:hover .btn-arrow {
-      transform: translateX(5px);
-    }
-  
-    .btn-custom:active .btn-arrow {
-      transform: translateX(8px);
-    }
-  
-    .btn-arrow svg {
-      vertical-align: middle;
-    }

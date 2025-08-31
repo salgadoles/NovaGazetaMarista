@@ -1,0 +1,188 @@
+/* Estilos específicos para a galeria */
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-lg);
+    margin-top: var(--space-lg);
+    padding: 0 var(--space-md);
+}
+
+.gallery-card {
+    background-color: var(--white);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    border-radius: var(--border-radius-lg);
+    border: 3px solid var(--primary-dark);
+}
+
+.gallery-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.gallery-item {
+    display: block;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    position: relative;
+}
+
+.gallery-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    transition: transform var(--transition-normal);
+}
+
+.gallery-card:hover .gallery-image {
+    transform: scale(1.05);
+}
+
+/* Overlay no hover */
+.gallery-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+    z-index: 1;
+}
+
+.gallery-item:hover::before {
+    opacity: 1;
+}
+
+.gallery-item::after {
+    content: '🔍 Clique para expandir';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.7);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--border-radius);
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.gallery-item:hover::after {
+    opacity: 1;
+}
+
+/* Customização do LightGallery */
+.lg-outer .lg-thumb-item {
+    border-radius: 4px;
+}
+
+.lg-outer .lg-thumb-item.active, 
+.lg-outer .lg-thumb-item:hover {
+    border-color: var(--primary-color);
+}
+
+.lg-actions .lg-next, 
+.lg-actions .lg-prev {
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.lg-actions .lg-next:hover, 
+.lg-actions .lg-prev:hover {
+    background-color: var(--primary-color);
+}
+
+.lg-toolbar .lg-icon {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.lg-toolbar .lg-icon:hover {
+    background-color: var(--primary-color);
+}
+
+.lg-toolbar .lg-close {
+    background-color: #e74c3c;
+}
+
+.lg-toolbar .lg-close:hover {
+    background-color: #c0392b;
+}
+
+/* Garantir que o lightGallery funcione */
+#lightgallery {
+    cursor: pointer;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .gallery-container {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: var(--space-md);
+    }
+    
+    .gallery-image {
+        height: 200px;
+    }
+    
+    .lg-actions .lg-next, 
+    .lg-actions .lg-prev {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .gallery-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .lg-actions .lg-next, 
+    .lg-actions .lg-prev {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+    
+    .gallery-item::after {
+        font-size: 0.8rem;
+        padding: 8px 12px;
+    }
+}
+/* No arquivo galeria.css */
+.gallery-item {
+    pointer-events: auto !important;
+}
+
+.lg-outer {
+    z-index: 9999 !important;
+}
+
+.lg-on {
+    overflow: hidden !important;
+}
